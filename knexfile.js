@@ -5,13 +5,7 @@ module.exports = {
   development: {
     client: 'pg',
     connection: {
-      database: process.env.DATABASE_URL || 'classifieds'
-    }
-  },
-  test: {
-    client: 'pg',
-    connection: {
-      database: process.env.DATABASE_URL || 'classifieds-test',
+      database: process.env.DATABASE_URL || 'let-it-grow-db'
     }
   },
   production: {
