@@ -1,0 +1,101 @@
+<!-- <nav class="navbar navbar-inverse">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" ui-sref="app.posts">classifieds</a>
+    </div>
+
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    </div>
+  </div>
+</nav>
+
+<ul class="nav nav-pills">
+  <li role="presentation" class="active">
+    <input type="search" class="form-control input-sm search-form" placeholder="Filter" ng-model="searchText">
+  </li>
+  <li class="dropdown">
+    <a href="#"
+      class="dropdown-toggle"
+      data-toggle="dropdown"
+      role="button"
+      aria-haspopup="true"
+      aria-expanded="false">Sort By {{ $ctrl.dropInitText }}<span class="caret"></span></a>
+    <ul class="dropdown-menu">
+      <li ng-click="$ctrl.dropInitVal = 'created_at' ; $ctrl.dropInitText = 'Date'" ><a>Sort by Date</a></li>
+      <li ng-click="$ctrl.dropInitVal = 'title' ; $ctrl.dropInitText = 'Title'"><a>Sort by Title</a></li>
+    </ul>
+  </li>
+</ul>
+<div class="row background" ng-if="true">
+  <div class="col-md-8" >
+    <form name="post_form" novalidate="" ng-submit="$ctrl.postItem()" >
+      <div>
+        <label for="Title" name="Title">Title</label>
+        <input required id="Title" class="form-control" name="Title" ng-model="$ctrl.newPost.title">
+      </div>
+      <div>
+        <label for="description" name="description">description</label>
+        <textarea required id="description" class="form-control" name="description" type="text" ng-model="$ctrl.newPost.description"></textarea>
+      </div>
+      <div>
+        <label for="price" name="price">price</label>
+        <textarea required id="price" class="form-control" name="price" type="text" ng-model="$ctrl.newPost.price"></textarea>
+      </div>
+      <div>
+        <label for="item_image" name="item_image">Image URL</label>
+        <input required id="item_image" class="form-control" name="item_image" ng-model="$ctrl.newPost.item_image" type="url">
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">
+          Create Post
+        </button>
+      </div>
+    </form>
+
+  </div>
+</div>
+<div ng-repeat="item in $ctrl.items | filter: searchText | orderBy: $ctrl.dropInitVal" class="itemDiv">
+  <p>{{item.title}}</p>
+  <p>{{item.description}}</p>
+  <p>{{item.price}}</p>
+  <a ng-click="$ctrl.deleteItem(item)">delete</a>
+  <img ng-src="{{item.image_url}}">
+  <div class="row" ng-if="true">
+    <div class="col-md-8" >
+      <form name="post_form" novalidate="" ng-submit="$ctrl.editItem(item)" >
+        <div>
+          <label for="Title" name="Title">Edit: Title</label>
+          <input required id="Title" class="form-control" name="Title" ng-model="$ctrl.editPost.title">
+        </div>
+        <div>
+          <label for="description" name="description">Edit: Description</label>
+          <textarea required id="description" class="form-control" name="description" type="text" ng-model="$ctrl.editPost.description"></textarea>
+        </div>
+        <div>
+          <label for="price" name="price">Edit: Price</label>
+          <textarea required id="price" class="form-control" name="price" type="text" ng-model="$ctrl.editPost.price"></textarea>
+        </div>
+        <div>
+          <label for="item_image" name="item_image">Edit: Image URL</label>
+          <input required id="item_image" class="form-control" name="item_image" ng-model="$ctrl.editPost.item_image" type="url">
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary">
+            Edit Post
+          </button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</div>
+<main class="container">
+  <ui-view></ui-view>
+</main> -->

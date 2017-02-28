@@ -1,0 +1,43 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Log In</title>
+  </head>
+  <body>
+    <nav>
+    <div class="nav-wrapper green darken-2">
+      <a href="#" class="brand-logo">Let It Grow</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="sass.html">Schedule</a></li>
+        <li><a href="badges.html">Dashboard</a></li>
+        <li><a href="collapsible.html">Profile</a></li>
+      </ul>
+    </div>
+  </nav>
+  <form id="signup-form1" class="list" name="signupForm" novalidate>
+  <div class="container">
+    <label class="item item-input" id="signup-input2">
+      <span class="input-label">Username</span>
+      <input required type="username" ng-model="$ctrl.signupForm.username" name="username">
+    <label class="item item-input" id="signup-input1">
+      <span class="input-label">Email</span>
+      <input required type="text" name="email" ng-model="$ctrl.signupForm.email">
+    </label>
+    <label class="item item-input" id="signup-input2">
+      <span class="input-label">Password</span>
+      <input required type="password" ng-model="$ctrl.signupForm.password" name="password">
+    </label>
+    </label>
+  </div>
+  <div class="spacer" style="height: 40px;"></div>
+  <a ng-click="$ctrl.login()" id="login-button2" class="button button-stable  button-block" ng-disabled="!loginForm.$dirty">Log in</a>
+  <!-- ui-sref="tabsController.home" -->
+  <!-- ui-sref="tabsController.home" -->
+  <!-- onclick="window.plugins.toast.showLongBottom('Hello toast')" -->
+  <!-- window.plugins.toast.show('You must enter a password', 'long', 'center') -->
+  <!-- ui-sref="tabsController.home" -->
+  <a ui-sref="signup" id="login-button3" class="button button-positive  button-block button-clear">Or create an account</a>
+</form>
+
+  </body>
+</html>

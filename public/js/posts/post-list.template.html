@@ -1,0 +1,156 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Template</title>
+  </head>
+  <body>
+
+<main class="container">
+
+  <div class="pull-right">
+    <p><a class="btn btn-info" ng-click="$ctrl.toggle()">New Post</a></p>
+  </div>
+
+  <ul class="nav nav-inverse">
+    <li role="presentation" class="active">
+      <input type="search" class="form-control input-sm search-form" placeholder="Filter" ng-model="searchText">
+    </li>
+    <li class="dropdown">
+      <a href="#"
+        class="dropdown-toggle"
+        data-toggle="dropdown"
+        role="button"
+        aria-haspopup="true"
+        aria-expanded="false">Sort By {{ $ctrl.dropInitText }}<span class="caret"></span></a>
+      <ul class="dropdown-menu">
+        <li ng-click="$ctrl.dropInitVal = 'vote_count' ; $ctrl.dropInitText = 'Votes'" ><a>Sort by Votes</a></li>
+        <li ng-click="$ctrl.dropInitVal = 'date_created' ; $ctrl.dropInitText = 'Dates'"><a>Sort by Date</a></li>
+        <li ng-click="$ctrl.dropInitVal = 'title' ; $ctrl.dropInitText = 'Title'"><a>Sort by Title</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <div class="row" ng-if="$ctrl.tog % 2 == 0">
+    <div class="col-md-8" >
+      <form name="post_form" novalidate="" ng-submit="$ctrl.addPost()" >
+        <div>
+          <label for="Title" name="Title">Title</label>
+          <input required id="Title" class="form-control" name="Title" ng-model="$ctrl.newPost.title" ng-minlength=3 ng-maxlength=20>
+        </div>
+        <div class="error" ng-show="post_form.Title.$dirty && post_form.Title.$invalid">
+          <small class="error" ng-show="post_form.Title.$error.required">
+            A title is required
+          </small>
+          <small class="error" ng-show="post_form.Title.$error.minlength">
+            A title must be at least 3 characters
+          </small>
+          <small class="error" ng-show="post_form.Title.$error.maxlength">
+            A title must be less than 20 characters
+          </small>
+        </div>
+        <div>
+          <label for="body" name="body">Body</label>
+          <textarea required id="body" class="form-control" name="body" type="text" ng-model="$ctrl.newPost.body" ng-minlength=3 ng-maxlength=200></textarea>
+        </div>
+        <div class="error" ng-show="post_form.body.$dirty && post_form.body.$invalid">
+          <small class="error" ng-show="post_form.body.$error.required">
+            A body is required
+          </small>
+          <small class="error" ng-show="post_form.body.$error.minlength">
+            A body must be at least 3 characters
+          </small>
+          <small class="error" ng-show="post_form.body.$error.maxlength">
+            A body must be less than 200 characters
+          </small>
+        </div>
+        <div>
+          <label for="author" name="author">Author</label>
+          <input required id="author" class="form-control" name="author" ng-model="$ctrl.newPost.author" ng-minlength=3 ng-maxlength=20>
+        </div>
+        <div class="error" ng-show="post_form.author.$dirty && post_form.author.$invalid">
+          <small class="error" ng-show="post_form.author.$error.required">
+            An author is required
+          </small>
+          <small class="error" ng-show="post_form.author.$error.minlength">
+            An author must be at least 3 characters
+          </small>
+          <small class="error" ng-show="post_form.author.$error.maxlength">
+            An author must be less than 200 characters
+          </small>
+        </div>
+        <div>
+          <label for="image_url" name="image_url">Image URL</label>
+          <input required id="image_url" class="form-control" name="image_url" ng-model="$ctrl.newPost.image_url" ng-minlength=3 type="url">
+        </div>
+        <div class="error" ng-show="post_form.image_url.$dirty && post_form.image_url.$invalid">
+          <small class="error" ng-show="post_form.image_url.$error.required">
+            An image URL is required
+          </small>
+          <small class="error" ng-show="post_form.image_url.$error.minlength">
+            An author must be at least 3 characters
+          </small>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary" ng-disabled="post_form.title.$invalid || post_form.body.$invalid || post_form.author.$invalid || post_form.image_url.$invalid">
+            Create Post
+          </button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+
+      <div class="well" ng-repeat="post in $ctrl.posts | filter: searchText | orderBy: $ctrl.dropInitVal">
+        <!--  *********** $ctrl.posts[$ctrl.posts.indexOf(post)] === post -->
+        <div class="media-left" >
+          <img class="media-object" ng-src="{{ post.image_url }}">
+          <a class="editAnchor" ui-sref="editPost({id: post.id})">edit</a>
+          <!-- ng-click="$ctrl.editForm(post)" -->
+        </div>
+        <div class="media-body">
+          <h4 class="media-heading">
+            {{ post.title }} |
+            <a><i class="glyphicon glyphicon-arrow-up" ng-click="$ctrl.upVote(post)"></i></a>
+            <a><i class="glyphicon glyphicon-arrow-down" ng-click="$ctrl.downVote(post)"></i></a>
+            {{ post.vote_count }}
+          </h4>
+          <div class="text-right">
+            {{ "author: " + post.author }}
+          </div>
+          <p>
+            {{  post.body }}
+          </p>
+          <div>
+            <time am-time-ago="post.created_at"></time>
+            |
+            <i class="glyphicon glyphicon-comment"></i>
+            <a ng-click="$ctrl.showComments(post) ; showComments = !showComments">
+              {{ post.comments.length }} Comments
+            </a>
+          </div>
+          <div class="row" ng-if="showComments">
+            <div class="col-md-offset-1">
+              <hr>
+              <p ng-repeat="comment in post.comments">
+                {{ comment.content }}
+              </p>
+              <form class="form-inline" ng-submit="$ctrl.postComments(post)">
+                <div class="form-group">
+                  <input class="form-control" ng-model="post.comment.content">
+                </div>
+                <div class="form-group">
+                  <input type="submit" class="btn btn-primary">
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</main>
+  </body>
+</html>
