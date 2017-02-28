@@ -14,23 +14,17 @@
       </ul>
     </div>
   </nav>
-  <form id="signup-form1" class="list" name="signupForm" novalidate>
+  <form id="signup-form1" class="list" name="signupForm" ng-submit="$ctrl.signUp()" novalidate>
   <div class="container">
-    <label class="item item-input" id="signup-input2">
-      <span class="input-label">Username</span>
-      <input required type="username" ng-model="$ctrl.signupForm.username" name="username">
-    <label class="item item-input" id="signup-input1">
-      <span class="input-label">Email</span>
-      <input required type="text" name="email" ng-model="$ctrl.signupForm.email">
-    </label>
-    <label class="item item-input" id="signup-input2">
-      <span class="input-label">Password</span>
-      <input required type="password" ng-model="$ctrl.signupForm.password" name="password">
-    </label>
-    </label>
+    <label for="username" name="username">Username</label>
+      <input required id="username" ng-model="$ctrl.signupForm.username" name="username">
+    <label for="email" name="email">Email</label>
+      <input required id="email" ng-model="$ctrl.signupForm.email" name="email">
+    <label for="password" name="password"></label>
+      <input required id="password" ng-model="$ctrl.signupForm.password" name="password">
   </div>
   <div class="spacer" style="height: 40px;"></div>
-  <a ng-click="$ctrl.login()" id="login-button2" class="button button-stable  button-block" ng-disabled="!loginForm.$dirty">Log in</a>
+  <a ng-click="$ctrl.signUp()" id="login-button2" class="button button-stable  button-block" ng-disabled="!loginForm.$dirty">Log in</a>
   <!-- ui-sref="tabsController.home" -->
   <!-- ui-sref="tabsController.home" -->
   <!-- onclick="window.plugins.toast.showLongBottom('Hello toast')" -->
