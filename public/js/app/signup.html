@@ -4,7 +4,7 @@
     <title>Log In</title>
   </head>
   <body>
-    <nav>
+    <!-- <nav>
     <div class="nav-wrapper green darken-2">
       <a href="#" class="brand-logo">Let It Grow</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
@@ -13,24 +13,93 @@
         <li><a href="collapsible.html">Profile</a></li>
       </ul>
     </div>
-  </nav>
-  <form id="signup-form1" class="list" name="signupForm" ng-submit="$ctrl.signUp()" novalidate>
+  </nav> -->
+
+  <!-- old sign up form -->
+  <!-- <form id="signup-form1" class="list" name="signupForm" ng-submit="$ctrl.signUp()" novalidate>
   <div class="container">
+    <div>
     <label for="username" name="username">Username</label>
-      <input required id="username" ng-model="$ctrl.signupForm.username" name="username">
+      <input required id="username" ng-model="$ctrl.signupForm.username" name="username" ng-minlength=3 ng-maxlength=20>
+    </div>
+    <div>
+      <div class="error" ng-show="signupForm.Username.$dirty && signupForm.Username.$invalid">
+        <small class="error" ng-show="signupForm.Username.$error.required">
+          A Username is required
+        </small>
+        <small class="error" ng-show="signupForm.Username.$error.minlength">
+          A Username must be at least 3 characters
+        </small>
+        <small class="error" ng-show="signupForm.Username.$error.maxlength">
+          A Username must be less than 20 characters
+        </small>
+      </div>
+    </div>
     <label for="email" name="email">Email</label>
-      <input required id="email" ng-model="$ctrl.signupForm.email" name="email">
-    <label for="password" name="password"></label>
-      <input required id="password" ng-model="$ctrl.signupForm.password" name="password">
+      <input required id="email" ng-model="$ctrl.signupForm.email" name="email" ng-minlength=3 ng-maxlength=20>
+    <label for="Password" name="Password">Password</label>
+      <input required id="Password" ng-model="$ctrl.signupForm.Password" name="Password" ng-minlength=3 ng-maxlength=20>
   </div>
-  <div class="spacer" style="height: 40px;"></div>
-  <a ng-click="$ctrl.signUp()" id="login-button2" class="button button-stable  button-block" ng-disabled="!loginForm.$dirty">Log in</a>
-  <!-- ui-sref="tabsController.home" -->
-  <!-- ui-sref="tabsController.home" -->
-  <!-- onclick="window.plugins.toast.showLongBottom('Hello toast')" -->
-  <!-- window.plugins.toast.show('You must enter a password', 'long', 'center') -->
-  <!-- ui-sref="tabsController.home" -->
-  <a ui-sref="signup" id="login-button3" class="button button-positive  button-block button-clear">Or create an account</a>
+  <a ng-click="$ctrl.signUp()" class="button button-stable  button-block" ng-disabled="!signupForm.$dirty && signUp.$invalid">Create Your Account</a> -->
+
+
+  <div class="col-md-8" >
+      <form name="signupForm" novalidate="" ng-submit="$ctrl.signUp()" >
+        <div>
+          <label for="Username" name="Username">Username</label>
+          <input required id="Username" class="form-control" name="Username" ng-model="$ctrl.signupForm.Username" ng-minlength=3 ng-maxlength=20>
+        </div>
+        <div class="error" ng-show="signupForm.Username.$dirty && signupForm.Username.$invalid">
+          <small class="error" ng-show="signupForm.Username.$error.required">
+            A Username is required
+          </small>
+          <small class="error" ng-show="signupForm.Username.$error.minlength">
+            A Username must be at least 3 characters
+          </small>
+          <small class="error" ng-show="signupForm.Username.$error.maxlength">
+            A Username must be less than 20 characters
+          </small>
+        </div>
+        <div>
+          <label for="Email" name="Email">Email</label>
+          <input required id="Email" class="form-control" name="Email" type="text" ng-model="$ctrl.signupForm.Email" ng-minlength=3 ng-maxlength=20></input>
+        </div>
+        <div class="error" ng-show="signupForm.Email.$dirty && signupForm.Email.$invalid">
+          <small class="error" ng-show="signupForm.Email.$error.required">
+            A Email is required
+          </small>
+          <small class="error" ng-show="signupForm.Email.$error.minlength">
+            A Email must be at least 3 characters
+          </small>
+          <small class="error" ng-show="signupForm.Email.$error.maxlength">
+            A Email must be less than 200 characters
+          </small>
+        </div>
+        <div>
+          <label for="Password" name="Password">Password</label>
+          <input required id="Password" class="form-control" name="Password" ng-model="$ctrl.signupForm.Password" ng-minlength=3 ng-maxlength=20>
+        </div>
+        <div class="error" ng-show="signupForm.Password.$dirty && signupForm.Password.$invalid">
+          <small class="error" ng-show="signupForm.Password.$error.required">
+            An Password is required
+          </small>
+          <small class="error" ng-show="signupForm.Password.$error.minlength">
+            An Password must be at least 3 characters
+          </small>
+          <small class="error" ng-show="signupForm.Password.$error.maxlength">
+            An Password must be less than 200 characters
+          </small>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary" ng-disabled="signupForm.Username.$invalid || signupForm.Email.$invalid || signupForm.Password.$invalid">
+            Create Account
+          </button>
+        </div>
+      </form>
+
+    </div>
+  <!--beloow new chunk  -->
+  <!-- <a ui-sref="signup" id="login-button3" class="button button-positive  button-block button-clear">Or create an account</a> -->
 </form>
 
   </body>
