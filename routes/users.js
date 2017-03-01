@@ -21,7 +21,7 @@ const authorize = function(req, res, next) {
 
 router.get('/', function(req, res, next) {
   knex('users')
-    .orderBy('username')
+    .orderBy('Username')
     .then((result) => {
       res.send(result);
     })
@@ -30,46 +30,45 @@ router.get('/', function(req, res, next) {
     });
 });
 
-router.get('/:id', function(req, res, next) {
-  knex('users')
-    .where({ id: req.params.id })
-    .first()
-    .then(function(results) {
-      if (results) {
-        res.send(results);
-      } else {
-        next(boom.create(404, 'No user matching that id'));
-      }
-    })
-    .catch(function(err) {
-      next(boom.create(500, 'Database Query Failed'));
-    });
-});
+// router.get('/:id', function(req, res, next) {
+//   knex('users')
+//     .where({ id: req.params.id })
+//     .first()
+//     .then(function(results) {
+//       if (results) {
+//         res.send(results);
+//       } else {
+//         next(boom.create(404, 'No user matching that id'));
+//       }
+//     })
+//     .catch(function(err) {
+//       next(boom.create(500, 'Database Query Failed'));
+//     });
+// });
 
 router.post('/', (req, res, next) => {
-  var hash = bcrypt.hashSync(req.body.password, 8);
+  var hash = bcrypt.hashSync(req.body.Password, 8);
   knex('users')
-    .where({ username: req.body.username })
+    .where({ Username: req.body.Username })
     .then(function(results) {
       console.log("results" + results);
 
       if (results.length === 0) {
         knex('users')
           .insert({
-            username: req.body.username,
-            password: hash,
-            email: req.body.email,
+            Username: req.body.Username,
+            Password: hash,
+            Email: req.body.Email,
             created_at: new Date(),
           }, '*')
           .then(function(result) {
             console.log('user created:', result);
             let userData = result[0];
-            delete userData.password;
+            delete userData.Password;
             delete userData.created_at;
             delete userData.updated_at;
-            userData.avatarPath = userData.avatar_path;
-            delete userData.avatar_path;
-            console.log('user data returned:', userData);
+            delete userData.Username;
+            delete userData.Email;
             res.send(userData);
           })
           .catch(function(err) {
@@ -82,49 +81,49 @@ router.post('/', (req, res, next) => {
     });
 });
 
-router.patch('/:id', authorize, function(req, res, next) {
-  knex('users')
-    .max('id')
-    .then((result) => {
-      if (req.body.password) {
-        if (req.params.id <= result[0].max && req.params.id > 0 && !isNaN(req.params.id)) {
-          return knex('users')
-            .where({ id: req.params.id })
-            .first()
-            .update({
-              username: req.body.username,
-              password: bcrypt.hashSync(req.body.password, 8),
-              email: req.body.email
-            }, '*')
-            .then((result) => {
-              //TODO: don't send password back on a successfull patch
-              res.send(result[0]);
-            })
-            .catch((err) => {
-              next(boom.create(500, 'Failed to Update User Info'));
-            });
-        } else {
-          next(boom.create(404, 'User Not Found'));
-          return;
-        }
-      } else {
-        next(boom.create(404, 'please specify a password'));
-        return;
-      }
-    });
-});
-
-router.delete('/:id', authorize, function(req, res, next) {
-  knex('users')
-    .where({ id: req.params.id })
-    .del()
-    .then(function() {
-      res.sendStatus(200);
-    })
-    .catch(function(err) {
-      next(boom.create(500, 'Failed to delete user'));
-    });
-});
+// router.patch('/:id', authorize, function(req, res, next) {
+//   knex('users')
+//     .max('id')
+//     .then((result) => {
+//       if (req.body.password) {
+//         if (req.params.id <= result[0].max && req.params.id > 0 && !isNaN(req.params.id)) {
+//           return knex('users')
+//             .where({ id: req.params.id })
+//             .first()
+//             .update({
+//               username: req.body.username,
+//               password: bcrypt.hashSync(req.body.password, 8),
+//               email: req.body.email
+//             }, '*')
+//             .then((result) => {
+//               //TODO: don't send password back on a successfull patch
+//               res.send(result[0]);
+//             })
+//             .catch((err) => {
+//               next(boom.create(500, 'Failed to Update User Info'));
+//             });
+//         } else {
+//           next(boom.create(404, 'User Not Found'));
+//           return;
+//         }
+//       } else {
+//         next(boom.create(404, 'please specify a password'));
+//         return;
+//       }
+//     });
+// });
+//
+// router.delete('/:id', authorize, function(req, res, next) {
+//   knex('users')
+//     .where({ id: req.params.id })
+//     .del()
+//     .then(function() {
+//       res.sendStatus(200);
+//     })
+//     .catch(function(err) {
+//       next(boom.create(500, 'Failed to delete user'));
+//     });
+// });
 
 
 

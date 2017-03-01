@@ -7,6 +7,7 @@ const messages = require('./routes/classifieds');
 const bodyParser = require('body-parser');
 const path = require('path')
 
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
   extended: false
@@ -27,6 +28,13 @@ app.get('/', function(req, res, next) {
   //   res.sendFile(path.join(__dirname + '/public/user-landing.html'));
   // }
 });
+
+var users = require('./routes/users.js');
+var data = require('./routes/data.js');
+
+app.use('/users', users);
+app.use('/data', data);
+
 app.use('*', function(req, res, next) {
   res.sendFile('index.html', { root: path.join(__dirname, 'public') })
 })
