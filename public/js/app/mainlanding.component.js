@@ -3,22 +3,24 @@
 
   angular.module('app')
     .component('mainLanding', {
-      controller: function($state, houseService) {
+      controller: function($state, $http) {
         const vm = this
 
         vm.$onInit = onInit;
+        vm.logIn = logIn;
 
         function onInit() {
-          console.log("we have at least found the controller");
+
+
         }
-        // vm.$onInit = function() {
-        //   vm.houses = houseService.houses
-        // }
-        //
-        // vm.addHouse = function() {
-        //   houseService.addHouse(vm.house)
-        //   $state.go('show-house', { id: vm.house.id })
-        // }
+
+        function logIn() {
+          console.log(vm.loginForm);
+          $http.post("http://localhost:3000/token/", vm.loginForm)
+            .then(function(response) {
+              $state.go('dataDash');
+            })
+        }
       },
       // otemplate: `<h1>I am template</h1>`
 

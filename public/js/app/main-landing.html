@@ -6,12 +6,14 @@
         <p>Let It Grow</p>
       </a>
     </div>
-    <form class="navbar-form navbar-right" role="search">
+    <form name="loginForm" class="navbar-form navbar-right" novalidate="" ng-submit="$ctrl.logIn()" role="search">
       <div class="form-group">
-          <input type="text" class="form-control" placeholder="Username">
-          <input type="text" class="form-control" placeholder="Password">
+          <input required class="form-control" name="Username" placeholder="Username" ng-model="$ctrl.loginForm.Username" ng-minlength=3 ng-maxlength=20>
+          <input required class="form-control" name="Password" placeholder="Password" ng-model="$ctrl.loginForm.Password" ng-minlength=3 ng-maxlength=20>
       </div>
-      <button type="submit" class="btn btn-default">Log In</button>
+      <button type="submit" class="btn btn-primary" ng-disabled="loginForm.Username.$invalid || loginForm.Password.$invalid || !loginForm.Password.$dirty || !loginForm.Username.$dirty">
+        Log In
+      </button>
     </form>
   </div>
 </nav>

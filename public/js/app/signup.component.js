@@ -19,7 +19,7 @@
 
             $http.post("http://localhost:3000/users/", vm.signupForm)
               .then(function(response) {
-                $state.go('profile');
+                $state.go('mainLanding');
               })
 
 
