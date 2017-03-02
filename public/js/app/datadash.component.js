@@ -39,11 +39,11 @@
               "width": '100%',
               "height": "20%",
             },{
-              "min-width": 651,
+              "min-width": 450,
             x: 0,
             y: 0,
-            width: "31.5%",
-            height: "50%",
+            width: "40%",
+            height: "40%",
             }],
             title: {
               text: "Temperature",
@@ -89,7 +89,7 @@
               }]
             },
             plotarea: {
-              marginTop: "35%"
+              marginTop: "45%"
             },
             plot: {
               csize: "3%",
@@ -133,11 +133,11 @@
               "width": '100%',
               "height": "20%",
             },{
-              "min-width": 651,
-              x: "34.5%",
+              "min-width": 450,
+              x: "50%",
               y: 0,
-              width: "31.5%",
-              height: "50%",
+              width: "40%",
+              height: "40%",
             }],
             title: {
               text: "Humidity",
@@ -183,7 +183,7 @@
               }]
             },
             plotarea: {
-              marginTop: "35%"
+              marginTop: "45%"
             },
             plot: {
               csize: "3%",
@@ -214,100 +214,6 @@
               }
             }]
           },
-          // {
-          //   type: "gauge",
-          //   x: "69%",
-          //   y: 0,
-          //   width: "31.5%",
-          //   height: "50%",
-          //   "media-rules": [{
-          //     "max-width": 650,
-          //     "x": 0,
-          //     "y": "40%",
-          //     "width": '100%',
-          //     "height": "20%",
-          //   },{
-          //     "min-width": 651,
-          //     "x": "69%",
-          //     "y": 0,
-          //     "width": "31.5%",
-          //     "height": "50%",
-          //   }],
-          //   title: {
-          //     text: "na",
-          //     "media-rules": [{
-          //       "max-width": 650,
-          //       "visible": true
-          //     }]
-          //   },
-          //   scaleR: {
-          //     aperture: 130,
-          //     values: "0:100:25",
-          //     guide: {
-          //       backgroundColor: "#E3DEDA",
-          //       alpha: 1
-          //     },
-          //     ring: {
-          //       backgroundColor: "#E3DEDA",
-          //       "media-rules": [{
-          //         "max-width": 650,
-          //         "visible": false
-          //       }]
-          //     },
-          //     center: {
-          //       size: 20,
-          //       borderWidth: 2,
-          //       borderColor: "#23211E",
-          //       "media-rules": [{
-          //         "max-width": 650,
-          //         "size": 10
-          //       }]
-          //     },
-          //     item: {
-          //       offsetR: 0
-          //     },
-          //     tick: {
-          //       visible: false
-          //     },
-          //     markers: [{
-          //       type: "area",
-          //       range: [0, 28],
-          //       backgroundColor: "#FB301E",
-          //       alpha:.95,
-          //     }]
-          //   },
-          //   plotarea: {
-          //     marginTop: "35%"
-          //   },
-          //   plot: {
-          //     csize: "3%",
-          //     size: "100%"
-          //   },
-          //   scale: {
-          //     sizeFactor: 1.2,
-          //     "media-rules": [{
-          //       "max-width": 650,
-          //       sizeFactor: 1.6,
-          //     }]
-          //   },
-          //   tooltip: {
-          //     visible: false
-          //   },
-          //   series: [{
-          //     values: [28],
-          //     backgroundColor: "#23211E",
-          //     valueBox: {
-          //       text: "%v",
-          //       placement: "center",
-          //       fontColor: "#FB301E",
-          //       fontSize: 14,
-          //       "media-rules": [{
-          //         "max-width": 650,
-          //         "fontSize": 10
-          //       }]
-          //     }
-          //   }]
-          // },
           {
             type: "line",
             title: {
@@ -397,7 +303,7 @@
               {
               values: [35, 38, 40, 35, 38, 40, 35, 38, 40],
               lineColor: "#00AE4D",
-              text: "Light",
+              text: "Temperature",
               scales: "scale-x, scale-y",
               marker: {
                 borderWidth: 2,
