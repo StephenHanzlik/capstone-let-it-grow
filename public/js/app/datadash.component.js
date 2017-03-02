@@ -3,148 +3,97 @@
 
   angular.module('app')
     .component('datadash', {
-      controller: function($state, $http) {
+      controller: function($state, $http, $scope) {
         const vm = this
 
-        /*
-The purpose of this demo is to demonstrate how multiple charts on the same page can be linked
-through DOM and Highcharts events and API methods. It takes a standard Highcharts config with a
-small variation for each data set, and a mouse/touch event handler to bind the charts together.
-*/
-
-
-
-        /**
-         * In order to synchronize tooltips and crosshairs, override the
-         * built-in events with handlers defined on the parent element.
-         */
-        let graphContainer = document.getElementById('graphContainer');
-
-        graphContainer.bind('mousemove touchmove touchstart', function(e) {
-          var chart,
-            point,
-            i,
-            event;
-
-          for (i = 0; i < Highcharts.charts.length; i = i + 1) {
-            chart = Highcharts.charts[i];
-            event = chart.pointer.normalize(e.originalEvent); // Find coordinates within the chart
-            point = chart.series[0].searchPoint(event, true); // Get the hovered point
-
-            if (point) {
-              point.highlight(e);
+        // $scope.dataSource = {
+        //     "chart": {
+        //       "caption": "Sales - 2014 v 2015",
+        //       //more chart properties - explained later
+        //     },
+        //     "dataset": [{
+        //         "seriesname": "Bakersfield Central",
+        //         "lineAlpha": "55"
+        //         //more chart data
+        //       ]
+        //     };
+        // $scope.myJson = {
+        //   type: 'line',
+        //   series: [
+        //     { values: [88, 86, 87, 89, 64, 68, 67] },
+        //     { values: [10, 15, 16, 20, 40, 40, 46] }
+        //   ]
+        // };
+        $scope.myJson = {
+          title: {
+            text: "Drag the bottom right corner to resize",
+            fontSize: 16,
+            fontColor: "#fff"
+          },
+          backgroundColor: "#2bbb9a",
+          globals: {
+            shadow: false,
+            fontFamily: "Arial"
+          },
+          type: "line",
+          scaleX: {
+            maxItems: 8,
+            lineColor: "white",
+            lineWidth: "1px",
+            tick: {
+              lineColor: "white",
+              lineWidth: "1px"
+            },
+            item: {
+              fontColor: "white"
+            },
+            guide: {
+              visible: false
             }
-          }
-        });
-        /**
-         * Override the reset function, we don't need to hide the tooltips and crosshairs.
-         */
-        Highcharts.Pointer.prototype.reset = function() {
-          return undefined;
-        };
-
-        /**
-         * Highlight a point by showing tooltip, setting hover state and draw crosshair
-         */
-        Highcharts.Point.prototype.highlight = function(event) {
-          this.onMouseOver(); // Show the hover marker
-          this.series.chart.tooltip.refresh(this); // Show the tooltip
-          this.series.chart.xAxis[0].drawCrosshair(event, this); // Show the crosshair
-        };
-
-        /**
-         * Synchronize zooming through the setExtremes event handler.
-         */
-        function syncExtremes(e) {
-          var thisChart = this.chart;
-
-          if (e.trigger !== 'syncExtremes') { // Prevent feedback loop
-            Highcharts.each(Highcharts.charts, function(chart) {
-              if (chart !== thisChart) {
-                if (chart.xAxis[0].setExtremes) { // It is null while updating
-                  chart.xAxis[0].setExtremes(e.min, e.max, undefined, false, { trigger: 'syncExtremes' });
-                }
-              }
-            });
-          }
+          },
+          scaleY: {
+            lineColor: "white",
+            lineWidth: "1px",
+            tick: {
+              lineColor: "white",
+              lineWidth: "1px"
+            },
+            guide: {
+              lineStyle: "solid",
+              lineColor: "#249178"
+            },
+            item: {
+              fontColor: "white"
+            },
+          },
+          tooltip: {
+            visible: false
+          },
+          crosshairX: {
+            lineColor: "#fff",
+            scaleLabel: {
+              backgroundColor: "#fff",
+              fontColor: "#323232"
+            },
+            plotLabel: {
+              backgroundColor: "#fff",
+              fontColor: "#323232",
+              text: "%v",
+              borderColor: "transparent"
+            }
+          },
+          plot: {
+            lineWidth: "2px",
+            lineColor: "#FFF",
+            aspect: "spline",
+            marker: {
+              visible: false
+            }
+          },
+          series: [{
+            values: [989, 1364, 2161, 2644, 1754, 2015, 818, 77, 1260, 3912, 1671, 1836, 1901]
+          }]
         }
-
-        // Get the data. The contents of the data file can be viewed at
-        // https://github.com/highcharts/highcharts/blob/master/samples/data/activity.json
-        $.getJSON('https://www.highcharts.com/samples/data/jsonp.php?filename=activity.json&callback=?', function(activity) {
-          $.each(activity.datasets, function(i, dataset) {
-
-            // Add X values
-            dataset.data = Highcharts.map(dataset.data, function(val, j) {
-              return [activity.xData[j], val];
-            });
-
-            $('<div class="chart">')
-              .appendTo('#container')
-              .highcharts({
-                chart: {
-                  marginLeft: 40, // Keep all charts left aligned
-                  spacingTop: 20,
-                  spacingBottom: 20
-                },
-                title: {
-                  text: dataset.name,
-                  align: 'left',
-                  margin: 0,
-                  x: 30
-                },
-                credits: {
-                  enabled: false
-                },
-                legend: {
-                  enabled: false
-                },
-                xAxis: {
-                  crosshair: true,
-                  events: {
-                    setExtremes: syncExtremes
-                  },
-                  labels: {
-                    format: '{value} km'
-                  }
-                },
-                yAxis: {
-                  title: {
-                    text: null
-                  }
-                },
-                tooltip: {
-                  positioner: function() {
-                    return {
-                      x: this.chart.chartWidth - this.label.width, // right aligned
-                      y: -1 // align to title
-                    };
-                  },
-                  borderWidth: 0,
-                  backgroundColor: 'none',
-                  pointFormat: '{point.y}',
-                  headerFormat: '',
-                  shadow: false,
-                  style: {
-                    fontSize: '18px'
-                  },
-                  valueDecimals: dataset.valueDecimals
-                },
-                series: [{
-                  data: dataset.data,
-                  name: dataset.name,
-                  type: dataset.type,
-                  color: Highcharts.getOptions().colors[i],
-                  fillOpacity: 0.3,
-                  tooltip: {
-                    valueSuffix: ' ' + dataset.unit
-                  }
-                }]
-              });
-          });
-        });
-        // vm.$onInit = onInit;
-        // vm.logIn = logIn;
 
       },
       // template: `<h1>I am hardcoded template for dataDash</h1>`
