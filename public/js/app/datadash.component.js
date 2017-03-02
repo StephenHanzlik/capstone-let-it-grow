@@ -213,100 +213,102 @@
                 }]
               }
             }]
-          }, {
-            type: "gauge",
-            x: "69%",
-            y: 0,
-            width: "31.5%",
-            height: "50%",
-            "media-rules": [{
-              "max-width": 650,
-              "x": 0,
-              "y": "40%",
-              "width": '100%',
-              "height": "20%",
-            },{
-              "min-width": 651,
-              "x": "69%",
-              "y": 0,
-              "width": "31.5%",
-              "height": "50%",
-            }],
-            title: {
-              text: "na",
-              "media-rules": [{
-                "max-width": 650,
-                "visible": true
-              }]
-            },
-            scaleR: {
-              aperture: 130,
-              values: "0:100:25",
-              guide: {
-                backgroundColor: "#E3DEDA",
-                alpha: 1
-              },
-              ring: {
-                backgroundColor: "#E3DEDA",
-                "media-rules": [{
-                  "max-width": 650,
-                  "visible": false
-                }]
-              },
-              center: {
-                size: 20,
-                borderWidth: 2,
-                borderColor: "#23211E",
-                "media-rules": [{
-                  "max-width": 650,
-                  "size": 10
-                }]
-              },
-              item: {
-                offsetR: 0
-              },
-              tick: {
-                visible: false
-              },
-              markers: [{
-                type: "area",
-                range: [0, 28],
-                backgroundColor: "#FB301E",
-                alpha:.95,
-              }]
-            },
-            plotarea: {
-              marginTop: "35%"
-            },
-            plot: {
-              csize: "3%",
-              size: "100%"
-            },
-            scale: {
-              sizeFactor: 1.2,
-              "media-rules": [{
-                "max-width": 650,
-                sizeFactor: 1.6,
-              }]
-            },
-            tooltip: {
-              visible: false
-            },
-            series: [{
-              values: [28],
-              backgroundColor: "#23211E",
-              valueBox: {
-                text: "%v",
-                placement: "center",
-                fontColor: "#FB301E",
-                fontSize: 14,
-                "media-rules": [{
-                  "max-width": 650,
-                  "fontSize": 10
-                }]
-              }
-            }]
-          }, {
+          },
+          // {
+          //   type: "gauge",
+          //   x: "69%",
+          //   y: 0,
+          //   width: "31.5%",
+          //   height: "50%",
+          //   "media-rules": [{
+          //     "max-width": 650,
+          //     "x": 0,
+          //     "y": "40%",
+          //     "width": '100%',
+          //     "height": "20%",
+          //   },{
+          //     "min-width": 651,
+          //     "x": "69%",
+          //     "y": 0,
+          //     "width": "31.5%",
+          //     "height": "50%",
+          //   }],
+          //   title: {
+          //     text: "na",
+          //     "media-rules": [{
+          //       "max-width": 650,
+          //       "visible": true
+          //     }]
+          //   },
+          //   scaleR: {
+          //     aperture: 130,
+          //     values: "0:100:25",
+          //     guide: {
+          //       backgroundColor: "#E3DEDA",
+          //       alpha: 1
+          //     },
+          //     ring: {
+          //       backgroundColor: "#E3DEDA",
+          //       "media-rules": [{
+          //         "max-width": 650,
+          //         "visible": false
+          //       }]
+          //     },
+          //     center: {
+          //       size: 20,
+          //       borderWidth: 2,
+          //       borderColor: "#23211E",
+          //       "media-rules": [{
+          //         "max-width": 650,
+          //         "size": 10
+          //       }]
+          //     },
+          //     item: {
+          //       offsetR: 0
+          //     },
+          //     tick: {
+          //       visible: false
+          //     },
+          //     markers: [{
+          //       type: "area",
+          //       range: [0, 28],
+          //       backgroundColor: "#FB301E",
+          //       alpha:.95,
+          //     }]
+          //   },
+          //   plotarea: {
+          //     marginTop: "35%"
+          //   },
+          //   plot: {
+          //     csize: "3%",
+          //     size: "100%"
+          //   },
+          //   scale: {
+          //     sizeFactor: 1.2,
+          //     "media-rules": [{
+          //       "max-width": 650,
+          //       sizeFactor: 1.6,
+          //     }]
+          //   },
+          //   tooltip: {
+          //     visible: false
+          //   },
+          //   series: [{
+          //     values: [28],
+          //     backgroundColor: "#23211E",
+          //     valueBox: {
+          //       text: "%v",
+          //       placement: "center",
+          //       fontColor: "#FB301E",
+          //       fontSize: 14,
+          //       "media-rules": [{
+          //         "max-width": 650,
+          //         "fontSize": 10
+          //       }]
+          //     }
+          //   }]
+          // },
+          {
             type: "line",
             title: {
               text: "Live Feed",
@@ -338,39 +340,39 @@
             "scale-y": {
               values: "0:100:25",
               placement: "default",
-              lineColor: "#FB301E",
+              lineColor: "#666666",
               tick: {
-                lineColor: "#FB301E"
+                lineColor: "#666666"
               },
               item: {
-                fontColor: "#FB301E",
+                fontColor: "#666666",
                 bold: true
               }
             },
-            "scale-y-2": {
-              values: "0:20:5",
-              placement: "default",
-              lineColor: "#E2D51A",
-              tick: {
-                lineColor: "#E2D51A"
-              },
-              item: {
-                fontColor: "#E2D51A",
-                bold: true
-              }
-            },
-            "scale-y-3": {
-              values: "0:40:10",
-              placement: "default",
-              lineColor: "#00AE4D",
-              tick: {
-                lineColor: "#00AE4D",
-              },
-              item: {
-                fontColor: "#00AE4D",
-                bold: true
-              }
-            },
+            // "scale-y-2": {
+            //   values: "0:20:5",
+            //   placement: "default",
+            //   lineColor: "#E2D51A",
+            //   tick: {
+            //     lineColor: "#E2D51A"
+            //   },
+            //   item: {
+            //     fontColor: "#E2D51A",
+            //     bold: true
+            //   }
+            // },
+            // "scale-y-3": {
+            //   values: "0:40:10",
+            //   placement: "default",
+            //   lineColor: "#00AE4D",
+            //   tick: {
+            //     lineColor: "#00AE4D",
+            //   },
+            //   item: {
+            //     fontColor: "#00AE4D",
+            //     bold: true
+            //   }
+            // },
             plotarea: {
               margin: "dynamic",
               marginRight: "4%"
@@ -391,41 +393,45 @@
             tooltip: {
               visible: false
             },
-            series: [{
+            series: [
+              {
               values: [35, 38, 40, 35, 38, 40, 35, 38, 40],
               lineColor: "#00AE4D",
               text: "Light",
-              scales: "scale-x, scale-y-3",
-              marker: {
-                borderWidth: 2,
-                borderColor: "#00AE4D",
-                backgroundColor: "#fff",
-                type: "circle"
-              }
-            }, {
-              values: [11, 15, 19, 11, 15, 19, 11, 15, 19],
-              lineColor: "#E2D51A",
-              text: "Humidity",
-              scales: "scale-x, scale-y-2",
-              marker: {
-                borderWidth: 2,
-                borderColor: "#E2D51A",
-                backgroundColor: "#fff",
-                type: "triangle",
-                size: 5
-              }
-            }, {
-              values: [28, 21, 30, 28, 21, 30, 28, 21, 30],
-              lineColor: "#FB301E",
-              text: "Tempurature",
               scales: "scale-x, scale-y",
               marker: {
                 borderWidth: 2,
-                borderColor: "#FB301E",
-                backgroundColor: "#fff",
-                type: "square"
+                borderColor: "#00AE4D",
+                backgroundColor: "#00AE4D",
+                type: "circle"
               }
-            }]
+            },
+            {
+              values: [11, 15, 19, 11, 15, 19, 11, 15, 19],
+              lineColor: "#E2D51A",
+              text: "Humidity",
+              scales: "scale-x, scale-y",
+              marker: {
+                borderWidth: 2,
+                borderColor: "#E2D51A",
+                backgroundColor: "#E2D51A",
+                type: "triangle",
+                size: 5
+              }
+            }
+            //  {
+            //   values: [28, 21, 30, 28, 21, 30, 28, 21, 30],
+            //   lineColor: "#FB301E",
+            //   text: "Tempurature",
+            //   scales: "scale-x, scale-y",
+            //   marker: {
+            //     borderWidth: 2,
+            //     borderColor: "#FB301E",
+            //     backgroundColor: "#fff",
+            //     type: "square"
+            //   }
+            // }
+          ]
           }]
         };
 $scope.myJson.graphset[0].series.values = [88];
