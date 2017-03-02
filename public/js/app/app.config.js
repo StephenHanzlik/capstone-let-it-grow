@@ -26,9 +26,14 @@
         component: 'login',
       })
       .state({
-        name: 'show-house',
-        url: '/houses/:id',
-        component: 'houseShow',
+        name: 'postList',
+        url: '/postList',
+        component: 'postList',
+      })
+      .state({
+        name: 'datadash',
+        url: '/datadash',
+        component: 'datadash',
       })
   }
 

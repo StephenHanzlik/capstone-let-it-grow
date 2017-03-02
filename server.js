@@ -31,9 +31,13 @@ app.get('/', function(req, res, next) {
 
 var users = require('./routes/users.js');
 var data = require('./routes/data.js');
+var token = require('./routes/token.js');
+var index = require('./routes/index.js');
 
 app.use('/users', users);
 app.use('/data', data);
+app.use('/token', token);
+app.use('/index', index);
 
 app.use('*', function(req, res, next) {
   res.sendFile('index.html', { root: path.join(__dirname, 'public') })

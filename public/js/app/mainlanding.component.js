@@ -15,10 +15,9 @@
         }
 
         function logIn() {
-          console.log(vm.loginForm);
-          $http.post("http://localhost:3000/token/", vm.loginForm)
+          $http.post("http://localhost:3000/index/", vm.loginForm)
             .then(function(response) {
-              $state.go('dataDash');
+              // $state.go('dataDash');
             })
         }
       },

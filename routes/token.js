@@ -21,8 +21,8 @@ router.get('/', function(req, res, next) {
 
 router.post('/', function(req, res, next) {
   const bodyObj = {
-    email: req.body.Email,
-    password: req.body.Password,
+    Username: req.body.Username,
+    Password: req.body.Password,
   };
 
   var errObj = {
@@ -37,7 +37,7 @@ router.post('/', function(req, res, next) {
   }
 
   knex('users')
-    .where('email', bodyObj.Email)
+    .where('Username', bodyObj.Username)
     .first()
     .then((result) => {
       if (result) {
@@ -45,7 +45,7 @@ router.post('/', function(req, res, next) {
           delete result.Password;
           delete result.created_at;
           // var authenticated_user = (result);
-          var token = jwt.sign(req.body.Email, privateKey);
+          var token = jwt.sign(req.body.Username, privateKey);
           res.cookie('token', token, {
             httpOnly: true
           }).send(result);
@@ -56,11 +56,11 @@ router.post('/', function(req, res, next) {
           // http.request(options).end();
         } else {
           // bad password (says email or password to satisfy the test)
-          next(boom.create(400, 'Bad email or password'));
+          next(boom.create(400, 'Bad username or password'));
         }
       } else {
         // bad email (says email or password to satisfy the test)
-        next(boom.create(400, 'Bad email or password'));
+        next(boom.create(400, 'Bad username or password'));
       }
     })
     .catch((err) => {
