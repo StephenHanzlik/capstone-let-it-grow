@@ -54,7 +54,7 @@
             },
             scaleR: {
               aperture: 130,
-              values: "0:100:10",
+              values: "0:100:5",
               guide: {
                 backgroundColor: "#E3DEDA",
                 alpha: 1
@@ -231,7 +231,7 @@
             "media-rules": [{
               "max-width": 650,
               "x": 0,
-              "y": "60%",
+              "y": "36%",
               "width": '100%',
               "height": "40%%",
             }],
@@ -255,30 +255,6 @@
                 bold: true
               }
             },
-            // "scale-y-2": {
-            //   values: "0:20:5",
-            //   placement: "default",
-            //   lineColor: "#E2D51A",
-            //   tick: {
-            //     lineColor: "#E2D51A"
-            //   },
-            //   item: {
-            //     fontColor: "#E2D51A",
-            //     bold: true
-            //   }
-            // },
-            // "scale-y-3": {
-            //   values: "0:40:10",
-            //   placement: "default",
-            //   lineColor: "#00AE4D",
-            //   tick: {
-            //     lineColor: "#00AE4D",
-            //   },
-            //   item: {
-            //     fontColor: "#00AE4D",
-            //     bold: true
-            //   }
-            // },
             plotarea: {
               margin: "dynamic",
               marginRight: "4%"
