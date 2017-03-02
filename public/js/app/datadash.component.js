@@ -5,6 +5,13 @@
     .component('datadash', {
       controller: function($state, $http, $scope) {
         const vm = this
+
+      //   vm.onInit = onInit;
+      //
+      // function onInit() = {
+      //
+      // }
+
         $scope.myJson = {
   backgroundColor: "#fff",
   globals: {
@@ -123,7 +130,7 @@
       height: "50%",
     }],
     title: {
-      text: "Energy Recycled",
+      text: "temp",
       "media-rules": [{
         "max-width": 650,
         "visible": false
@@ -292,7 +299,7 @@
   }, {
     type: "line",
     title: {
-      text: "Meter History",
+      text: "Live Feed",
       adjustLayout: true,
       "media-rules": [{
         "max-width": 650,
@@ -377,7 +384,7 @@
     series: [{
       values: [35, 38, 40, 35, 38, 40, 35, 38, 40],
       lineColor: "#00AE4D",
-      text: "Energy Output",
+      text: "Light",
       scales: "scale-x, scale-y-3",
       marker: {
         borderWidth: 2,
@@ -388,7 +395,7 @@
     }, {
       values: [11, 15, 19, 11, 15, 19, 11, 15, 19],
       lineColor: "#E2D51A",
-      text: "Energy Recycled",
+      text: "Humidity",
       scales: "scale-x, scale-y-2",
       marker: {
         borderWidth: 2,
@@ -400,7 +407,7 @@
     }, {
       values: [28, 21, 30, 28, 21, 30, 28, 21, 30],
       lineColor: "#FB301E",
-      text: "Energy Consumed",
+      text: "Tempurature",
       scales: "scale-x, scale-y",
       marker: {
         borderWidth: 2,
