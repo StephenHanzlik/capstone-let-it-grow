@@ -5,3 +5,12 @@
 .background {
   color: gray;
 }
+
+#myChart ,body , html {
+  height:100%;
+  width:100%;
+}
+
+.zc-ref {
+  display: none;
+}
