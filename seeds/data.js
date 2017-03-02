@@ -19,7 +19,7 @@ exports.seed = function(knex, Promise) {
             temperature: 84,
             humidity: 26,
             soil_moisture: 45,
-            created_at: new Date('2016-06-26T14:26:16.000Z')
+            created_at: new Date('2016-06-26T14:27:16.000Z')
           }),
           knex('data').insert({
             id: 3,
@@ -27,7 +27,7 @@ exports.seed = function(knex, Promise) {
             temperature: 80,
             humidity: 24,
             soil_moisture: 45,
-            created_at: new Date('2016-06-26T14:26:16.000Z')
+            created_at: new Date('2016-06-26T14:28:16.000Z')
           }),
           knex('data').insert({
             id: 4,
@@ -35,7 +35,7 @@ exports.seed = function(knex, Promise) {
             temperature: 83,
             humidity: 28,
             soil_moisture: 45,
-            created_at: new Date('2016-06-26T14:26:16.000Z')
+            created_at: new Date('2016-06-26T14:29:16.000Z')
           }),
           knex('data').insert({
             id: 5,
@@ -43,7 +43,7 @@ exports.seed = function(knex, Promise) {
             temperature: 78,
             humidity: 30,
             soil_moisture: 45,
-            created_at: new Date('2016-06-26T14:26:16.000Z')
+            created_at: new Date('2016-06-26T14:30:16.000Z')
           }),
           knex('data').insert({
             id: 6,
@@ -51,7 +51,7 @@ exports.seed = function(knex, Promise) {
             temperature: 72,
             humidity: 35,
             soil_moisture: 45,
-            created_at: new Date('2016-06-26T14:26:16.000Z')
+            created_at: new Date('2016-06-26T14:31:16.000Z')
           }),
           knex('data').insert({
             id: 7,
@@ -59,7 +59,7 @@ exports.seed = function(knex, Promise) {
             temperature: 73,
             humidity: 38,
             soil_moisture: 45,
-            created_at: new Date('2016-06-26T14:26:16.000Z')
+            created_at: new Date('2016-06-26T14:32:16.000Z')
           }),
           knex('data').insert({
             id: 8,
@@ -67,7 +67,7 @@ exports.seed = function(knex, Promise) {
             temperature: 69,
             humidity: 39,
             soil_moisture: 45,
-            created_at: new Date('2016-06-26T14:26:16.000Z')
+            created_at: new Date('2016-06-26T14:33:16.000Z')
           }),
           knex('data').insert({
             id: 9,
@@ -75,7 +75,7 @@ exports.seed = function(knex, Promise) {
             temperature: 68,
             humidity: 40,
             soil_moisture: 45,
-            created_at: new Date('2016-06-26T14:26:16.000Z')
+            created_at: new Date('2016-06-26T14:34:16.000Z')
           })
         ])
         .then(() => {

@@ -8,7 +8,8 @@ const boom = require('boom');
 
 router.get('/', function(req, res, next) {
   knex('data')
-    .orderBy('id')
+    .orderBy('created_at', 'desc')
+    .limit(9)
     .then((result) => {
       res.send(result);
     })

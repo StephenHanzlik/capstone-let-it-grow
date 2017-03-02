@@ -8,16 +8,23 @@
 
         vm.$onInit = onInit;
         // $scope.greenData = 78;
-        let greenTempData = 78;
-        let yellowHumidityData = 25;
+        let greenTempData = 0;
+        let yellowHumidityData = 0;
+        let tempLineArray = [34, 55, 66, 76, 78, 83, 56, 54, 54];
+        let humidityLineArray = [34, 55, 66, 76, 78, 83, 56, 54, 54];
 
       function onInit() {
         $http.get("http://localhost:3000/data")
         .then(response => {
-          console.log(response.data[0].temperature);
-          $scope.greenData = response.data[0].temperature;
-          return $scope.greenData
-        })
+          greenTempData = response.data[0].temperature;
+          yellowHumidityData = response.data[0].humidity;
+          // for(let i = 0; i <= 9; i++){
+          //
+          // }
+          // console.log(response.data[0].temperature);
+          // $scope.greenData = response.data[0].temperature;
+          // return $scope.greenData
+        // });
 
         // vm.graphToggle = false;
 
@@ -277,7 +284,7 @@
             },
             series: [
               {
-              values: [35, 38, 40, 35, 38, 40, 35, 38, 40],
+              values: tempLineArray,
               lineColor: "#00AE4D",
               text: "Temperature",
               scales: "scale-x, scale-y",
@@ -289,7 +296,7 @@
               }
             },
             {
-              values: [11, 15, 19, 11, 15, 19, 11, 15, 19],
+              values: humidityLineArray,
               lineColor: "#E2D51A",
               text: "Humidity",
               scales: "scale-x, scale-y",
@@ -316,15 +323,7 @@
           ]
           }]
         };
-$scope.myJson.graphset[0].series.values = [88];
-console.log($scope.myJson.graphset[0].series.values);
-
-console.log($scope.myJson);
-
-  // if(
-  //
-  // vm.graphToggle = true;
-
+      });//end of get requests .then
 }//end of onInit function
 
 
