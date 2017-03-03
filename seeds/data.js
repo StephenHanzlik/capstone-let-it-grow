@@ -71,7 +71,7 @@ exports.seed = function(knex, Promise) {
           }),
           knex('data').insert({
             id: 9,
-            light: 1,
+            light: 0,
             temperature: 68,
             humidity: 40,
             soil_moisture: 45,
