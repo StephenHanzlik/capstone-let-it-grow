@@ -5,7 +5,7 @@ module.exports = {
   development: {
     client: 'pg',
     connection: {
-      database: 'postgres://localhost/3000'
+      database: 'let-it-grow-db'
     }
   },
   production: {
