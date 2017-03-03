@@ -10,23 +10,30 @@
         // $scope.greenData = 78;
         let greenTempData = 0;
         let yellowHumidityData = 0;
-        let tempLineArray = [34, 55, 66, 76, 78, 83, 56, 54, 54];
-        let humidityLineArray = [34, 55, 66, 76, 78, 83, 56, 54, 54];
+        let createdAtArray = [];
+        let tempLineArray = [];
+        let timeStamp = 0;
+        // [34, 55, 66, 76, 78, 83, 56, 54, 54];
+        let humidityLineArray = [];
 
       function onInit() {
         $http.get("http://localhost:3000/data")
         .then(response => {
           greenTempData = response.data[0].temperature;
           yellowHumidityData = response.data[0].humidity;
-          // for(let i = 0; i <= 9; i++){
-          //
-          // }
-          // console.log(response.data[0].temperature);
-          // $scope.greenData = response.data[0].temperature;
-          // return $scope.greenData
-        // });
+          let timeString =  response.data[8].created_at;
+          let timeStamp = Date.parse(timeString);
+          // let epochTime = timeStamp.getTime();
+          // console.log(timeStamp);
+          // console.log(timeStamp);
 
-        // vm.graphToggle = false;
+          for(let i = 0; i <= 8; i++){
+            tempLineArray.push(response.data[i].temperature);
+            humidityLineArray.push(response.data[i].humidity);
+            // createdAtArray.push(response.data[i].created_at);
+          }
+
+
 
         $scope.myJson = {
           backgroundColor: "#fff",
@@ -243,11 +250,12 @@
               "height": "40%%",
             }],
             scaleX: {
-              minValue: 1373045400000,
+              minValue: timeStamp,
               step: 3000,
               transform: {
                 type: "date",
-                all: "%D<br>%H:%i:%s"
+                // all: createdAt
+                all: "%D<br>%g:%i:%s%a"
               }
             },
             "scale-y": {
