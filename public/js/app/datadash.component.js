@@ -7,6 +7,7 @@
         const vm = this
 
         vm.$onInit = onInit;
+        vm.lightOn = 1;
         // $scope.greenData = 78;
         let greenTempData = 0;
         let yellowHumidityData = 0;
@@ -23,6 +24,7 @@
           yellowHumidityData = response.data[0].humidity;
           let timeString =  response.data[8].created_at;
           let timeStamp = Date.parse(timeString);
+          vm.lightOn = response.data[0].light;
           // let epochTime = timeStamp.getTime();
           // console.log(timeStamp);
           // console.log(timeStamp);
