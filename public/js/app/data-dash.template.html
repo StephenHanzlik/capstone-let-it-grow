@@ -21,7 +21,7 @@
   		<!-- <div><a class="zc-ref" href="https://www.zingchart.com/">Powered by ZingChart</a></div> -->
 
 
-  <div class="container">
+  <div class="container row justify-content-around">
     <zingchart id = "myChart" zc-json = "myJson" zc-height = 500 zc-width = 600 ></zingchart>
     <div ng-if="$ctrl.lightOn == 1">
       <h3>Lights Are On</h3>
@@ -31,8 +31,8 @@
       <h3>Lights Are Off</h3>
       <img src="images/electric-light (1).png" alt="light-off">
     </div>
-  </div>
     <div id="myChart2"><a class="zc-ref" href="https://www.zingchart.com/">Powered by ZingChart</a></div>
+  </div>
 
     <!-- <form name="loginForm" class="navbar-form navbar-right" novalidate="" ng-submit="$ctrl.logIn()" role="search">
       <div class="form-group">
