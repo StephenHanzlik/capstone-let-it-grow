@@ -18,8 +18,8 @@
         let humidityLineArray = [];
 
       function onInit() {
-        // $http.get("http://localhost:3000/data")
-        $http.get("http://192.168.86.137")
+        $http.get("http://localhost:3000/data")
+        // $http.get("http://192.168.86.137")
         // $http.get("https://limitless-river-10033.herokuapp.com/data")
         .then(response => {
           console.log(response);
