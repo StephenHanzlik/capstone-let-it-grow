@@ -7,6 +7,8 @@ const boom = require('boom');
 
 
 router.get('/', function(req, res, next) {
+  console.log("get request hit:");
+  console.log(req);
   knex('data')
     .orderBy('created_at', 'desc')
     .limit(9)
@@ -19,7 +21,7 @@ router.get('/', function(req, res, next) {
 });
 
 
-router.post('/', validate, (req, res, next) => {
+router.post('/', (req, res, next) => {
   knex('data')
     .insert(params(req))
     .returning('*')

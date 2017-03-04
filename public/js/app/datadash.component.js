@@ -18,22 +18,21 @@
         let humidityLineArray = [];
 
       function onInit() {
-        $http.get("http://localhost:3000/data")
+        // $http.get("http://localhost:3000/data")
+        $http.get("192.168.86.137")
         // $http.get("https://limitless-river-10033.herokuapp.com/data")
         .then(response => {
+          console.log(response.data);
           greenTempData = response.data[0].temperature;
           yellowHumidityData = response.data[0].humidity;
           let timeString =  response.data[8].created_at;
           let timeStamp = Date.parse(timeString);
           vm.lightOn = response.data[0].light;
-          // let epochTime = timeStamp.getTime();
-          // console.log(timeStamp);
-          // console.log(timeStamp);
+
 
           for(let i = 0; i <= 8; i++){
             tempLineArray.push(response.data[i].temperature);
             humidityLineArray.push(response.data[i].humidity);
-            // createdAtArray.push(response.data[i].created_at);
           }
 
           window.feed = function(callback) {
