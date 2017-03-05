@@ -9,7 +9,7 @@ const boom = require('boom');
 router.get('/', function(req, res, next) {
   knex('data')
     .orderBy('created_at', 'desc')
-    .limit(9)
+    // .limit(9)
     .then((result) => {
       res.send(result);
     })
@@ -19,6 +19,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', (req, res, next) => {
+  console.log("post request on local host DATA");
   const { light, temperature, humidity, soil_moisture } = req.body;
   const insertPost = { light, temperature, humidity, soil_moisture  };
   knex('data')
