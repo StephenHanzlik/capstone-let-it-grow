@@ -22,6 +22,14 @@ router.post('/', (req, res, next) => {
   console.log("post request on local host DATA");
   const { light, temperature, humidity, soil_moisture } = req.body;
   const insertPost = { light, temperature, humidity, soil_moisture  };
+  insertPost.created_at = new Date();
+  console.log(insertPost);
+  // for(let i = 0; i <= 3; i++){
+  //   if(insertPost.soil_moisture.charAt(i) === "T"){
+  //       insertPost.light = insertPost.soil_moisture.charAt(i + 1);
+  //
+  //   }
+  // }
   knex('data')
     .insert((insertPost), '*')
     .then((results) => {
