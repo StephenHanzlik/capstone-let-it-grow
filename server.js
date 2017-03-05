@@ -15,10 +15,7 @@ app.use(bodyParser.urlencoded({
 
 app.use(express.static(path.join(__dirname, 'public')))
 
-console.log("before get in serverjs");
-
 app.get('/', function(req, res, next) {
-  console.log("get route hit");
   res.sendStatus(200);
   // res.sendFile('index.html');
   //
@@ -48,7 +45,6 @@ const port = process.env.PORT || 3000;
 
 app.listen(port, () => {
   console.log('Listening on port', port);
-  console.log("dinkydinky");
 });
 
 module.exports = app;
