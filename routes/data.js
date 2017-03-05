@@ -20,8 +20,8 @@ router.get('/', function(req, res, next) {
 
 
 router.post('/', (req, res, next) => {
-  console.log("post request");
-  console.log(req.data);
+  console.log("req.body");
+  console.log(req.body);
   knex('data')
     .insert(params(req))
     .returning('*')
