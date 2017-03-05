@@ -3,7 +3,6 @@
 const express = require('express');
 const app = express();
 
-const messages = require('./routes/classifieds');
 const bodyParser = require('body-parser');
 const path = require('path')
 

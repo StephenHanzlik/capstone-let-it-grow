@@ -18,25 +18,45 @@ router.get('/', function(req, res, next) {
     });
 });
 
-
 router.post('/', (req, res, next) => {
-  console.log("req.body");
-  console.log(req.body);
+  const { id, light, temperature, humidity, soil_moisture } = req.body;
+  const insertPost = { id, light, temperature, humidity, soil_moisture  };
   knex('data')
-    .insert(params(req))
-    .returning('*')
-    .then(posts => res.json(posts[0]))
-    .catch(err => next(boom.create(500, 'Failed to Post Data')));
+    .insert((insertPost), '*')
+    .then((results) => {
+      let resObj = results[0];
+      let returnObj = {
+        id: resObj.id,
+        light: resObj.light,
+        temperature: resObj.temperature,
+        humidity: resObj.humidity,
+        soil_moisture: resObj.soil_moisture
+      }
+      res.send(returnObj);
+    })
+    .catch((err) => {
+      next(err);
+    });
 });
 
-function params(req) {
-  return {
-    temperature: req.body.temperature,
-    light: req.body.light,
-    humidity: req.body.humidity,
-    soil_moisture: req.body.soil_moisture,
-  }
-}
+// router.post('/', (req, res, next) => {
+//   console.log("req.body");
+//   console.log(req.body);
+//   knex('data')
+//     .insert(params(req))
+//     .returning('*')
+//     .then(posts => res.json(posts[0]))
+//     .catch(err => next(boom.create(500, 'Failed to Post Data')));
+// });
+//
+// function params(req) {
+//   return {
+//     temperature: req.body.temperature,
+//     light: req.body.light,
+//     humidity: req.body.humidity,
+//     soil_moisture: req.body.soil_moisture,
+//   }
+// }
 
 function validate(req, res, next) {
   const errors = [];
