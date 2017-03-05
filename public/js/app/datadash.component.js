@@ -41,7 +41,8 @@
             tempLineArray.push(response.data[i].temperature);
             humidityLineArray.push(response.data[i].humidity);
           }
-      }
+      });
+    }
 
       function onInit() {
         // $http.get("http://localhost:3000/data")
