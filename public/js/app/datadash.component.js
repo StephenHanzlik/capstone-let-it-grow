@@ -8,6 +8,7 @@
 
         vm.$onInit = onInit;
         vm.lightOn = 1;
+
         // $scope.greenData = 78;
         let greenTempData = 0;
         let yellowHumidityData = 0;
@@ -16,6 +17,12 @@
         let timeStamp = 0;
         // [34, 55, 66, 76, 78, 83, 56, 54, 54];
         let humidityLineArray = [];
+
+        var timerData = $interval(function () {
+            if(!$scope.loading){
+                onInit();
+            }
+        }, 1000);
 
       function onInit() {
         // $http.get("http://localhost:3000/data")
