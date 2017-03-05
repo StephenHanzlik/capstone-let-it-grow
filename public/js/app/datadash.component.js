@@ -37,10 +37,12 @@
           vm.lightOn = response.data[0].light;
 
 
-          for(let i = 0; i <= 8; i++){
-            tempLineArray.push(response.data[i].temperature);
-            humidityLineArray.push(response.data[i].humidity);
-          }
+          // for(let i = 0; i <= 8; i++){
+            tempLineArray.shift();
+            humidityLineArray.shift();
+            tempLineArray.push(response.data[0].temperature);
+            humidityLineArray.push(response.data[0].humidity);
+          // }
       });
     }
 
