@@ -8,6 +8,7 @@
 
         vm.$onInit = onInit;
         vm.lightOn = 1;
+        vm.update = update;
 
 
         // $scope.greenData = 78;
@@ -21,9 +22,26 @@
 
         var timerData = $interval(function () {
             if(!$scope.loading){
-                onInit();
+                update();
             }
         }, 1000);
+
+      function update() {
+        $http.get("https://limitless-river-10033.herokuapp.com/data")
+        .then(response => {
+          console.log(response.data);
+          greenTempData = response.data[0].temperature;
+          yellowHumidityData = response.data[0].humidity;
+          let timeString =  response.data[8].created_at;
+          let timeStamp = Date.parse(timeString);
+          vm.lightOn = response.data[0].light;
+
+
+          for(let i = 0; i <= 8; i++){
+            tempLineArray.push(response.data[i].temperature);
+            humidityLineArray.push(response.data[i].humidity);
+          }
+      }
 
       function onInit() {
         // $http.get("http://localhost:3000/data")
@@ -44,11 +62,11 @@
             humidityLineArray.push(response.data[i].humidity);
           }
 
-          window.feed = function(callback) {
-    var tick = {};
-    tick.plot0 = Math.ceil(350 + (Math.random() * 500));
-    callback(JSON.stringify(tick));
-  };
+        window.feed = function(callback) {
+        var tick = {};
+        tick.plot0 = Math.ceil(350 + (Math.random() * 500));
+        callback(JSON.stringify(tick));
+        };
 
   var myConfig = {
    	type: "gauge",
