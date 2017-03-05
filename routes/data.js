@@ -19,14 +19,14 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', (req, res, next) => {
-  const { id, light, temperature, humidity, soil_moisture } = req.body;
-  const insertPost = { id, light, temperature, humidity, soil_moisture  };
+  const { light, temperature, humidity, soil_moisture } = req.body;
+  const insertPost = { light, temperature, humidity, soil_moisture  };
   knex('data')
     .insert((insertPost), '*')
     .then((results) => {
       let resObj = results[0];
       let returnObj = {
-        id: resObj.id,
+        // id: resObj.id,
         light: resObj.light,
         temperature: resObj.temperature,
         humidity: resObj.humidity,
