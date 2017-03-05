@@ -3,11 +3,12 @@
 
   angular.module('app')
     .component('datadash', {
-      controller: function($state, $http, $scope) {
+      controller: function($state, $http, $scope, $interval) {
         const vm = this
 
         vm.$onInit = onInit;
         vm.lightOn = 1;
+
 
         // $scope.greenData = 78;
         let greenTempData = 0;
