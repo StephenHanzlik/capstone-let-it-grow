@@ -18,11 +18,12 @@
         let humidityLineArray = [];
 
       function onInit() {
-        $http.get("http://localhost:3000/data")
-        // $http.get("http://192.168.86.137")
-        // $http.get("https://limitless-river-10033.herokuapp.com/data")
+        // $http.get("http://localhost:3000/data")
+        // $http.get("192.168.86.137")
+        // $http.get("10.0.0.27")
+        $http.get("https://limitless-river-10033.herokuapp.com/data")
         .then(response => {
-          console.log(response);
+          console.log(response.data);
           greenTempData = response.data[0].temperature;
           yellowHumidityData = response.data[0].humidity;
           let timeString =  response.data[8].created_at;

@@ -7,8 +7,6 @@ const boom = require('boom');
 
 
 router.get('/', function(req, res, next) {
-  console.log("get request hit:");
-  console.log(req);
   knex('data')
     .orderBy('created_at', 'desc')
     .limit(9)
