@@ -22,6 +22,7 @@ router.post('/', (req, res, next) => {
   const { light, temperature, humidity, soil_moisture } = req.body;
   const insertPost = { light, temperature, humidity, soil_moisture  };
   let lightToggle = 0;
+  console.log(insertPost.light);
   if(insertPost.light <= 0 && lightToggle <= 0){
     lightToggle += 1;
     var accountSid = 'AC674af2aaed607cbb23d6d2e718c30d6f';
