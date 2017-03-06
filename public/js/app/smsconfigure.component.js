@@ -23,7 +23,7 @@
                 arr.push(newString.charAt(i));
               }
               if(newString2.charAt(i) !== ":"){
-                arr2.push(newString.charAt(i));
+                arr2.push(newString2.charAt(i));
               }
               if(nowString.charAt(i) !== ":"){
                 nowArr.push(nowString.charAt(i));
