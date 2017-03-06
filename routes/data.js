@@ -19,13 +19,28 @@ router.get('/', function(req, res, next) {
 });
 
 let lightToggle = 0;
+let lightOnTime = 0;
+let lightOffTime = 0;
+let currentTime = 0;
+
 router.post('/', (req, res, next) => {
   const { light, temperature, humidity, soil_moisture } = req.body;
   const insertPost = { light, temperature, humidity, soil_moisture  };
   if(insertPost.humidity > 100){
     insertPost.humidity = 100;
   }
+  if(req.body.smsLightOn){
+      lightOffTime = req.body.smsLightOff;
+      lightOnTime = req.body.smsLightOn;
+      currentTime = req.body.currentTime;
+  }
   if(insertPost.light <= 0 && lightToggle <= 0){
+    if(currentTime >= lightOnTime && currentTime <= lightOnTime){
+      //then it is ok for the light to be on
+      console.log("light is ON during scheduled ON time");
+    }
+    else if (currentTime < lightOnTime && currentTime > lightOffTime){
+        console.log("light is OFF during scheduled ON time");
     lightToggle += 1;
     var accountSid = 'AC674af2aaed607cbb23d6d2e718c30d6f';
     var authToken = 'cceebb0dbcbfd2f072e45f83eae2b2b5';
@@ -45,6 +60,7 @@ router.post('/', (req, res, next) => {
       console.log(message.sid);
     });
   }
+}
   else if (insertPost.light >= 1 && lightToggle >= 1){
     lightToggle -= 1;
   }
@@ -68,35 +84,7 @@ router.post('/', (req, res, next) => {
     });
 });
 
-// router.post('/', (req, res, next) => {
-//   console.log("req.body");
-//   console.log(req.body);
-//   knex('data')
-//     .insert(params(req))
-//     .returning('*')
-//     .then(posts => res.json(posts[0]))
-//     .catch(err => next(boom.create(500, 'Failed to Post Data')));
-// });
-//
-// function params(req) {
-//   return {
-//     temperature: req.body.temperature,
-//     light: req.body.light,
-//     humidity: req.body.humidity,
-//     soil_moisture: req.body.soil_moisture,
-//   }
-// }
 
-function validate(req, res, next) {
-  const errors = [];
-  ['temperature', 'light', 'humidity', 'soil_moisture'].forEach(field => {
-    if (!req.body[field] || req.body[field].trim() === '') {
-      errors.push({ field: field, messages: ["cannot be blank"] })
-    }
-  })
-  if (errors.length) return res.status(422).json({ errors })
-  next()
-}
 
 
 
