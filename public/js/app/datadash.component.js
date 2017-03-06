@@ -32,7 +32,7 @@
           console.log(response.data);
           greenTempData = response.data[0].temperature;
           yellowHumidityData = response.data[0].humidity;
-          let timeString =  response.data[8].created_at;
+          let timeString =  response.data[0].created_at;
           let timeStamp = Date.parse(timeString);
           vm.lightOn = response.data[0].light;
 
@@ -55,7 +55,7 @@
           console.log(response.data);
           greenTempData = response.data[0].temperature;
           yellowHumidityData = response.data[0].humidity;
-          let timeString =  response.data[8].created_at;
+          let timeString =  response.data[0].created_at;
           let timeStamp = Date.parse(timeString);
           vm.lightOn = response.data[0].light;
 
