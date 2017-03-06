@@ -9,6 +9,7 @@
         vm.$onInit = onInit;
         vm.lightOn = 1;
         vm.update = update;
+        vm.timerData = timerData;
 
 
         // $scope.greenData = 78;
