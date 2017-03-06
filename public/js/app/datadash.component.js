@@ -22,19 +22,17 @@
         // [34, 55, 66, 76, 78, 83, 56, 54, 54];
         let humidityLineArray = [];
 
-        var timerData = $interval(function (greenTempData, yellowHumidityData) {
+        var timerData = $interval(function () {
           console.log(greenTempData);
             if(!$scope.loading){
-                update(greenTempData, yellowHumidityData);
+                update();
             }
         }, 1000);
 
-      function update(greenTempData, yellowHumidityData) {
+      function update() {
         $http.get("https://limitless-river-10033.herokuapp.com/data")
         .then(response => {
           console.log(response.data);
-          let greenTempData2 = response.data[0].temperature;
-          let yellowHumidityData2 = response.data[0].humidity;
           greenTempData = response.data[0].temperature;
           yellowHumidityData = response.data[0].humidity;
           let timeString =  response.data[0].created_at;
@@ -250,7 +248,7 @@
               },
               markers: [{
                 type: "area",
-                range: [0, greenTempData2],
+                range: [0, greenTempData],
                 backgroundColor: "#00AE4D",
                 alpha:.95,
               }]
@@ -274,7 +272,7 @@
             },
             series: [{
               //Green Dial
-              values: [greenTempData2],
+              values: [greenTempData],
               backgroundColor: "#23211E",
               valueBox: {
                 text: "%v",
@@ -344,7 +342,7 @@
               },
               markers: [{
                 type: "area",
-                range: [0, yellowHumidityData2],
+                range: [0, yellowHumidityData],
                 backgroundColor: "#E2D51A",
                 alpha:.95,
               }]
@@ -367,7 +365,7 @@
               visible: false
             },
             series: [{
-              values: [yellowHumidityData2],
+              values: [yellowHumidityData],
               backgroundColor: "#23211E",
               valueBox: {
                 text: "%v",
