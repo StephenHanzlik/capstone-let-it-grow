@@ -10,6 +10,7 @@
         vm.lightOn = 1;
         vm.update = update;
         vm.timerData = timerData;
+        vm.$interval = int;
 
 
         // $scope.greenData = 78;
@@ -21,7 +22,7 @@
         // [34, 55, 66, 76, 78, 83, 56, 54, 54];
         let humidityLineArray = [];
 
-        var timerData = $interval(function (greenTempData, yellowHumidityData) {
+        var timerData = $interval(function int (greenTempData, yellowHumidityData) {
             if(!$scope.loading){
                 update(greenTempData, yellowHumidityData);
             }
