@@ -64,7 +64,7 @@
             tempLineArray.push(response.data[i].temperature);
             humidityLineArray.push(response.data[i].humidity);
           }
-}//new of oninit
+
 
 
         window.feed = function(callback) {
@@ -480,7 +480,7 @@
           }]
         };
       });//end of get requests .then
-// }//end of onInit function
+}//end of onInit function
 
 
       },
