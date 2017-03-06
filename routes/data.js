@@ -36,7 +36,7 @@ router.post('/', (req, res, next) => {
   }
   if(insertPost.light <= 0 && lightToggle <= 0){
     if(currentTime >= lightOnTime && currentTime <= lightOnTime){
-      //then it is ok for the light to be on
+      //then it is ok for the light to be on and we do nothing
       console.log("light is ON during scheduled ON time");
     }
     else if (currentTime < lightOnTime && currentTime > lightOffTime){
