@@ -23,7 +23,7 @@ router.post('/', (req, res, next) => {
   const { light, temperature, humidity, soil_moisture } = req.body;
   const insertPost = { light, temperature, humidity, soil_moisture  };
   if(insertPost.humidity > 100){
-    insertPost.humidty === 100;
+    insertPost.humidity = 100;
   }
   if(insertPost.light <= 0 && lightToggle <= 0){
     lightToggle += 1;
