@@ -7,7 +7,30 @@
         const vm = this
 
         // vm.$onInit = onInit;
-        // vm.logIn = logIn;
+        vm.smsSettings = smsSettings;
+
+
+        function smsSettings(){
+          let arr = [];
+            for(let i = 16; i <= 20; i++){
+              let newString = vm.smsSettingForm.lightsOnInput.toString();
+              if(newString.charAt(i) !== ":"){
+                arr.push(newString.charAt(i));
+              }
+            }
+            let joinedString = arr.join('');
+            let onTimeInt = parseInt(joinedString, 10);
+            let postObj = {
+              smsLight: onTimeInt
+            }
+
+            $http.post("https://localhost:3000/data", postObj)
+            .then(response => {
+
+            });
+
+        }
+
 
       },
       // template: `<h1>I am hardcoded template for dataDash</h1>`
