@@ -33,7 +33,6 @@ router.post('/', (req, res, next) => {
       lightOffTime = req.body.smsLightOff;
       lightOnTime = req.body.smsLightOn;
       currentTime = req.body.currentTime;
-      alert(lightOffOn);
   }
   if(insertPost.light <= 0 && lightToggle <= 0){
     if(currentTime >= lightOnTime && currentTime <= lightOnTime){
