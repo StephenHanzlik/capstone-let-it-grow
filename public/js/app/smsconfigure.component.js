@@ -42,7 +42,7 @@
             }
             console.log(postObj);
 
-            $http.post("http://localhost:3000/data", postObj)
+            $http.post("https://limitless-river-10033.herokuapp.com/data", postObj)
             .then(response => {
 
             });
