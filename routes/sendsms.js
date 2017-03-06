@@ -13,8 +13,7 @@ router.get('/', (req, res, next) => {
 });
 
 router.post('/', (req, res, next) => {
-  console.log(req.body);
-  if(req.body.lightOff === "1"){
+  if(req.body.lightOff <= 1){
     var accountSid = 'AC674af2aaed607cbb23d6d2e718c30d6f';
     var authToken = 'cceebb0dbcbfd2f072e45f83eae2b2b5';
 

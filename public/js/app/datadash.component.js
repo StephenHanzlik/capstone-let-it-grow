@@ -10,6 +10,7 @@
         vm.lightOn = 1;
         vm.update = update;
         vm.timerData = timerData;
+        vm.disableLightAlert = 0;
         // vm.$interval = interval;
 
 
@@ -38,6 +39,18 @@
           let timeString =  response.data[0].created_at;
           let timeStamp = Date.parse(timeString);
           vm.lightOn = response.data[0].light;
+
+          if(vm.lightOn <= 1 && vm.disableLightAlert <= 0){
+            vm.disableLightAlert += 1;
+            vm.data.lightOff = vm.lightOn;
+            $http.post("https://limitless-river-10033.herokuapp.com/smssend", vm.data)
+            .then(response => {
+              console.log("Light Event Noticication SMS Sent");
+            }
+          }
+          else if (vm.lightOn >= 1 && vm.disableLightAlert >= 0){
+            vm.disableLightAlert -= 1;
+          }
 
 
           // for(let i = 0; i <= 8; i++){
