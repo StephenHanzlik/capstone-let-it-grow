@@ -33,6 +33,8 @@
         $http.get("https://limitless-river-10033.herokuapp.com/data")
         .then(response => {
           console.log(response.data);
+          let greenTempData2 = response.data[0].temperature;
+          let yellowHumidityData2 = response.data[0].humidity;
           greenTempData = response.data[0].temperature;
           yellowHumidityData = response.data[0].humidity;
           let timeString =  response.data[0].created_at;
@@ -248,7 +250,7 @@
               },
               markers: [{
                 type: "area",
-                range: [0, greenTempData],
+                range: [0, greenTempData2],
                 backgroundColor: "#00AE4D",
                 alpha:.95,
               }]
@@ -272,7 +274,7 @@
             },
             series: [{
               //Green Dial
-              values: [greenTempData],
+              values: [greenTempData2],
               backgroundColor: "#23211E",
               valueBox: {
                 text: "%v",
@@ -342,7 +344,7 @@
               },
               markers: [{
                 type: "area",
-                range: [0, yellowHumidityData],
+                range: [0, yellowHumidityData2],
                 backgroundColor: "#E2D51A",
                 alpha:.95,
               }]
@@ -365,7 +367,7 @@
               visible: false
             },
             series: [{
-              values: [yellowHumidityData],
+              values: [yellowHumidityData2],
               backgroundColor: "#23211E",
               valueBox: {
                 text: "%v",
