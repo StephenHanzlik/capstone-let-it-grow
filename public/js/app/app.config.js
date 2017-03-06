@@ -16,7 +16,7 @@
         component: 'mainLanding',
       })
       .state({
-        name: 'signUp',
+        name: 'signup',
         url: '/signup',
         component: 'signUp',
       })
