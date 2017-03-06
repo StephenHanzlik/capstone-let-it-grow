@@ -47,7 +47,7 @@
             $http.post("https://limitless-river-10033.herokuapp.com/smssend", vm.data)
             .then(response => {
               console.log("Light Event Noticication SMS Sent");
-            }
+            });
           }
           else if (lightOn >= 1 && disableLightAlert >= 0){
             disableLightAlert -= 1;
