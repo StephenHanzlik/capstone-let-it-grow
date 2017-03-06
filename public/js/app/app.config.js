@@ -16,9 +16,9 @@
         component: 'mainLanding',
       })
       .state({
-        name: 'signup',
-        url: '/signup',
-        component: 'signUp',
+        name: 'smsconfigure',
+        url: '/smsconfigure',
+        component: 'smsConfigure',
       })
       .state({
         name: 'loginPage',

@@ -2,7 +2,7 @@
   'use strict'
 
   angular.module('app')
-    .component('signUp', {
+    .component('smsConfigure', {
       controller: function($state, $http) {
         const vm = this
 
@@ -12,7 +12,7 @@
       },
       // template: `<h1>I am hardcoded template for dataDash</h1>`
 
-      templateUrl: "js/app/signup.template.html"
+      templateUrl: "js/app/smsconfigure.template.html"
     })
 
 }());
