@@ -12,11 +12,11 @@
 
 
         // $scope.greenData = 78;
-        let greenTempDataArr = [];
-        let yellowHumidityDataArr = [];
-        let createdAtArray = [];
+        let greenTempData = 0;
+        let yellowHumidityData = 0;
+        // let createdAtArray = [];
         let tempLineArray = [];
-        let timeStamp = 0;
+        // let timeStamp = 0;
         // [34, 55, 66, 76, 78, 83, 56, 54, 54];
         let humidityLineArray = [];
 
@@ -30,16 +30,14 @@
         $http.get("https://limitless-river-10033.herokuapp.com/data")
         .then(response => {
           console.log(response.data);
-          greenTempDataArr.unshift(response.data[0].temperature);
-          yellowHumidityDataArr.unshift(response.data[0].humidity);
+          greenTempData = response.data[0].temperature;
+          yellowHumidityData = response.data[0].humidity;
           let timeString =  response.data[8].created_at;
           let timeStamp = Date.parse(timeString);
           vm.lightOn = response.data[0].light;
 
 
           // for(let i = 0; i <= 8; i++){
-            greenTempDataArr.pop();
-            yellowHumidityDataArr.pop();
             tempLineArray.shift();
             humidityLineArray.shift();
             tempLineArray.push(response.data[0].temperature);
@@ -48,17 +46,15 @@
       });
     }
 
-      function onInit() {
+      function onInit(greenTempData, yellowHumidityData) {
         // $http.get("http://localhost:3000/data")
         // $http.get("192.168.86.137")
         // $http.get("10.0.0.27")
         $http.get("https://limitless-river-10033.herokuapp.com/data")
         .then(response => {
           console.log(response.data);
-          greenTempDataArr.unshift(response.data[0].temperature);
-          yellowHumidityDataArr.unshift(response.data[0].humidity);
-          // greenTempData = response.data[0].temperature;
-          // yellowHumidityData = response.data[0].humidity;
+          greenTempData = response.data[0].temperature;
+          yellowHumidityData = response.data[0].humidity;
           let timeString =  response.data[8].created_at;
           let timeStamp = Date.parse(timeString);
           vm.lightOn = response.data[0].light;
@@ -247,7 +243,7 @@
               },
               markers: [{
                 type: "area",
-                range: [0, greenTempDataArr[0]],
+                range: [0, greenTempData],
                 backgroundColor: "#00AE4D",
                 alpha:.95,
               }]
@@ -271,7 +267,7 @@
             },
             series: [{
               //Green Dial
-              values: [greenTempDataArr[0]],
+              values: [greenTempData],
               backgroundColor: "#23211E",
               valueBox: {
                 text: "%v",
@@ -341,7 +337,7 @@
               },
               markers: [{
                 type: "area",
-                range: [0, yellowHumidityDataArr[0]],
+                range: [0, yellowHumidityData],
                 backgroundColor: "#E2D51A",
                 alpha:.95,
               }]
@@ -364,7 +360,7 @@
               visible: false
             },
             series: [{
-              values: [yellowHumidityData[0]],
+              values: [yellowHumidityData],
               backgroundColor: "#23211E",
               valueBox: {
                 text: "%v",
