@@ -38,20 +38,20 @@
           let timeString =  response.data[0].created_at;
           let timeStamp = Date.parse(timeString);
           let lightOn = response.data[0].light;
-          let disableLightAlert = 0;
+          // let disableLightAlert = 0;
 
 
-          if(lightOn <= 1 && disableLightAlert <= 0){
-            disableLightAlert += 1;
-            // vm.data.lightOff = lightOn;
-            $http.post("https://limitless-river-10033.herokuapp.com/smssend", lightOn)
-            .then(response => {
-              console.log("Light Event Noticication SMS Sent");
-            });
-          }
-          else if (lightOn >= 1 && disableLightAlert >= 0){
-            disableLightAlert -= 1;
-          }
+          // if(lightOn <= 1 && disableLightAlert <= 0){
+          //   disableLightAlert += 1;
+          //   // vm.data.lightOff = lightOn;
+          //   $http.post("https://limitless-river-10033.herokuapp.com/smssend", lightOn)
+          //   .then(response => {
+          //     console.log("Light Event Noticication SMS Sent");
+          //   });
+          // }
+          // else if (lightOn >= 1 && disableLightAlert >= 0){
+          //   disableLightAlert -= 1;
+          // }
 
 
           // for(let i = 0; i <= 8; i++){
