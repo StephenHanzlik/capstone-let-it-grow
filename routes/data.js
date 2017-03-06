@@ -24,17 +24,12 @@ let lightOffTime = 0;
 let currentTime = 0;
 
 router.post('/', (req, res, next) => {
-  const { light, temperature, humidity, soil_moisture } = req.body;
-  const insertPost = { light, temperature, humidity, soil_moisture  };
-  if(insertPost.humidity > 100){
-    insertPost.humidity = 100;
-  }
   if(req.body.smsLightOn){
       lightOffTime = req.body.smsLightOff;
       lightOnTime = req.body.smsLightOn;
       currentTime = req.body.currentTime;
   }
-  if(insertPost.light <= 0 && lightToggle <= 0){
+  if(req.body.smsLightOn <= 0 && lightToggle <= 0){
     if(currentTime >= lightOnTime && currentTime <= lightOnTime){
       //then it is ok for the light to be on and we do nothing
       console.log("light is ON during scheduled ON time");
@@ -60,9 +55,17 @@ router.post('/', (req, res, next) => {
       console.log(message.sid);
     });
   }
-}
-  else if (insertPost.light >= 1 && lightToggle >= 1){
+  else if (req.body.smsLightOn >= 1 && lightToggle >= 1){
     lightToggle -= 1;
+  }
+}
+
+if(req.body.humidity && req.body.temperature){
+
+  const { light, temperature, humidity, soil_moisture } = req.body;
+  const insertPost = { light, temperature, humidity, soil_moisture  };
+  if(insertPost.humidity > 100){
+    insertPost.humidity = 100;
   }
   insertPost.created_at = new Date();
   knex('data')
@@ -82,6 +85,7 @@ router.post('/', (req, res, next) => {
     .catch((err) => {
       next(err);
     });
+  }
 });
 
 
