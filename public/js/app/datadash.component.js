@@ -37,7 +37,7 @@
           yellowHumidityData = response.data[0].humidity;
           let timeString =  response.data[0].created_at;
           let timeStamp = Date.parse(timeString);
-          let lightOn = response.data[0].light;
+          vm.lightOn = response.data[0].light;
           // let disableLightAlert = 0;
 
 
