@@ -12,8 +12,8 @@
 
 
         // $scope.greenData = 78;
-        let greenTempData = 0;
-        let yellowHumidityData = 0;
+        let greenTempDataArr = [];
+        let yellowHumidityDataArr = [];
         let createdAtArray = [];
         let tempLineArray = [];
         let timeStamp = 0;
@@ -30,14 +30,16 @@
         $http.get("https://limitless-river-10033.herokuapp.com/data")
         .then(response => {
           console.log(response.data);
-          greenTempData = response.data[0].temperature;
-          yellowHumidityData = response.data[0].humidity;
+          greenTempDataArr.unshift(response.data[0].temperature);
+          yellowHumidityDataArr.unshift(response.data[0].humidity);
           let timeString =  response.data[8].created_at;
           let timeStamp = Date.parse(timeString);
           vm.lightOn = response.data[0].light;
 
 
           // for(let i = 0; i <= 8; i++){
+            greenTempDataArr.pop();
+            yellowHumidityDataArr.pop();
             tempLineArray.shift();
             humidityLineArray.shift();
             tempLineArray.push(response.data[0].temperature);
@@ -53,8 +55,10 @@
         $http.get("https://limitless-river-10033.herokuapp.com/data")
         .then(response => {
           console.log(response.data);
-          greenTempData = response.data[0].temperature;
-          yellowHumidityData = response.data[0].humidity;
+          greenTempDataArr.unshift(response.data[0].temperature);
+          yellowHumidityDataArr.unshift(response.data[0].humidity);
+          // greenTempData = response.data[0].temperature;
+          // yellowHumidityData = response.data[0].humidity;
           let timeString =  response.data[8].created_at;
           let timeStamp = Date.parse(timeString);
           vm.lightOn = response.data[0].light;
@@ -243,7 +247,7 @@
               },
               markers: [{
                 type: "area",
-                range: [0, greenTempData],
+                range: [0, greenTempDataArr[0]],
                 backgroundColor: "#00AE4D",
                 alpha:.95,
               }]
@@ -267,7 +271,7 @@
             },
             series: [{
               //Green Dial
-              values: [greenTempData],
+              values: [greenTempDataArr[0]],
               backgroundColor: "#23211E",
               valueBox: {
                 text: "%v",
@@ -337,7 +341,7 @@
               },
               markers: [{
                 type: "area",
-                range: [0, yellowHumidityData],
+                range: [0, yellowHumidityDataArr[0]],
                 backgroundColor: "#E2D51A",
                 alpha:.95,
               }]
@@ -360,7 +364,7 @@
               visible: false
             },
             series: [{
-              values: [yellowHumidityData],
+              values: [yellowHumidityData[0]],
               backgroundColor: "#23211E",
               valueBox: {
                 text: "%v",
