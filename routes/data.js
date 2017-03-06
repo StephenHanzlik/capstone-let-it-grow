@@ -36,7 +36,9 @@ router.post('/', (req, res, next) => {
       // to: "+14848666955",//Keller
 
       from: "+14846265179",
-      body: "This is the ship that made the Kessel Run in fourteen parsecs?",
+      // body: "This is the ship that made the Kessel Run in fourteen parsecs?",
+      body: "WARNING:  Lights have turned off out of scedule",
+
     }, function(err, message) {
       console.log(message.sid);
     });
