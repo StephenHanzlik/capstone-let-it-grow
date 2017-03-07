@@ -16,7 +16,7 @@
           // let timeString =  response.data[0].created_at;
           // let timeStamp = Date.parse(timeString);
           // vm.lightOn = response.data[0].light;
-          let light = response.data[0];
+          let light = response;
           return light;
     })
   }
