@@ -57,7 +57,7 @@ function foo(address, fn, obj){
 foo("address", function(settings, insertPost){
   console.log("settings");
   console.log(settings);
-  let currentTime = new Date();
+  let now = new Date();
   let arrNow = [];
   let nowString = now.toString();
   for(let i = 16; i <= 20; i++){
@@ -71,13 +71,15 @@ foo("address", function(settings, insertPost){
   if(currentTimeInt >= settings.on_time && currentTimeInt <= settings.off_time && insertPost.light < 1){
 
     //send text warning about lights
-    console.log();
+    console.log("CF1");
   }
   if(insertPost.temperature >= settings.max_temp || insertPost.temperature <= settings.min_temp) {
     //send warning text about temps w/ metric included
+    console.log("CF2");
   }
   if(insertPost.humidity >= settings.max_humid || insertPost.humidity <= settings.humid) {
     //send warning text about humid w/ metric included
+    console.log("CF3");
   }
 
         knex('data')
