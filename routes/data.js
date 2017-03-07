@@ -39,13 +39,22 @@ router.post('/', (req, res, next) => {
     json: true // Automatically parses the JSON string in the response
 };
 
-rp(options)
-    .then(function (repos) {
-        console.log(repos);
-    })
-    .catch(function (err) {
-        // API call failed...
-    });
+function foo(address, fn){
+  rp(options)
+  .then(function (data) {
+    console.log(data);
+    fn(data);
+  })
+  .catch(function (err) {
+    // API call failed...
+  });
+}
+
+foo("adress", function(location){
+  console.log("foo");
+  console.log(location);
+})
+
   // request({
   //   uri: "https://limitless-river-10033.herokuapp.com/smssettings",
   //   method: "GET"
