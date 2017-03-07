@@ -26,7 +26,7 @@
     //       let light = response;
     //       return light;
     // })
-  }
+
     this.dinky = 45;
     this.sayHi = function (){
       return "hello service";
