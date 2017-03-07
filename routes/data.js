@@ -5,7 +5,7 @@ const router = express.Router();
 const knex = require('../knex');
 const boom = require('boom');
 const request = require("request");
-const http = require('http');
+// const http = require('http');
 
 
 router.get('/', function(req, res, next) {
@@ -30,28 +30,17 @@ router.post('/', (req, res, next) => {
   const { light, temperature, humidity, soil_moisture } = req.body;
   const insertPost = { light, temperature, humidity, soil_moisture  };
 
-  var options = {
-    host: 'https://limitless-river-10033.herokuapp.com',
-    port: 80,
-    path: '/smssettings'
-  };
 
-  http.get(options, function(res) {
-    console.log("Got response: " + res.statusCode);
-  }).on('error', function(e) {
-    console.log("Got error: " + e.message);
+  request({
+    uri: "https://limitless-river-10033.herokuapp.com/smssettings",
+    method: "GET"
+  }, function  (error, response, body) {
+    // console.log(body);
+    // if(body.on_time === 1123){}
+    // if(true){
+    console.log("body.light");
+    console.log(body.light);
   });
-
-  // let youshallnotpass = request({
-  //   uri: "https://limitless-river-10033.herokuapp.com/smssettings",
-  //   method: "GET"
-  // }, function  (error, response, body) {
-  //   // console.log(body);
-  //   // if(body.on_time === 1123){}
-  //   // if(true){
-  //   holdVal = body.light
-  //   return body.light;
-  // });
 // console.log("youshallnotpass");
 // console.log(youshallnotpass);
 // console.log("holdVal");
