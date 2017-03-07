@@ -22,8 +22,8 @@
             console.log("promise");
             console.log(response);
             vm.data = response;
-            light = response;
-            return light;
+            let d = response;
+            return d;
           })
           console.log("outside of function scope");
           console.log(light);
