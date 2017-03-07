@@ -30,6 +30,10 @@ router.post('/', (req, res, next) => {
 
   const { light, temperature, humidity, soil_moisture } = req.body;
   const insertPost = { light, temperature, humidity, soil_moisture  };
+  if(insertPost.humidity > 100){
+    insertPost.humidity = 100;
+  }
+  insertPost.created_at = new Date();
 
   var options = {
     uri: 'https://limitless-river-10033.herokuapp.com/smssettings',
@@ -53,27 +57,46 @@ function foo(address, fn, obj){
 foo("address", function(settings, insertPost){
   console.log("settings");
   console.log(settings);
-  if(insertPost.humidity > 100){
-    insertPost.humidity = 100;
+  let currentTime = new Date();
+  let arrNow = [];
+  let nowString = now.toString();
+  for(let i = 16; i <= 20; i++){
+    if(nowString.charAt(i) !== ":"){
+      arrNow.push(nowString.charAt(i));
+    }
   }
-  insertPost.created_at = new Date();
-  knex('data')
-    .insert((insertPost), '*')
-    .then((results) => {
-      let resObj = results[0];
-      let returnObj = {
-        // id: resObj.id,
-        light: resObj.light,
-        temperature: resObj.temperature,
-        humidity: resObj.humidity,
-        soil_moisture: resObj.soil_moisture,
-        created_at: resObj.created_at
-      }
-      res.send(returnObj);
-    })
-    .catch((err) => {
-      next(err);
-    });
+  let joinedNowString = arrNow.join('');
+  let currentTimeInt = parseInt(joinedNowString);
+
+  if(currentTimeInt >= settings.on_time && currentTimeInt <= settings.off_time && insertPost.light < 1){
+
+    //send text warning about lights
+    console.log();
+  }
+  if(insertPost.temperature >= settings.max_temp || insertPost.temperature <= settings.min_temp) {
+    //send warning text about temps w/ metric included
+  }
+  if(insertPost.humidity >= settings.max_humid || insertPost.humidity <= settings.humid) {
+    //send warning text about humid w/ metric included
+  }
+
+        knex('data')
+          .insert((insertPost), '*')
+          .then((results) => {
+            let resObj = results[0];
+            let returnObj = {
+              // id: resObj.id,
+              light: resObj.light,
+              temperature: resObj.temperature,
+              humidity: resObj.humidity,
+              soil_moisture: resObj.soil_moisture,
+              created_at: resObj.created_at
+            }
+            res.send(returnObj);
+          })
+          .catch((err) => {
+            next(err);
+          });
 
 
 }, insertPost)

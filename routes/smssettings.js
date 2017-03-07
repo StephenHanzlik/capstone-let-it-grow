@@ -8,6 +8,7 @@ const boom = require('boom');
 
 router.get('/', (req, res, next) => {
   knex('settings')
+    .orderBy('id', 'desc')
     .first()
     .then((result) => {
       res.send(result);
@@ -18,6 +19,18 @@ router.get('/', (req, res, next) => {
 });
 
 router.post('/', (req, res, next) => {
+  const { on_time, off_time, max_temp, min_temp, max_humid, min_humid } = req.body;
+  const insertPost = { on_time, off_time, max_temp, min_temp, max_humid, min_humid };
+
+  knex('data')
+    .insert((insertPost), '*')
+    .then((results) => {
+      let resObj = results[0];
+      res.send(resObj);
+    })
+    .catch((err) => {
+      next(err);
+    });
 
 
   // if(req.body.lightOff <= 1){
