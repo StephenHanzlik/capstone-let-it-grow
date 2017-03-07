@@ -7,9 +7,8 @@ const boom = require('boom');
 
 
 router.get('/', (req, res, next) => {
-  knex('data')
-    .orderBy('id', 'desc')
-    .limit(9)
+  knex('settings')
+    .first()
     .then((result) => {
       res.send(result);
     })

@@ -18,11 +18,11 @@ router.get('/', function(req, res, next) {
       next(boom.create(500, 'Database Query Failed'));
     });
 });
-
-let lightToggle = 0;
-let lightOnTime = 0;
-let lightOffTime = 0;
-let currentTime = 0;
+//
+// let lightToggle = 0;
+// let lightOnTime = 0;
+// let lightOffTime = 0;
+// let currentTime = 0;
 
 router.post('/', (req, res, next) => {
 
@@ -30,7 +30,9 @@ router.post('/', (req, res, next) => {
     uri: "https://limitless-river-10033.herokuapp.com/smssettings",
     method: "GET"
   }, function(error, response, body) {
-    console.log(response.data);
+    if(response.data){
+      res.send(5555);
+    }
   });
 
 //   if(req.body.smsLightOn){
