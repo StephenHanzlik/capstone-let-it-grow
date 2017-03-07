@@ -19,10 +19,11 @@ router.get('/', (req, res, next) => {
 });
 
 router.post('/', (req, res, next) => {
+  console.log(req.body);
   const { on_time, off_time, max_temp, min_temp, max_humid, min_humid } = req.body;
   const insertPost = { on_time, off_time, max_temp, min_temp, max_humid, min_humid };
 
-  knex('data')
+  knex('settings')
     .insert((insertPost), '*')
     .then((results) => {
       let resObj = results[0];
