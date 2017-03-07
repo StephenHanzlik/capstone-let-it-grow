@@ -30,20 +30,17 @@ router.post('/', (req, res, next) => {
   const { light, temperature, humidity, soil_moisture } = req.body;
   const insertPost = { light, temperature, humidity, soil_moisture  };
 
+  var options = {
+    host: 'https://limitless-river-10033.herokuapp.com',
+    port: 80,
+    path: '/smssettings'
+  };
 
-var options = {
-  host: 'https://limitless-river-10033.herokuapp.com',
-  path: '/smssettings'
-};
-
-http.get(options, function(resp){
-  resp.on('data', function(chunk){
-  console.log("this is chunk");
-  console.log(chunk);
+  http.get(options, function(res) {
+    console.log("Got response: " + res.statusCode);
+  }).on('error', function(e) {
+    console.log("Got error: " + e.message);
   });
-}).on("error", function(e){
-  console.log("Got error: " + e.message);
-});
 
   // let youshallnotpass = request({
   //   uri: "https://limitless-river-10033.herokuapp.com/smssettings",
