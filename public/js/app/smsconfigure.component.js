@@ -20,7 +20,11 @@
           promise.then(function(response){
             console.log("promise");
             console.log(response);
+            vm.data = response;
+            console.log(vm.data.light);
           })
+          console.log("outside of function scope");
+          console.log(vd.data.light);
           // .then(response => vm.data = response);
           // let data = vm.data;
           // console.log("ctrl onInit logs:");
