@@ -14,7 +14,7 @@
 
       vm.smsSettings = smsSettings;
       vm.$onInit = onInit;
-      let light;
+      let light = onInit();
 
       function onInit(){
           let promise = formService.getData();
@@ -23,7 +23,7 @@
             console.log(response);
             vm.data = response;
             light = response;
-            // return light;
+            return light;
           })
           console.log("outside of function scope");
           console.log(light);
