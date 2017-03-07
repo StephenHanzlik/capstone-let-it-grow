@@ -14,10 +14,10 @@
 
       vm.smsSettings = smsSettings;
       vm.$onInit = onInit;
+      vm.data = {};
 
-      function onInit(formService){
-          formService.getData()
-          .then(response => vm.data = response);
+      function onInit(){
+          formService.getData().then(response => vm.data = response);
           let data = vm.data;
           console.log("ctrl logs:");
           console.log(data);
