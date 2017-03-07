@@ -49,8 +49,8 @@
           let onTimeInt = parseInt(joinedString, 10);
           let onTimeInt2 = parseInt(joinedString2, 10);
           let postObj = {
-            smsLightOn: onTimeInt,
-            smsLightOff: onTimeInt2
+            on_time: onTimeInt,
+            off_time: onTimeInt2
             // currentTime: currentTime
           }
           console.log(postObj);
