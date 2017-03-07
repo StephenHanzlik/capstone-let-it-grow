@@ -34,10 +34,10 @@ router.post('/', (req, res, next) => {
     uri: "https://limitless-river-10033.herokuapp.com/smssettings",
     method: "GET"
   }, function(error, response, body) {
-    console.log(body);
+    // console.log(body);
     // if(body.on_time === 1123){}
     // if(true){
-    return req.body;
+    return body.light;
   });
 console.log("youshallnotpass");
 console.log(youshallnotpass);
