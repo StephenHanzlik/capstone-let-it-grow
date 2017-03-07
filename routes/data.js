@@ -42,7 +42,7 @@ router.post('/', (req, res, next) => {
 function foo(address, fn){
   rp(options)
   .then(function (data) {
-    console.log(data);
+    // console.log(data);
     fn(data);
   })
   .catch(function (err) {
