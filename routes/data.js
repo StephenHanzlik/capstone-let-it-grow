@@ -39,7 +39,7 @@ router.post('/', (req, res, next) => {
     json: true // Automatically parses the JSON string in the response
 };
 
-function foo(address, fn){
+function foo(address, fn, obj){
   rp(options)
   .then(function (data) {
     // console.log(data);
@@ -51,9 +51,8 @@ function foo(address, fn){
 }
 
 foo("address", function(location, insertPost){
-  console.log("location");
+
   console.log(location);
-  console.log("insertPost");
   console.log(insertPost);
   return location;
 })
