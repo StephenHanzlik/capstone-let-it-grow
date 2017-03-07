@@ -29,7 +29,7 @@
     //       return light;
     // })
 
-    this.dinky = 45;
+    // this.dinky = 45;
     this.sayHi = function (){
       return "hello service";
     };
