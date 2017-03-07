@@ -4,6 +4,7 @@ const express = require('express');
 const router = express.Router();
 const knex = require('../knex');
 const boom = require('boom');
+const request = require("request");
 
 
 router.get('/', function(req, res, next) {
@@ -24,6 +25,14 @@ let lightOffTime = 0;
 let currentTime = 0;
 
 router.post('/', (req, res, next) => {
+
+  request({
+    uri: "https://limitless-river-10033.herokuapp.com/smssettings",
+    method: "GET"
+  }, function(error, response, body) {
+    console.log(response.data);
+  });
+
 //   if(req.body.smsLightOn){
 //     console.log("req.body.smsLightOn:");
 //     console.log(req.body.smsLightOn);

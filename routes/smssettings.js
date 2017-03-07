@@ -1,7 +1,5 @@
 'use strict';
 
-'use strict';
-
 const express = require('express');
 const router = express.Router();
 const knex = require('../knex');
@@ -9,10 +7,20 @@ const boom = require('boom');
 
 
 router.get('/', (req, res, next) => {
-  res.send('Root');
+  knex('data')
+    .orderBy('id', 'desc')
+    .limit(9)
+    .then((result) => {
+      res.send(result);
+    })
+    .catch((err) => {
+      next(boom.create(500, 'Database Query Failed'));
+    });
 });
 
 router.post('/', (req, res, next) => {
+
+
   // if(req.body.lightOff <= 1){
     // var accountSid = 'AC674af2aaed607cbb23d6d2e718c30d6f';
     // var authToken = 'cceebb0dbcbfd2f072e45f83eae2b2b5';

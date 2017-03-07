@@ -28,12 +28,12 @@ app.get('/', function(req, res, next) {
 var users = require('./routes/users.js');
 var data = require('./routes/data.js');
 var token = require('./routes/token.js');
-var sendsms = require('./routes/sendsms.js');
+var smssettings = require('./routes/smssettings.js');
 
 app.use('/users', users);
 app.use('/data', data);
 app.use('/token', token);
-app.use('/sendsms', sendsms);
+app.use('/smssettings', smssettings);
 
 app.use('*', function(req, res, next) {
   res.sendFile('index.html', { root: path.join(__dirname, 'public') })

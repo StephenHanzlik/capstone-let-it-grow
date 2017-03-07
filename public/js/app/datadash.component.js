@@ -10,16 +10,10 @@
         vm.lightOn = 1;
         vm.update = update;
         vm.timerData = timerData;
-        // vm.$interval = interval;
 
-
-        // $scope.greenData = 78;
         let greenTempData = 0;
         let yellowHumidityData = 0;
-        // let createdAtArray = [];
         let tempLineArray = [];
-        // let timeStamp = 0;
-        // [34, 55, 66, 76, 78, 83, 56, 54, 54];
         let humidityLineArray = [];
 
         var timerData = $interval(function () {
@@ -32,7 +26,6 @@
       function update() {
 
         $http.get("https://limitless-river-10033.herokuapp.com/data")
-        // $http.get("https://localhost:3000/data")
         .then(response => {
           console.log(response.data);
           greenTempData = response.data[0].temperature;
@@ -41,27 +34,6 @@
           let timeStamp = Date.parse(timeString);
           vm.lightOn = response.data[0].light;
 
-
-
-
-
-          // let disableLightAlert = 0;
-
-
-          // if(lightOn <= 1 && disableLightAlert <= 0){
-          //   disableLightAlert += 1;
-          //   // vm.data.lightOff = lightOn;
-          //   $http.post("https://limitless-river-10033.herokuapp.com/smssend", lightOn)
-          //   .then(response => {
-          //     console.log("Light Event Noticication SMS Sent");
-          //   });
-          // }
-          // else if (lightOn >= 1 && disableLightAlert >= 0){
-          //   disableLightAlert -= 1;
-          // }
-
-
-          // for(let i = 0; i <= 8; i++){
             tempLineArray.shift();
             humidityLineArray.shift();
             tempLineArray.push(response.data[0].temperature);
