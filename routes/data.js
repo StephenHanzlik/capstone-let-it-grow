@@ -31,8 +31,8 @@ router.post('/', (req, res, next) => {
     method: "GET"
   }, function(error, response, body) {
     console.log(body);
-    // if(response.data.on_time === 1123){
-    if(true){
+    if(response.data.on_time === 1123){
+    // if(true){
 
 
 
