@@ -53,7 +53,17 @@ function foo(address, fn){
 foo("adress", function(location){
   console.log("foo");
   console.log(location);
+  return location;
 })
+let dinky = foo("adress", function(location){
+  console.log("foo");
+  console.log(location);
+  return location;
+})
+
+console.log("dinky:");
+console.log(dinky);
+
 
   // request({
   //   uri: "https://limitless-river-10033.herokuapp.com/smssettings",
