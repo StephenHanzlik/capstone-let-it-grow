@@ -14,13 +14,6 @@
 
       vm.smsSettings = smsSettings;
       vm.$onInit = onInit;
-      let promise = formService.getData();
-      promise.then(function(response){
-        console.log("promise");
-        console.log(response);
-        vm.data = response;
-        let light = response;
-          })
 
       function onInit(){
           let promise = formService.getData();
@@ -28,18 +21,10 @@
             console.log("promise");
             console.log(response);
             vm.data = response;
-            light = response;
+            console.log(vm.data);
           })
-
-          // .then(response => vm.data = response);
-          // let data = vm.data;
-          // console.log("ctrl onInit logs:");
-          // // console.log(dinky);
-          // console.log(data);
-          // console.log(vm.data);
       }
       console.log("outside of function scope");
-      console.log(light);
       console.log(vm.data);
 
       function smsSettings(){
