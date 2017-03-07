@@ -14,6 +14,7 @@
       // console.log(formService);
       let dinky2 = formService.getData();
       console.log("data find");
+      console.log(dinky2.$$state);
       console.log(dinky2.$$state.value);
       vm.smsSettings = smsSettings;
       vm.$onInit = onInit;
