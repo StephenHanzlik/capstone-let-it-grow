@@ -11,19 +11,14 @@
 
     function controller (formService) {
       const vm = this;
-      // console.log(formService);
-      let dinky2 = formService.getData();
-      console.log(dinky2);
-      let resVal = dinky2;
 
-      console.log(resVal);
       vm.smsSettings = smsSettings;
       vm.$onInit = onInit;
 
       function onInit(){
-        // console.log(formService.getData());
-        // console.log(dinky2);
-        // console.log(formService);
+          formService.getData()
+          .then(response => vm.data = response)
+          console.log(vm.data);
       }
 
       function smsSettings(){
