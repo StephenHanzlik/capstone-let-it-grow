@@ -22,7 +22,7 @@
             console.log("promise");
             console.log(response);
             vm.data = response;
-            light = vm.data.light);
+            light = vm.data.light;
           })
           console.log("outside of function scope");
           console.log(light);
