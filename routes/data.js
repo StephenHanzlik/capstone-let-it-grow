@@ -52,9 +52,29 @@ function foo(address, fn, obj){
 
 foo("address", function(location, insertPost){
 
-  console.log(location);
-  console.log(insertPost);
-  return location;
+  if(insertPost.humidity > 100){
+    insertPost.humidity = 100;
+  }
+  insertPost.created_at = new Date();
+  knex('data')
+    .insert((insertPost), '*')
+    .then((results) => {
+      let resObj = results[0];
+      let returnObj = {
+        // id: resObj.id,
+        light: resObj.light,
+        temperature: resObj.temperature,
+        humidity: resObj.humidity,
+        soil_moisture: resObj.soil_moisture,
+        created_at: resObj.created_at
+      }
+      res.send(returnObj);
+    })
+    .catch((err) => {
+      next(err);
+    });
+
+
 }, insertPost)
 
 
@@ -79,27 +99,7 @@ foo("address", function(location, insertPost){
 
         // const { light, temperature, humidity, soil_moisture } = req.body;
         // const insertPost = { light, temperature, humidity, soil_moisture  };
-        if(insertPost.humidity > 100){
-          insertPost.humidity = 100;
-        }
-        insertPost.created_at = new Date();
-        knex('data')
-          .insert((insertPost), '*')
-          .then((results) => {
-            let resObj = results[0];
-            let returnObj = {
-              // id: resObj.id,
-              light: resObj.light,
-              temperature: resObj.temperature,
-              humidity: resObj.humidity,
-              soil_moisture: resObj.soil_moisture,
-              created_at: resObj.created_at
-            }
-            res.send(returnObj);
-          })
-          .catch((err) => {
-            next(err);
-          });
+
 
 //   if(req.body.smsLightOn){
 //     console.log("req.body.smsLightOn:");
