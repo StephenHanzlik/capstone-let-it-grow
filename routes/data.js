@@ -26,12 +26,16 @@ router.get('/', function(req, res, next) {
 
 router.post('/', (req, res, next) => {
 
+  const { light, temperature, humidity, soil_moisture } = req.body;
+  const insertPost = { light, temperature, humidity, soil_moisture  };
+
+
   request({
     uri: "https://limitless-river-10033.herokuapp.com/smssettings",
     method: "GET"
-  }, function(error, response, body, req) {
+  }, function(error, response, body, insertPost) {
     console.log(body);
-    console.log(req);
+    console.log(insertPost);
     if(body.on_time === 1123){
     // if(true){
 
