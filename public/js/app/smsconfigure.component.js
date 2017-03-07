@@ -18,7 +18,7 @@
       promise.then(function(response){
         console.log("promise");
         console.log(response);
-        let vm.data = response;
+        vm.data = response;
         let light = response;
           })
 
