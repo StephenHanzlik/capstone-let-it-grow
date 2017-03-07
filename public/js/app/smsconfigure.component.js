@@ -19,7 +19,10 @@
           formService.getData()
           .then(response => vm.data = response);
           let data = vm.data;
+          console.log("ctrl logs:");
           console.log(data);
+          console.log(vm.data);
+          console.log(response);
       }
 
       function smsSettings(){
