@@ -31,7 +31,38 @@ router.post('/', (req, res, next) => {
     method: "GET"
   }, function(error, response, body) {
     if(response.data.on_time === 1123){
-      res.send("dink made it");
+
+
+
+
+        const { light, temperature, humidity, soil_moisture } = req.body;
+        const insertPost = { light, temperature, humidity, soil_moisture  };
+        if(insertPost.humidity > 100){
+          insertPost.humidity = 100;
+        }
+        insertPost.created_at = new Date();
+        knex('data')
+          .insert((insertPost), '*')
+          .then((results) => {
+            let resObj = results[0];
+            let returnObj = {
+              // id: resObj.id,
+              light: resObj.light,
+              temperature: resObj.temperature,
+              humidity: resObj.humidity,
+              soil_moisture: resObj.soil_moisture,
+              created_at: resObj.created_at
+            }
+            res.send(returnObj);
+          })
+          .catch((err) => {
+            next(err);
+          });
+
+
+
+
+
     }
   });
 
@@ -81,29 +112,6 @@ router.post('/', (req, res, next) => {
 
 // if(req.body.humidity && req.body.temperature){
 
-  const { light, temperature, humidity, soil_moisture } = req.body;
-  const insertPost = { light, temperature, humidity, soil_moisture  };
-  if(insertPost.humidity > 100){
-    insertPost.humidity = 100;
-  }
-  insertPost.created_at = new Date();
-  knex('data')
-    .insert((insertPost), '*')
-    .then((results) => {
-      let resObj = results[0];
-      let returnObj = {
-        // id: resObj.id,
-        light: resObj.light,
-        temperature: resObj.temperature,
-        humidity: resObj.humidity,
-        soil_moisture: resObj.soil_moisture,
-        created_at: resObj.created_at
-      }
-      res.send(returnObj);
-    })
-    .catch((err) => {
-      next(err);
-    });
   // }//end of huimidt & control flow
 });
 
