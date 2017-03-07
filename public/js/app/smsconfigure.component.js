@@ -20,7 +20,7 @@
 
       function onInit(){
         // console.log(formService.getData());
-        console.log(dinky2);
+        // console.log(dinky2);
         // console.log(formService);
       }
 
