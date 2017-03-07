@@ -44,8 +44,8 @@ console.log(youshallnotpass);
 
 
 
-        const { light, temperature, humidity, soil_moisture } = req.body;
-        const insertPost = { light, temperature, humidity, soil_moisture  };
+        // const { light, temperature, humidity, soil_moisture } = req.body;
+        // const insertPost = { light, temperature, humidity, soil_moisture  };
         if(insertPost.humidity > 100){
           insertPost.humidity = 100;
         }
