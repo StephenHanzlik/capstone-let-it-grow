@@ -30,7 +30,8 @@
         }, 1000);
 
       function update() {
-        $http.get("https://limitless-river-10033.herokuapp.com/data")
+        // $http.get("https://limitless-river-10033.herokuapp.com/data")
+        $http.get("https://localhost:3000/data")
         .then(response => {
           console.log(response.data);
           greenTempData = response.data[0].temperature;
