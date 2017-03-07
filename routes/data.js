@@ -5,6 +5,7 @@ const router = express.Router();
 const knex = require('../knex');
 const boom = require('boom');
 const request = require("request");
+const rp = require('request-promise');
 // const http = require('http');
 
 
@@ -30,17 +31,31 @@ router.post('/', (req, res, next) => {
   const { light, temperature, humidity, soil_moisture } = req.body;
   const insertPost = { light, temperature, humidity, soil_moisture  };
 
+  var options = {
+    uri: 'https://limitless-river-10033.herokuapp.com/smssettings',
+    headers: {
+        'User-Agent': 'Request-Promise'
+    },
+    json: true // Automatically parses the JSON string in the response
+};
 
-  request({
-    uri: "https://limitless-river-10033.herokuapp.com/smssettings",
-    method: "GET"
-  }, function  (error, response, body) {
-    // console.log(body);
-    // if(body.on_time === 1123){}
-    // if(true){
-    console.log("body");
-    console.log(body);
-  });
+rp(options)
+    .then(function (repos) {
+        console.log(repos);
+    })
+    .catch(function (err) {
+        // API call failed...
+    });
+  // request({
+  //   uri: "https://limitless-river-10033.herokuapp.com/smssettings",
+  //   method: "GET"
+  // }, function  (error, response, body) {
+  //   // console.log(body);
+  //   // if(body.on_time === 1123){}
+  //   // if(true){
+  //   console.log("body");
+  //   console.log(body);
+  // });
 // console.log("youshallnotpass");
 // console.log(youshallnotpass);
 // console.log("holdVal");
