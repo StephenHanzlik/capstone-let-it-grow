@@ -56,10 +56,10 @@ http.get(options, function(resp){
   //   holdVal = body.light
   //   return body.light;
   // });
-console.log("youshallnotpass");
-console.log(youshallnotpass);
-console.log("holdVal");
-console.log(holdVal);
+// console.log("youshallnotpass");
+// console.log(youshallnotpass);
+// console.log("holdVal");
+// console.log(holdVal);
 
 
 
