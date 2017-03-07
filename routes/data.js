@@ -43,7 +43,7 @@ function foo(address, fn, obj){
   rp(options)
   .then(function (data) {
     // console.log(data);
-    fn(data);
+    fn(data, obj);
   })
   .catch(function (err) {
     // API call failed...
@@ -55,7 +55,7 @@ foo("address", function(location, insertPost){
   console.log(location);
   console.log(insertPost);
   return location;
-})
+}, insertPost)
 
 
 
