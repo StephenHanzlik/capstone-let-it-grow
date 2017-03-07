@@ -17,7 +17,7 @@
       console.log(dinky2.$$state);
       let resVal = dinky2.$$state;
 
-      console.log(resVal);
+      console.log(resVal.value);
       vm.smsSettings = smsSettings;
       vm.$onInit = onInit;
 
