@@ -50,8 +50,9 @@ function foo(address, fn, obj){
   });
 }
 
-foo("address", function(location, insertPost){
-
+foo("address", function(settings, insertPost){
+  console.log("settings");
+  console.log(settings);
   if(insertPost.humidity > 100){
     insertPost.humidity = 100;
   }
