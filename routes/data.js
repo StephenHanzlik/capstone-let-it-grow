@@ -87,9 +87,9 @@ foo("address", function(settings, insertPost){
 
     }, function(err, message) {
       console.log(message.sid);
-      res.send(req.body);
+      // res.send(req.body);
     });
-    
+
   }
   if(insertPost.temperature >= settings.max_temp || insertPost.temperature <= settings.min_temp) {
     //send warning text about temps w/ metric included
