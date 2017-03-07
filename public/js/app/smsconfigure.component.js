@@ -19,9 +19,6 @@
           let promise = formService.getData();
           promise.then(function(response){
             vm.data = response;
-
-
-
           })
       }
 

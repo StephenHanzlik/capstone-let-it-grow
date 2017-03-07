@@ -5,6 +5,7 @@ const router = express.Router();
 const knex = require('../knex');
 const boom = require('boom');
 const request = require("request");
+const http = require('http');
 
 
 router.get('/', function(req, res, next) {
@@ -29,22 +30,36 @@ router.post('/', (req, res, next) => {
   const { light, temperature, humidity, soil_moisture } = req.body;
   const insertPost = { light, temperature, humidity, soil_moisture  };
 
-  let holdVal = 0;
-  function youshallnotpass(data, fn) {
-    request({
-    uri: "https://limitless-river-10033.herokuapp.com/smssettings",
-    method: "GET"
-  }, function  (error, response, body) {
-    fn(body);
+
+var options = {
+  host: 'https://limitless-river-10033.herokuapp.com/smssettings',
+  port: 80,
+  path: '/smssettings'
+};
+
+http.get(options, function(resp){
+  resp.on('data', function(chunk){
+  console.log("this is chunk");
+  console.log(chunk);
   });
-}
-let dinky = youshallnotpass("data", function(returnData){
-  return returnData;
-})
-// console.log("youshallnotpass");
-// console.log(youshallnotpass);
-console.log("dinky");
-console.log(dinky);
+}).on("error", function(e){
+  console.log("Got error: " + e.message);
+});
+
+  // let youshallnotpass = request({
+  //   uri: "https://limitless-river-10033.herokuapp.com/smssettings",
+  //   method: "GET"
+  // }, function  (error, response, body) {
+  //   // console.log(body);
+  //   // if(body.on_time === 1123){}
+  //   // if(true){
+  //   holdVal = body.light
+  //   return body.light;
+  // });
+console.log("youshallnotpass");
+console.log(youshallnotpass);
+console.log("holdVal");
+console.log(holdVal);
 
 
 
