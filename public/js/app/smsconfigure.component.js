@@ -14,8 +14,13 @@
 
       vm.smsSettings = smsSettings;
       vm.$onInit = onInit;
-      vm.data = 2;
-      let light = 99;
+      let promise = formService.getData();
+      promise.then(function(response){
+        console.log("promise");
+        console.log(response);
+        let vm.data = response;
+        let light = response;
+          })
 
       function onInit(){
           let promise = formService.getData();
