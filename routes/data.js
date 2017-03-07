@@ -50,19 +50,15 @@ function foo(address, fn){
   });
 }
 
-foo("address", function(location){
-  // console.log("foo");
-  // console.log(location);
-  return location;
-})
-let dinky = foo("address", function(location){
-  // console.log("foo");
-  // console.log(location);
+foo("address", function(location, insertPost){
+  console.log("location");
+  console.log(location);
+  console.log("insertPost");
+  console.log(insertPost);
   return location;
 })
 
-console.log("dinky:");
-console.log(dinky);
+
 
 
   // request({
