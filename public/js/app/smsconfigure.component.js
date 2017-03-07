@@ -15,16 +15,18 @@
       vm.smsSettings = smsSettings;
       vm.$onInit = onInit;
 
-      formService.getData().then(response => vm.data = response);
+      let dinky = formService.getData().then(response => vm.data = response);
       let data = vm.data;
       console.log("ctrl logs:");
+      console.log(dinky);
       console.log(data);
       console.log(vm.data);
 
       function onInit(){
-          formService.getData().then(response => vm.data = response);
+          let dinky = formService.getData().then(response => vm.data = response);
           let data = vm.data;
           console.log("ctrl onInit logs:");
+          console.log(dinky);
           console.log(data);
           console.log(vm.data);
       }
