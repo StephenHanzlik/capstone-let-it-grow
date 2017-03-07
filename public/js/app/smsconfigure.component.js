@@ -16,7 +16,7 @@
       vm.$onInit = onInit;
 
       function onInit(){
-          formService.getData()
+          formService.service.getData()
           .then(response => vm.data = response);
           let data = vm.data;
           console.log("ctrl logs:");
