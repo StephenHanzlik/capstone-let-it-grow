@@ -11,7 +11,8 @@
       return $http.get("https://limitless-river-10033.herokuapp.com/data").then(response => {
        const data = response.data[0];
        console.log(response.data[0]);
-       return data;
+      //  return data;
+       return 9990;
      });
    };
 
