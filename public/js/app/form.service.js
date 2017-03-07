@@ -12,7 +12,7 @@
        const data = response.data
        return data;
      });
-   });
+   };
 
     //     return  $http.get("https://limitless-river-10033.herokuapp.com/data").then(response => {
     // //       // console.log(response.data);
