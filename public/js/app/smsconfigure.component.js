@@ -16,12 +16,17 @@
       vm.$onInit = onInit;
 
       function onInit(){
-          formService.getData().then(response => vm.data = response);
-          let data = vm.data;
-          console.log("ctrl onInit logs:");
-          // console.log(dinky);
-          console.log(data);
-          console.log(vm.data);
+          let promise = formService.getData();
+          promise.then(function(response){
+            console.log("promise");
+            console.log(response);
+          })
+          // .then(response => vm.data = response);
+          // let data = vm.data;
+          // console.log("ctrl onInit logs:");
+          // // console.log(dinky);
+          // console.log(data);
+          // console.log(vm.data);
       }
 
       function smsSettings(){
