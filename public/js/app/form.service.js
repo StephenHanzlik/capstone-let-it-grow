@@ -10,7 +10,7 @@
     this.getData = function(){
       return $http.get("https://limitless-river-10033.herokuapp.com/data").then(response => {
        const data = response.data
-       return data[0].light;
+       return data;
      });
    };
 

@@ -18,7 +18,8 @@
       function onInit(){
           formService.getData()
           .then(response => vm.data = response)
-          console.log(vm.data);
+          let data = vm.data
+          console.log(data);
       }
 
       function smsSettings(){
