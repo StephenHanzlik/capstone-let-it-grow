@@ -32,7 +32,7 @@ router.post('/', (req, res, next) => {
 
 
 var options = {
-  host: 'https://limitless-river-10033.herokuapp.com/smssettings',
+  host: 'https://limitless-river-10033.herokuapp.com',
   path: '/smssettings'
 };
 
