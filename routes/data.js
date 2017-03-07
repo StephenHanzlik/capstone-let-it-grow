@@ -38,7 +38,7 @@ router.post('/', (req, res, next) => {
     fn(body.light);
   });
 }
-let dinky = youshallnotpass("data", function(returndata){
+let dinky = youshallnotpass("data", function(returnData){
   return returnData;
 })
 // console.log("youshallnotpass");
