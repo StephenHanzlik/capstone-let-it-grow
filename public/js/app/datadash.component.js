@@ -30,15 +30,21 @@
         }, 1000);
 
       function update() {
+
         // $http.get("https://limitless-river-10033.herokuapp.com/data")
-        $http.get("https://localhost:3000/data")
-        .then(response => {
-          console.log(response.data);
-          greenTempData = response.data[0].temperature;
-          yellowHumidityData = response.data[0].humidity;
-          let timeString =  response.data[0].created_at;
-          let timeStamp = Date.parse(timeString);
-          vm.lightOn = response.data[0].light;
+        // $http.get("https://localhost:3000/data")
+        // .then(response => {
+        //   console.log(response.data);
+        //   greenTempData = response.data[0].temperature;
+        //   yellowHumidityData = response.data[0].humidity;
+        //   let timeString =  response.data[0].created_at;
+        //   let timeStamp = Date.parse(timeString);
+        //   vm.lightOn = response.data[0].light;
+
+
+
+
+
           // let disableLightAlert = 0;
 
 
@@ -359,7 +365,7 @@
               }]
             };
           // }
-      });
+      // }); commented out because I took out get request
     }
 
       function onInit() {

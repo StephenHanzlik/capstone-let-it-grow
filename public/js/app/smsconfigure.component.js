@@ -11,12 +11,14 @@
 
     function controller (formService) {
       const vm = this;
-      console.log(formService.dinky);
+      console.log(formService);
+      let dinky2 = formService.getData();
       vm.smsSettings = smsSettings;
       vm.$onInit = onInit;
 
-      function onInit(formService){
-        // console.log(formService.dinky);
+      function onInit(){
+        // console.log(formService.getData());
+        console.log(dinky2);
         // console.log(formService);
       }
 
