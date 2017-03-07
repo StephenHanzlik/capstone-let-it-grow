@@ -38,8 +38,8 @@ router.post('/', (req, res, next) => {
     // console.log(body);
     // if(body.on_time === 1123){}
     // if(true){
-    console.log("body.light");
-    console.log(body.on_time);
+    console.log("body");
+    console.log(body);
   });
 // console.log("youshallnotpass");
 // console.log(youshallnotpass);
