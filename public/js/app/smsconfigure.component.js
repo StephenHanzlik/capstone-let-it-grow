@@ -17,8 +17,8 @@
 
       function onInit(){
           formService.getData()
-          .then(response => vm.data = response)
-          let data = vm.data
+          .then(response => vm.data = response);
+          let data = vm.data;
           console.log(data);
       }
 
