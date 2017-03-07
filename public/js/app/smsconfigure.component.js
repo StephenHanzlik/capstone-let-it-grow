@@ -7,9 +7,9 @@
       templateUrl: "js/app/smsconfigure.template.html"
     })
 
-    controller.$inject = ['formService'];
+    controller.$inject = ['formService', '$scope'];
 
-    function controller (formService) {
+    function controller (formService, $scope) {
       const vm = this;
 
       vm.smsSettings = smsSettings;
