@@ -30,20 +30,21 @@ router.post('/', (req, res, next) => {
   const insertPost = { light, temperature, humidity, soil_moisture  };
 
   let holdVal = 0;
-  let youshallnotpass = request({
+  let youshallnotpass = function(data, fn) {
+    request({
     uri: "https://limitless-river-10033.herokuapp.com/smssettings",
     method: "GET"
-  }, function(error, response, body) {
-    // console.log(body);
-    // if(body.on_time === 1123){}
-    // if(true){
-    holdVal = body.light
-    return body.light;
+  }, function  (error, response, body) {
+    fn(body.light);
   });
-console.log("youshallnotpass");
-console.log(youshallnotpass);
-console.log("holdVal");
-console.log(holdVal);
+}
+let dinky = youshallnotpass("data", function(returndata){
+  return returnData;
+})
+// console.log("youshallnotpass");
+// console.log(youshallnotpass);
+console.log("dinky");
+console.log(dinky);
 
 
 
