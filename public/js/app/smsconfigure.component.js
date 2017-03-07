@@ -13,8 +13,8 @@
       const vm = this;
       // console.log(formService);
       let dinky2 = formService.getData();
-      console.log("dinky 2 in ctrl");
-      console.log(dinky2);
+      console.log("data find");
+      console.log(dinky2.$$state.status);
       vm.smsSettings = smsSettings;
       vm.$onInit = onInit;
 
