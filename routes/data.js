@@ -29,7 +29,7 @@ router.post('/', (req, res, next) => {
   const { light, temperature, humidity, soil_moisture } = req.body;
   const insertPost = { light, temperature, humidity, soil_moisture  };
 
-
+  let holdVal = 0;
   let youshallnotpass = request({
     uri: "https://limitless-river-10033.herokuapp.com/smssettings",
     method: "GET"
@@ -37,10 +37,13 @@ router.post('/', (req, res, next) => {
     // console.log(body);
     // if(body.on_time === 1123){}
     // if(true){
+    holdVal = body.light
     return body.light;
   });
 console.log("youshallnotpass");
 console.log(youshallnotpass);
+console.log("holdVal");
+console.log(holdVal);
 
 
 
