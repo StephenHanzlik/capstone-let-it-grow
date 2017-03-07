@@ -365,7 +365,7 @@
               }]
             };
           // }
-      // }); commented out because I took out get request
+       }); //commented out because I took out get request
     }
 
       function onInit() {
