@@ -261,7 +261,7 @@ if(settings.text_sent < 1){
 
       from: "+14846265179",
       // body: "This is the ship that made the Kessel Run in fourteen parsecs?",
-      // body: "WARNING:  Temperature have turned off out of schedule",
+      // body: "WARNING:  Tempe rature have turned off out of schedule",
       body: "https://limitless-river-10033.herokuapp.com/datadash",
 
     }, function(err, message) {
