@@ -393,12 +393,12 @@
    	     //    text: '%v<br>Good'
    	     //  },
    	      {
-   	        rule: '%v < 640 && %v > 580',
-   	        text: '%v<br>Fair'
+   	        rule: '%v < 3 && %v > 1',
+   	        text: '%v<br>Soil Ok'
    	      },
    	      {
-   	        rule: '%v <  580',
-   	        text: '%v<br>Bad'
+   	        rule: '%v <  1',
+   	        text: '%v<br>Soil Dry!'
    	      }
    	    ]
    	  }
