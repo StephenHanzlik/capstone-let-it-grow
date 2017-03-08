@@ -60,7 +60,7 @@
           }
           // console.log(postObj);
 
-          $http.post("https://dinky-dinky.herokuapp.com/smssettings", postObj)
+          $http.post("https://dinkydinky.herokuapp.com/smssettings", postObj)
           .then(response => {
               console.log(response);
           });
