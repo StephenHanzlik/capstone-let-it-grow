@@ -438,7 +438,7 @@
   	    size:50,
   	    rules:[
   	      {
-  	        rule:'%v <= 1',
+  	        rule:'%v <= 200',
   	        backgroundColor:'#E53935'
   	      },
   	      // {
@@ -446,11 +446,11 @@
   	      //   backgroundColor:'#EF5350'
   	      // },
   	      {
-  	        rule:'%v >= 1 && %v < 2',
+  	        rule:'%v >= 200 && %v < 280',
   	        backgroundColor:'#FFA726'
   	      },
   	      {
-  	        rule:'%v >= 2',
+  	        rule:'%v >= 280',
   	        backgroundColor:'#0cb054'
   	      }
   	    ]
@@ -465,7 +465,7 @@
     },
   	series : [
   		{
-  			values : [1], // starting value
+  			values : [0], // starting value
   			backgroundColor:'black',
   	    indicator:[10,10,10,10,0.75],
   	    animation:{
