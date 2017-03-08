@@ -458,7 +458,7 @@
     },
   	series : [
   		{
-  			values : [755], // starting value
+  			values : [1], // starting value
   			backgroundColor:'black',
   	    indicator:[10,10,10,10,0.75],
   	    animation:{
