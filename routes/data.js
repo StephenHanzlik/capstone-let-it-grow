@@ -61,30 +61,10 @@ foo("address", function(settings, insertPost){
   }
   let joinedNowString = arrNow.join('');
   let currentTimeInt = parseInt(joinedNowString);
-  console.log("currentTimeInt");
-  console.log(currentTimeInt);
-  console.log("settings.on_time");
-  console.log(settings.on_time);
-  console.log("settings.off_time");
-  console.log(settings.off_time);
-  console.log("insertPost.light");
-  console.log(insertPost.light);
-  console.log("settings.text_sent");
-  console.log(settings.text_sent);
-  console.log("currentTimeInt >= settings.on_time");
-  console.log(currentTimeInt >= settings.on_time);
-  console.log("currentTimeInt <= settings.off_time");
-  console.log(currentTimeInt <= settings.off_time);
-  console.log("insertPost.light < 1");
-  console.log(insertPost.light < 1);
-  console.log("settings.text_sent < 1");
-  console.log(settings.text_sent < 1);
-
 
 // currentTimeInt >= settings.on_time
   if(currentTimeInt >= settings.on_time && currentTimeInt <= settings.off_time){
   if (insertPost.light < 1 && settings.text_sent < 1){
-
 
             var options = {
               method: 'POST',
@@ -132,8 +112,16 @@ foo("address", function(settings, insertPost){
     });
   }
 }
+console.log('settings.text_sent');
+console.log(settings.text_sent);
 if(settings.text_sent < 1){
   if (insertPost.temperature >= settings.max_temp && insertPost.temperature <= settings.min_temp) {
+    console.log('insertPost.temperature');
+    console.log(insertPost.temperature);
+    console.log('settings.max_temp');
+    console.log(settings.max_temp);
+    console.log('settings.min_temp');
+    console.log(settings.min_temp);
     //send warning text about temps w/ metric included
     //send text warning about lights
     var accountSid = 'AC674af2aaed607cbb23d6d2e718c30d6f';
