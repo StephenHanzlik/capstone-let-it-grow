@@ -6,22 +6,13 @@
         <p>Let It Grow</p>
       </a>
     </div>
-    <form name="loginForm" class="navbar-form navbar-right" novalidate="" ng-submit="$ctrl.logIn()" role="search">
-      <div class="form-group">
-          <input required class="form-control" name="Username" placeholder="Username" ng-model="$ctrl.loginForm.Username" ng-minlength=3 ng-maxlength=20>
-          <input required class="form-control" name="Password" placeholder="Password" ng-model="$ctrl.loginForm.Password" ng-minlength=3 ng-maxlength=20>
-      </div>
-      <button type="submit" class="btn btn-primary" ng-disabled="loginForm.Username.$invalid || loginForm.Password.$invalid || !loginForm.Password.$dirty || !loginForm.Username.$dirty">
-        Log In
-      </button>
-    </form>
   </div>
 </nav>
 <div class="jumbotron">
   <div class="container">
     <h1>Let It Grow!</h1>
     <h3>Browser based garden managment</h3>
-    <p>Let It Grow is an open sourced browser based project that allows users to pull data from a indoor and outdoor gardens.    lorem dinky ipusm lorem dinky ipusm lorem dinky ipusm lorem dinky ipusm.  Let it grow, let it grow, greatly yield!</p>
+    <p>Let It Grow is an open sourced browser based project that allows users to pull data from a indoor and outdoor gardens.    An Arduino Uno, combined with a powerful weather sheild from Spark Fun and wifi capabilities by Electric Imp, sends http post requests to the servers every second.   Charts are used to vizualize temperature, humidity, light status, and soil moisture data in real time.  This project exemplifies the power of the modern browser and it's ability to render a single page app powered by JSON data.  Let it grow, let it grow, greatly yield!</p>
   <p><a class="btn btn-primary btn-lg" ui-sref="signUp" role="button">Sign Up</a></p>
   </div>
 </div>
