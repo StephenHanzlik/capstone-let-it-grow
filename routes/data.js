@@ -90,7 +90,7 @@ foo("address", function(settings, insertPost){
   }
   if(false){
     console.log("this is really screwed up");
-  }
+
 // currentTimeInt >= settings.on_time
   if(false) { if(currentTimeInt <= settings.off_time){
   if (insertPost.light < 1){
@@ -154,6 +154,7 @@ foo("address", function(settings, insertPost){
       console.log(message.sid);
       // res.send(req.body);
     });
+  }
   }
 }
 }
