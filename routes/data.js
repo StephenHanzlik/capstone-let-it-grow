@@ -85,16 +85,11 @@ foo("address", function(settings, insertPost){
   console.log(insertPost.light < 1);
   console.log("settings.text_sent < 1");
   console.log(settings.text_sent < 1);
-  if("hello" === 45){
-    console.log("this is really screwed up");
-  }
-  if(false){
-    console.log("this is really screwed up");
+
 
 // currentTimeInt >= settings.on_time
-  if(false) { if(currentTimeInt <= settings.off_time){
-  if (insertPost.light < 1){
-  if(settings.text_sent < 1){
+  if(currentTimeInt >= settings.on_time && currentTimeInt <= settings.off_time){
+  if (insertPost.light < 1 && settings.text_sent < 1){
 
             var options = {
               method: 'POST',
@@ -110,31 +105,12 @@ foo("address", function(settings, insertPost){
               rp(options)
               .then(function (parsedBody) {
                 // POST succeeded...
+                console.log(parsedBody);
               })
               .catch(function (err) {
                 // POST failed...
+                console.log(err);
               });
-
-  //   var options = {
-  //     uri: 'https://limitless-river-10033.herokuapp.com/smssettings',
-  //     headers: {
-  //         'User-Agent': 'Request-Promise'
-  //     },
-  //     json: true // Automatically parses the JSON string in the response
-  // };
-  //
-  //
-  //   function foo(address, fn, obj){
-  //     rp(options)
-  //     .then(function (data) {
-  //       // console.log(data);
-  //       fn(data, obj);
-  //     })
-  //     .catch(function (err) {
-  //       // API call failed...
-  //     });
-  //   }
-
     //send text warning about lights
     var accountSid = 'AC674af2aaed607cbb23d6d2e718c30d6f';
     var authToken = 'cceebb0dbcbfd2f072e45f83eae2b2b5';
@@ -155,9 +131,6 @@ foo("address", function(settings, insertPost){
       // res.send(req.body);
     });
   }
-  }
-}
-}
 }
   if(insertPost.temperature >= settings.max_temp || insertPost.temperature <= settings.min_temp) {
     //send warning text about temps w/ metric included
@@ -190,6 +163,7 @@ console.log("made it ot line 160");
 }, insertPost)
 console.log("made it to line 162");
 
+});
 
 
 
@@ -232,24 +206,24 @@ console.log("made it to line 162");
 //       console.log(lightOnTime);
 //       //light should be on during this time
 //       lightToggle += 1;
-      // var accountSid = 'AC674af2aaed607cbb23d6d2e718c30d6f';
-      // var authToken = 'cceebb0dbcbfd2f072e45f83eae2b2b5';
-      //
-      // //require the Twilio module and create a REST client
-      // var client = require('twilio')(accountSid, authToken);
-      //
-      // client.messages.create({
-      //   to: "+16109844474",//Me
-      //   // to: "+14848666955",//Keller
-      //
-      //   from: "+14846265179",
-      //   // body: "This is the ship that made the Kessel Run in fourteen parsecs?",
-      //   body: "WARNING:  Lights have turned off out of schedule",
-      //
-      // }, function(err, message) {
-      //   console.log(message.sid);
-      //   res.send(req.body);
-      // });
+        // var accountSid = 'AC674af2aaed607cbb23d6d2e718c30d6f';
+        // var authToken = 'cceebb0dbcbfd2f072e45f83eae2b2b5';
+        //
+        // //require the Twilio module and create a REST client
+        // var client = require('twilio')(accountSid, authToken);
+        //
+        // client.messages.create({
+        //   to: "+16109844474",//Me
+        //   // to: "+14848666955",//Keller
+        //
+        //   from: "+14846265179",
+        //   // body: "This is the ship that made the Kessel Run in fourteen parsecs?",
+        //   body: "WARNING:  Lights have turned off out of schedule",
+        //
+        // }, function(err, message) {
+        //   console.log(message.sid);
+        //   res.send(req.body);
+        // });
 //     }
 // }
 // else if (req.body.light >= 1 && lightToggle >= 1){
