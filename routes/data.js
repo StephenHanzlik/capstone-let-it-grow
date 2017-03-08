@@ -68,7 +68,46 @@ foo("address", function(settings, insertPost){
   let joinedNowString = arrNow.join('');
   let currentTimeInt = parseInt(joinedNowString);
 
-  if(currentTimeInt >= settings.on_time && currentTimeInt <= settings.off_time && insertPost.light < 1 ){
+  if(currentTimeInt >= settings.on_time && currentTimeInt <= settings.off_time && insertPost.light < 1 && settings.text_sent < 1){
+
+            var options = {
+              method: 'POST',
+              uri: 'https://limitless-river-10033.herokuapp.com/smssettings',
+              body: {
+                on_time: settings.on_time,
+                off_time: settings.off_time,
+                text_sent: 1
+              },
+              json: true // Automatically stringifies the body to JSON
+              };
+
+              rp(options)
+              .then(function (parsedBody) {
+                // POST succeeded...
+              })
+              .catch(function (err) {
+                // POST failed...
+              });
+
+  //   var options = {
+  //     uri: 'https://limitless-river-10033.herokuapp.com/smssettings',
+  //     headers: {
+  //         'User-Agent': 'Request-Promise'
+  //     },
+  //     json: true // Automatically parses the JSON string in the response
+  // };
+  //
+  //
+  //   function foo(address, fn, obj){
+  //     rp(options)
+  //     .then(function (data) {
+  //       // console.log(data);
+  //       fn(data, obj);
+  //     })
+  //     .catch(function (err) {
+  //       // API call failed...
+  //     });
+  //   }
 
     //send text warning about lights
     var accountSid = 'AC674af2aaed607cbb23d6d2e718c30d6f';
