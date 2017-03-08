@@ -77,6 +77,14 @@ foo("address", function(settings, insertPost){
   console.log(insertPost.light);
   console.log("settings.text_sent");
   console.log(settings.text_sent);
+  console.log("currentTimeInt >= settings.on_time");
+  console.log(currentTimeInt >= settings.on_time);
+  console.log("currentTimeInt <= settings.off_time");
+  console.log(currentTimeInt <= settings.off_time);
+  console.log("insertPost.light < 1");
+  console.log(insertPost.light < 1);
+  console.log("settings.text_sent < 1");
+  console.log(settings.text_sent < 1);
 
   if(currentTimeInt >= settings.on_time && currentTimeInt <= settings.off_time){
   if (insertPost.light < 1 && settings.text_sent < 1){
