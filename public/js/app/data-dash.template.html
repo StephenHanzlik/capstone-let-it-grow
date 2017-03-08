@@ -27,12 +27,13 @@
       <h3>Lights Are On</h3>
       <img src="images/invention.png" alt="light-on">
     </div>
+    <div>
+      <h2>Soil Reading</h2>
+      <h1>{{ $ctrl.soil }}</h1>
+    </div>
     <div ng-if="$ctrl.lightOn < 1">
       <h3>Lights Are Off</h3>
       <img src="images/electric-light (1).png" alt="light-off">
-    </div>
-    <div>
-      <h1>{{ $ctrl.soil }}</h1>
     </div>
     <!-- <div id="myChart2"><a class="zc-ref" href="https://www.zingchart.com/">Powered by ZingChart</a></div> -->
   </div>
