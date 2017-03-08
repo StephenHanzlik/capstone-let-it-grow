@@ -353,6 +353,7 @@
           let timeString =  response.data[0].created_at;
           let timeStamp = Date.parse(timeString);
           vm.lightOn = response.data[0].light;
+          vm.soil = response.data[0].soil_moisture;
 
 
           for(let i = 0; i <= 8; i++){
@@ -364,9 +365,10 @@
 
 
         window.feed = function(callback) {
-        var tick = {};
-        tick.plot0 = Math.ceil(350 + (Math.random() * 500));
+          let tick = {};
+          tick.plot0 = vm.soil_moisture
         callback(JSON.stringify(tick));
+        // tick.plot0 = Math.ceil(350 + (Math.random() * 500));
         };
 
   var myConfig = {
