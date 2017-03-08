@@ -25,7 +25,7 @@
 
       function update() {
 
-        $http.get("http://dinkydinky.herokuapp.com/data")
+        $http.get("https://dinkydinky.herokuapp.com/data")
         .then(response => {
           console.log(response.data);
           greenTempData = response.data[0].temperature;
@@ -345,7 +345,7 @@
         // $http.get("http://localhost:3000/data")
         // $http.get("192.168.86.137")
         // $http.get("10.0.0.27")
-        $http.get("http://dinkydinky.herokuapp.com/data")
+        $http.get("https://dinkydinky.herokuapp.com/data")
         .then(response => {
           console.log(response.data);
           greenTempData = response.data[0].temperature;
