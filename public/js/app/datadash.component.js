@@ -33,6 +33,7 @@
           let timeString =  response.data[0].created_at;
           let timeStamp = Date.parse(timeString);
           vm.lightOn = response.data[0].light;
+          vm.soil = response.data[0].soil_moisture;
 
             tempLineArray.shift();
             humidityLineArray.shift();
