@@ -78,7 +78,8 @@ foo("address", function(settings, insertPost){
   console.log("settings.text_sent");
   console.log(settings.text_sent);
 
-  if(currentTimeInt >= settings.on_time && currentTimeInt <= settings.off_time && insertPost.light < 1 && settings.text_sent < 1){
+  if(currentTimeInt >= settings.on_time && currentTimeInt <= settings.off_time){
+  if (insertPost.light < 1 && settings.text_sent < 1){
 
             var options = {
               method: 'POST',
@@ -138,8 +139,8 @@ foo("address", function(settings, insertPost){
       console.log(message.sid);
       // res.send(req.body);
     });
-
   }
+}
   if(insertPost.temperature >= settings.max_temp || insertPost.temperature <= settings.min_temp) {
     //send warning text about temps w/ metric included
     console.log("CF2");
