@@ -151,7 +151,7 @@ foo("address", function(settings, insertPost){
               soil_moisture: resObj.soil_moisture,
               created_at: resObj.created_at
             }
-            res.send(returnObj);
+            // res.send(returnObj);
           })
           .catch((err) => {
             next(err);
