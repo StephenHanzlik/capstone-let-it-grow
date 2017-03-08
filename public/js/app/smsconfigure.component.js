@@ -50,7 +50,8 @@
           let onTimeInt2 = parseInt(joinedString2, 10);
           let postObj = {
             on_time: onTimeInt,
-            off_time: onTimeInt2
+            off_time: onTimeInt2,
+            text_sent: 0
             // currentTime: currentTime
           }
           console.log(postObj);

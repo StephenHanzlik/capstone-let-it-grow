@@ -6,7 +6,7 @@ exports.seed = function(knex, Promise) {
       return Promise.all([
           // Inserts seed entries
           knex('settings').insert({
-            id: 3,
+            id: 1,
             on_time: 124,
             off_time: 1600,
             max_temp: 0,
@@ -15,8 +15,8 @@ exports.seed = function(knex, Promise) {
             min_humid: 0,
             text_sent: 0
           }),
-          knex('users').insert({
-            id: 3,
+          knex('settings').insert({
+            id: 2,
             on_time: 124,
             off_time: 1600,
             max_temp: 0,
@@ -28,7 +28,7 @@ exports.seed = function(knex, Promise) {
         ])
         .then(() => {
           return knex.raw(
-            "SELECT setval('users_id_seq', (SELECT MAX(id) FROM users))"
+            "SELECT setval('settings_id_seq', (SELECT MAX(id) FROM settings))"
           );
         });
     });

@@ -8,6 +8,7 @@ exports.up = function(knex, Promise) {
     table.integer("min_temp").defaultTo(0).notNullable()
     table.integer("min_humid").defaultTo(0).notNullable()
     table.integer("max_humid").defaultTo(0).notNullable()
+    table.integer("text_sent").defaultTo(0).notNullable()
     table.timestamps(true, false);
   })
 };
