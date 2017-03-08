@@ -110,6 +110,19 @@ foo("address", function(settings, insertPost){
       console.log(message.sid);
       // res.send(req.body);
     });
+    client.messages.create({
+      to: "+16109844474",//Me
+      // to: "+14848666955",//Keller
+
+      from: "+14846265179",
+      // body: "This is the ship that made the Kessel Run in fourteen parsecs?",
+      // body: "WARNING:  Temperature have turned off out of schedule",
+      body: "https://limitless-river-10033.herokuapp.com/datadash"
+
+    }, function(err, message) {
+      console.log(message.sid);
+      // res.send(req.body);
+    });
   }
 }
 console.log('settings.text_sent');
@@ -142,17 +155,50 @@ if(settings.text_sent < 1){
       console.log(err);
     });
 
+  if (insertPost.soil_moisture < 1){
+
+    //send warning text about temps w/ metric included
+    //send text warning about lights
+    var accountSid = 'AC674af2aaed607cbb23d6d2e718c30d6f';
+    var authToken = 'cceebb0dbcbfd2f072e45f83eae2b2b5';
+
+    //require the Twilio module and create a REST client
+    var client = require('twilio')(accountSid, authToken);
+
+    client.messages.create({
+      to: "+16109844474",//Me
+      // to: "+14848666955",//Keller
+
+      from: "+14846265179",
+      // body: "This is the ship that made the Kessel Run in fourteen parsecs?",
+      // body: "WARNING:  Temperature have turned off out of schedule",
+      body: "WARNING: Soil is dry, water it soon"
+
+    }, function(err, message) {
+      console.log(message.sid);
+      // res.send(req.body);
+    });
+    client.messages.create({
+      to: "+16109844474",//Me
+      // to: "+14848666955",//Keller
+
+      from: "+14846265179",
+      // body: "This is the ship that made the Kessel Run in fourteen parsecs?",
+      // body: "WARNING:  Temperature have turned off out of schedule",
+      body: "https://limitless-river-10033.herokuapp.com/datadash"
+
+    }, function(err, message) {
+      console.log(message.sid);
+      // res.send(req.body);
+    });
+
+  }
+
 
 
 
 
   if (insertPost.temperature >= settings.max_temp || insertPost.temperature <= settings.min_temp) {
-    console.log('insertPost.temperature');
-    console.log(insertPost.temperature);
-    console.log('settings.max_temp');
-    console.log(settings.max_temp);
-    console.log('settings.min_temp');
-    console.log(settings.min_temp);
     //send warning text about temps w/ metric included
     //send text warning about lights
     var accountSid = 'AC674af2aaed607cbb23d6d2e718c30d6f';
@@ -174,6 +220,19 @@ if(settings.text_sent < 1){
       console.log(message.sid);
       // res.send(req.body);
     });
+    client.messages.create({
+      to: "+16109844474",//Me
+      // to: "+14848666955",//Keller
+
+      from: "+14846265179",
+      // body: "This is the ship that made the Kessel Run in fourteen parsecs?",
+      // body: "WARNING:  Temperature have turned off out of schedule",
+      body: "https://limitless-river-10033.herokuapp.com/datadash",
+
+    }, function(err, message) {
+      console.log(message.sid);
+      // res.send(req.body);
+    });
   }
   if(insertPost.humidity >= settings.max_humid || insertPost.humidity <= settings.humid) {
     //send warning text about humid w/ metric included
@@ -190,7 +249,20 @@ if(settings.text_sent < 1){
       from: "+14846265179",
       // body: "This is the ship that made the Kessel Run in fourteen parsecs?",
       // body: "WARNING:  Temperature have turned off out of schedule",
-      body: `WARNING: Humidty is at ${insertPost.humidity}%`,
+      body: `WARNING: Humidity is at ${insertPost.humidity}%`,
+
+    }, function(err, message) {
+      console.log(message.sid);
+      // res.send(req.body);
+    });
+    client.messages.create({
+      to: "+16109844474",//Me
+      // to: "+14848666955",//Keller
+
+      from: "+14846265179",
+      // body: "This is the ship that made the Kessel Run in fourteen parsecs?",
+      // body: "WARNING:  Temperature have turned off out of schedule",
+      body: "https://limitless-river-10033.herokuapp.com/datadash",
 
     }, function(err, message) {
       console.log(message.sid);
