@@ -382,7 +382,7 @@
    	  fontSize: 25
    	},
    	plotarea:{
-   	  marginTop:80
+   	  marginTop:20
    	},
    	plot:{
    	  size:'100%',
