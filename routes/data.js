@@ -72,7 +72,7 @@ foo("address", function(settings, insertPost){
   console.log("settings.on_time");
   console.log(settings.on_time);
   console.log("settings.off_time");
-  console.log(settings.off_time;
+  console.log(settings.off_time);
   console.log("insertPost.light");
   console.log(insertPost.light);
   console.log("settings.text_sent");
