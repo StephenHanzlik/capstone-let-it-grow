@@ -60,7 +60,7 @@
           }
           // console.log(postObj);
 
-          $http.post("https://limitless-river-10033.herokuapp.com/smssettings", postObj)
+          $http.post("https://http://dinky-dinky.herokuapp.com/smssettings", postObj)
           .then(response => {
               console.log(response);
           });
