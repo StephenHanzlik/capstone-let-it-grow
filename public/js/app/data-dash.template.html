@@ -20,8 +20,10 @@
     </div> -->
   		<!-- <div><a class="zc-ref" href="https://www.zingchart.com/">Powered by ZingChart</a></div> -->
 
-  <div class="container row justify-content-around chart-center">
+  <div class="container row justify-content-around">
+    <div class="chart-center1">
     <zingchart id = "myChart" zc-json = "myJson" zc-height = 500 zc-width = 600 ></zingchart>
+  </div>
     <div class="center-light" ng-if="$ctrl.lightOn >= 1">
       <h3>Lights Are On</h3>
       <img src="images/invention.png" alt="light-on">
@@ -35,7 +37,7 @@
     <h1>{{ $ctrl.soil }}</h1>
   </div> -->
     <div id="myChart2"><a class="zc-ref" href="https://www.zingchart.com/">Powered by ZingChart</a></div>
-  </div>
+</div>
 
     <!-- <form name="loginForm" class="navbar-form navbar-right" novalidate="" ng-submit="$ctrl.logIn()" role="search">
       <div class="form-group">
