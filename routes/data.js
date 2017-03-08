@@ -155,7 +155,7 @@ if(settings.text_sent < 1){
       console.log(err);
     });
 
-  if (insertPost.soil_moisture < 1){
+  if (insertPost.soil_moisture > 10){
 
     //send warning text about temps w/ metric included
     //send text warning about lights
