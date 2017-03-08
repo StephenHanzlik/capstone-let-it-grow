@@ -67,6 +67,16 @@ foo("address", function(settings, insertPost){
   }
   let joinedNowString = arrNow.join('');
   let currentTimeInt = parseInt(joinedNowString);
+  console.log("currentTimeInt");
+  console.log(currentTimeInt);
+  console.log("settings.on_time");
+  console.log(settings.on_time);
+  console.log("settings.off_time");
+  console.log(settings.off_time;
+  console.log("insertPost.light");
+  console.log(insertPost.light);
+  console.log("settings.text_sent");
+  console.log(settings.text_sent);
 
   if(currentTimeInt >= settings.on_time && currentTimeInt <= settings.off_time && insertPost.light < 1 && settings.text_sent < 1){
 
@@ -157,8 +167,9 @@ foo("address", function(settings, insertPost){
             next(err);
           });
 
-
+console.log("made it ot line 160");
 }, insertPost)
+console.log("made it to line 162");
 
 
 
