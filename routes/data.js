@@ -20,14 +20,8 @@ router.get('/', function(req, res, next) {
       next(boom.create(500, 'Database Query Failed'));
     });
 });
-//
-// let lightToggle = 0;
-// let lightOnTime = 0;
-// let lightOffTime = 0;
-// let currentTime = 0;
 
 router.post('/', (req, res, next) => {
-
   const { light, temperature, humidity, soil_moisture } = req.body;
   const insertPost = { light, temperature, humidity, soil_moisture  };
   if(insertPost.humidity > 100){
@@ -41,7 +35,7 @@ router.post('/', (req, res, next) => {
         'User-Agent': 'Request-Promise'
     },
     json: true // Automatically parses the JSON string in the response
-};
+  };
 
 function foo(address, fn, obj){
   rp(options)
@@ -138,7 +132,8 @@ foo("address", function(settings, insertPost){
     });
   }
 }
-  if(insertPost.temperature >= settings.max_temp || insertPost.temperature <= settings.min_temp) {
+if(settings.text_sent < 1){
+  if (insertPost.temperature >= settings.max_temp && insertPost.temperature <= settings.min_temp) {
     //send warning text about temps w/ metric included
     //send text warning about lights
     var accountSid = 'AC674af2aaed607cbb23d6d2e718c30d6f';
@@ -154,7 +149,7 @@ foo("address", function(settings, insertPost){
       from: "+14846265179",
       // body: "This is the ship that made the Kessel Run in fourteen parsecs?",
       // body: "WARNING:  Temperature have turned off out of schedule",
-      body: `the temp is ${insertPost.temperature}`,
+      body: `WARNING: Temperature is ${insertPost.temperature}°F`,
 
     }, function(err, message) {
       console.log(message.sid);
@@ -163,8 +158,27 @@ foo("address", function(settings, insertPost){
   }
   if(insertPost.humidity >= settings.max_humid || insertPost.humidity <= settings.humid) {
     //send warning text about humid w/ metric included
-    console.log("CF3");
+    var accountSid = 'AC674af2aaed607cbb23d6d2e718c30d6f';
+    var authToken = 'cceebb0dbcbfd2f072e45f83eae2b2b5';
+
+    //require the Twilio module and create a REST client
+    var client = require('twilio')(accountSid, authToken);
+
+    client.messages.create({
+      to: "+16109844474",//Me
+      // to: "+14848666955",//Keller
+
+      from: "+14846265179",
+      // body: "This is the ship that made the Kessel Run in fourteen parsecs?",
+      // body: "WARNING:  Temperature have turned off out of schedule",
+      body: `WARNING: Humidty is at ${insertPost.humidity}%`,
+
+    }, function(err, message) {
+      console.log(message.sid);
+      // res.send(req.body);
+    });
   }
+}
 
         knex('data')
           .insert((insertPost), '*')
@@ -184,9 +198,9 @@ foo("address", function(settings, insertPost){
             next(err);
           });
 
-console.log("made it ot line 162");
+
 }, insertPost)
-console.log("made it to line 164");
+
 
 });
 
