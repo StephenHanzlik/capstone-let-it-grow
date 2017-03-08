@@ -8,7 +8,7 @@
 
   function service($http) {
   //   this.getData = function(){
-  //     return $http.get("https://limitless-river-10033.herokuapp.com/data").then(response => {
+  //     return $http.get("http://dinkydinky.herokuapp.com/data").then(response => {
   //      const data = response.data[0];
   //      console.log(response.data[0]);
   //      return data;

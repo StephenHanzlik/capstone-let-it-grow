@@ -30,7 +30,7 @@ router.post('/', (req, res, next) => {
   insertPost.created_at = new Date();
 
   var options = {
-    uri: 'https://limitless-river-10033.herokuapp.com/smssettings',
+    uri: 'http://dinkydinky.herokuapp.com/smssettings',
     headers: {
         'User-Agent': 'Request-Promise'
     },
@@ -68,7 +68,7 @@ foo("address", function(settings, insertPost){
 
             var options = {
               method: 'POST',
-              uri: 'https://limitless-river-10033.herokuapp.com/smssettings',
+              uri: 'http://dinkydinky.herokuapp.com/smssettings',
               body: {
                 on_time: settings.on_time,
                 off_time: settings.off_time,
@@ -117,7 +117,7 @@ foo("address", function(settings, insertPost){
       from: "+14846265179",
       // body: "This is the ship that made the Kessel Run in fourteen parsecs?",
       // body: "WARNING:  Temperature have turned off out of schedule",
-      body: "https://limitless-river-10033.herokuapp.com/datadash"
+      body: "http://dinkydinky.herokuapp.com/data"
 
     }, function(err, message) {
       console.log(message.sid);
@@ -131,7 +131,7 @@ if(settings.text_sent < 1){
 
   var options = {
     method: 'POST',
-    uri: 'https://limitless-river-10033.herokuapp.com/smssettings',
+    uri: 'http://dinkydinky.herokuapp.com/smssettings',
     body: {
       on_time: settings.on_time,
       off_time: settings.off_time,
@@ -185,7 +185,7 @@ if(settings.text_sent < 1){
       from: "+14846265179",
       // body: "This is the ship that made the Kessel Run in fourteen parsecs?",
       // body: "WARNING:  Temperature have turned off out of schedule",
-      body: "https://limitless-river-10033.herokuapp.com/datadash"
+      body: "http://dinkydinky.herokuapp.com/data"
 
     }, function(err, message) {
       console.log(message.sid);
@@ -227,7 +227,7 @@ if(settings.text_sent < 1){
       from: "+14846265179",
       // body: "This is the ship that made the Kessel Run in fourteen parsecs?",
       // body: "WARNING:  Temperature have turned off out of schedule",
-      body: "https://limitless-river-10033.herokuapp.com/datadash",
+      body: "http://dinkydinky.herokuapp.com/data",
 
     }, function(err, message) {
       console.log(message.sid);
@@ -262,7 +262,7 @@ if(settings.text_sent < 1){
       from: "+14846265179",
       // body: "This is the ship that made the Kessel Run in fourteen parsecs?",
       // body: "WARNING:  Tempe rature have turned off out of schedule",
-      body: "https://limitless-river-10033.herokuapp.com/datadash",
+      body: "http://dinkydinky.herokuapp.com/data",
 
     }, function(err, message) {
       console.log(message.sid);
@@ -298,7 +298,7 @@ if(settings.text_sent < 1){
 
 
   // request({
-  //   uri: "https://limitless-river-10033.herokuapp.com/smssettings",
+  //   uri: "http://dinkydinky.herokuapp.com/smssettings",
   //   method: "GET"
   // }, function  (error, response, body) {
   //   // console.log(body);
