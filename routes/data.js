@@ -115,6 +115,37 @@ foo("address", function(settings, insertPost){
 console.log('settings.text_sent');
 console.log(settings.text_sent);
 if(settings.text_sent < 1){
+
+  var options = {
+    method: 'POST',
+    uri: 'https://limitless-river-10033.herokuapp.com/smssettings',
+    body: {
+      on_time: settings.on_time,
+      off_time: settings.off_time,
+      max_temp: settings.max_temp,
+      min_temp: settings.min_temp,
+      max_humid: settings.max_humid,
+      min_humid: settings.min_humid,
+      text_sent: 1
+    },
+    json: true // Automatically stringifies the body to JSON
+    };
+
+    rp(options)
+    .then(function (parsedBody) {
+      // POST succeeded...
+      console.log("this is successfully parsed body:");
+      console.log(parsedBody);
+    })
+    .catch(function (err) {
+      // POST failed...
+      console.log(err);
+    });
+
+
+
+
+
   if (insertPost.temperature >= settings.max_temp || insertPost.temperature <= settings.min_temp) {
     console.log('insertPost.temperature');
     console.log(insertPost.temperature);
@@ -137,7 +168,7 @@ if(settings.text_sent < 1){
       from: "+14846265179",
       // body: "This is the ship that made the Kessel Run in fourteen parsecs?",
       // body: "WARNING:  Temperature have turned off out of schedule",
-      body: `WARNING: Temperature is ${insertPost.temperature}°F`,
+      body: `WARNING: Temperature is at ${insertPost.temperature}°F`,
 
     }, function(err, message) {
       console.log(message.sid);
