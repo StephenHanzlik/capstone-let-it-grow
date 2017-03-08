@@ -365,9 +365,13 @@
 
 
         window.feed = function(callback) {
+          $http.get("https://dinkydinky.herokuapp.com/data")
+          .then(response => {
+            let soil = response.data[0].soil_moisture;
+
           let tick = {};
-          tick.plot0 = vm.soil_moisture
-        callback(JSON.stringify(tick));
+          tick.plot0 = soil;
+          callback(JSON.stringify(tick));
         // tick.plot0 = Math.ceil(350 + (Math.random() * 500));
         };
 
