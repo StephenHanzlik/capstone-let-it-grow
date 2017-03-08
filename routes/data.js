@@ -159,9 +159,9 @@ foo("address", function(settings, insertPost){
             next(err);
           });
 
-console.log("made it ot line 160");
+console.log("made it ot line 162");
 }, insertPost)
-console.log("made it to line 162");
+console.log("made it to line 164");
 
 });
 
