@@ -91,6 +91,7 @@ foo("address", function(settings, insertPost){
   if(currentTimeInt >= settings.on_time && currentTimeInt <= settings.off_time){
   if (insertPost.light < 1 && settings.text_sent < 1){
 
+
             var options = {
               method: 'POST',
               uri: 'https://limitless-river-10033.herokuapp.com/smssettings',
@@ -105,6 +106,7 @@ foo("address", function(settings, insertPost){
               rp(options)
               .then(function (parsedBody) {
                 // POST succeeded...
+                console.log("this is successfully parsed body:");
                 console.log(parsedBody);
               })
               .catch(function (err) {

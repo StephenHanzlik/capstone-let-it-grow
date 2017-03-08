@@ -20,8 +20,8 @@ router.get('/', (req, res, next) => {
 
 router.post('/', (req, res, next) => {
   console.log(req.body);
-  const { on_time, off_time, max_temp, min_temp, max_humid, min_humid } = req.body;
-  const insertPost = { on_time, off_time, max_temp, min_temp, max_humid, min_humid };
+  const { on_time, off_time, max_temp, min_temp, max_humid, min_humid, text_sent } = req.body;
+  const insertPost = { on_time, off_time, max_temp, min_temp, max_humid, min_humid, text_sent };
 
   knex('settings')
     .insert((insertPost), '*')
