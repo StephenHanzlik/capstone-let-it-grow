@@ -7,7 +7,7 @@
       templateUrl: "js/app/smsconfigure.template.html"
     })
 
-    controller.$inject = ['formService', '$scope', '$http'];
+    controller.$inject = ['formService', '$scope', '$http', 'formService'];
 
     function controller (formService, $scope, $http) {
       const vm = this;
@@ -16,10 +16,7 @@
       vm.$onInit = onInit;
 
       function onInit(){
-          // let promise = formService.getData();
-          // promise.then(function(response){
-          //   vm.data = response;
-          // })
+          console.log(formService.getData)
       }
 
 
