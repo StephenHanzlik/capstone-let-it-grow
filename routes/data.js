@@ -68,7 +68,7 @@ foo("address", function(settings, insertPost){
   let joinedNowString = arrNow.join('');
   let currentTimeInt = parseInt(joinedNowString);
 
-  if(currentTimeInt >= settings.on_time && currentTimeInt <= settings.off_time && insertPost.light < 1){
+  if(currentTimeInt >= settings.on_time && currentTimeInt <= settings.off_time && insertPost.light < 1 ){
 
     //send text warning about lights
     var accountSid = 'AC674af2aaed607cbb23d6d2e718c30d6f';
