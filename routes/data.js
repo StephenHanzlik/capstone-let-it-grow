@@ -85,6 +85,9 @@ foo("address", function(settings, insertPost){
   console.log(insertPost.light < 1);
   console.log("settings.text_sent < 1");
   console.log(settings.text_sent < 1);
+  if("hello" === 45){
+    console.log("this is really screwed up");
+  }
 // currentTimeInt >= settings.on_time
   if(false) { if(currentTimeInt <= settings.off_time){
   if (insertPost.light < 1){
