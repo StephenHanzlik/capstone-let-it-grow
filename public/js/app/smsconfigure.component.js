@@ -16,10 +16,10 @@
       vm.$onInit = onInit;
 
       function onInit(){
-          let promise = formService.getData();
-          promise.then(function(response){
-            vm.data = response;
-          })
+          // let promise = formService.getData();
+          // promise.then(function(response){
+          //   vm.data = response;
+          // })
       }
 
 
@@ -51,10 +51,14 @@
           let postObj = {
             on_time: onTimeInt,
             off_time: onTimeInt2,
+            max_humid: vm.smsSettingForm.max_humid,
+            min_humid: vm.smsSettingForm.min_humid,
+            max_temp: vm.smsSettingForm.max_temp,
+            min_temp: vm.smsSettingForm.min_temp,
             text_sent: 0
             // currentTime: currentTime
           }
-          console.log(postObj);
+          // console.log(postObj);
 
           $http.post("https://limitless-river-10033.herokuapp.com/smssettings", postObj)
           .then(response => {
