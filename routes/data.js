@@ -115,7 +115,7 @@ foo("address", function(settings, insertPost){
 console.log('settings.text_sent');
 console.log(settings.text_sent);
 if(settings.text_sent < 1){
-  if (insertPost.temperature >= settings.max_temp && insertPost.temperature <= settings.min_temp) {
+  if (insertPost.temperature >= settings.max_temp || insertPost.temperature <= settings.min_temp) {
     console.log('insertPost.temperature');
     console.log(insertPost.temperature);
     console.log('settings.max_temp');
