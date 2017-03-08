@@ -388,7 +388,7 @@
    	  size:'100%',
    	  valueBox: {
    	    placement: 'center',
-   	    text:'%v', //default
+   	   //  text:'%v', //default
    	    fontSize:35,
    	    rules:[
    	      {
