@@ -388,12 +388,12 @@
    	  size:'100%',
    	  valueBox: {
    	    placement: 'center',
-   	   //  text:'%v', //default
+   	    text:'%v', //default
    	    fontSize:35,
    	    rules:[
    	      {
    	        rule: '%v >= 3',
-   	        text: '%v<br>Soil Wet'
+   	        text: 'Soil Wet'
    	      },
    	     //  {
    	     //    rule: '%v < 700 && %v > 640',
@@ -401,11 +401,11 @@
    	     //  },
    	      {
    	        rule: '%v < 3 && %v > 1',
-   	        text: '%v<br>Soil Ok'
+   	        text: 'Soil Ok'
    	      },
    	      {
    	        rule: '%v <  1',
-   	        text: '%v<br>Soil Dry!'
+   	        text: 'Soil Dry!'
    	      }
    	    ]
    	  }
