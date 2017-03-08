@@ -385,13 +385,13 @@
    	    fontSize:35,
    	    rules:[
    	      {
-   	        rule: '%v >= 700',
-   	        text: '%v<br>EXCELLENT'
+   	        rule: '%v >= 3',
+   	        text: '%v<br>Soil Wet'
    	      },
-   	      {
-   	        rule: '%v < 700 && %v > 640',
-   	        text: '%v<br>Good'
-   	      },
+   	     //  {
+   	     //    rule: '%v < 700 && %v > 640',
+   	     //    text: '%v<br>Good'
+   	     //  },
    	      {
    	        rule: '%v < 640 && %v > 580',
    	        text: '%v<br>Fair'
@@ -408,8 +408,8 @@
     },
    	scaleR:{
   	  aperture:180,
-  	  minValue:300,
-  	  maxValue:850,
+  	  minValue:0,
+  	  maxValue:3,
   	  step:50,
   	  center:{
   	    visible:false
@@ -426,25 +426,25 @@
   	      }
   	    ]
   	  },
-  	  labels:['300','','','','','','580','640','700','750','','850'],
+  	  labels:['','','','','','','','','','','',''],
   	  ring:{
   	    size:50,
   	    rules:[
   	      {
-  	        rule:'%v <= 580',
+  	        rule:'%v <= 1',
   	        backgroundColor:'#E53935'
   	      },
+  	      // {
+  	      //   rule:'%v > 0 && %v < 1',
+  	      //   backgroundColor:'#EF5350'
+  	      // },
   	      {
-  	        rule:'%v > 580 && %v < 640',
-  	        backgroundColor:'#EF5350'
-  	      },
-  	      {
-  	        rule:'%v >= 640 && %v < 700',
+  	        rule:'%v >= 1 && %v < 2',
   	        backgroundColor:'#FFA726'
   	      },
   	      {
-  	        rule:'%v >= 700',
-  	        backgroundColor:'#29B6F6'
+  	        rule:'%v >= 2',
+  	        backgroundColor:'#0cb054'
   	      }
   	    ]
   	  }
@@ -453,7 +453,7 @@
         type:"feed",
         transport:"js",
         url:"feed()",
-        interval:1500,
+        interval:1000,
         resetTimeout:1000
     },
   	series : [
