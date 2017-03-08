@@ -11,9 +11,14 @@
 
     $stateProvider
       .state({
-        name: 'mainLanding',
+        name: 'datadash',
         url: '/',
-        component: 'mainLanding',
+        component: 'datadash',
+      })
+      .state({
+        name: 'about',
+        url: '/about',
+        component: 'about',
       })
       .state({
         name: 'smsconfigure',
@@ -29,11 +34,6 @@
         name: 'postList',
         url: '/postList',
         component: 'postList',
-      })
-      .state({
-        name: 'datadash',
-        url: '/datadash',
-        component: 'datadash',
       })
   }
 

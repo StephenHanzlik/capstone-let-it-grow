@@ -2,7 +2,7 @@
   'use strict'
 
   angular.module('app')
-    .component('mainLanding', {
+    .component('about', {
       controller: function($state, $http) {
         const vm = this
 
@@ -23,7 +23,7 @@
       },
       // otemplate: `<h1>I am template</h1>`
 
-      templateUrl: "js/app/main-landing.html"
+      templateUrl: "js/app/about.template.html"
     })
 
 }());
