@@ -117,7 +117,7 @@ foo("address", function(settings, insertPost){
       from: "+14846265179",
       // body: "This is the ship that made the Kessel Run in fourteen parsecs?",
       // body: "WARNING:  Temperature have turned off out of schedule",
-      body: "http://dinkydinky.herokuapp.com/data"
+      body: "https://dinkydinky.herokuapp.com/data"
 
     }, function(err, message) {
       console.log(message.sid);
@@ -185,7 +185,7 @@ if(settings.text_sent < 1){
       from: "+14846265179",
       // body: "This is the ship that made the Kessel Run in fourteen parsecs?",
       // body: "WARNING:  Temperature have turned off out of schedule",
-      body: "http://dinkydinky.herokuapp.com/data"
+      body: "https://dinkydinky.herokuapp.com/data"
 
     }, function(err, message) {
       console.log(message.sid);
@@ -227,7 +227,7 @@ if(settings.text_sent < 1){
       from: "+14846265179",
       // body: "This is the ship that made the Kessel Run in fourteen parsecs?",
       // body: "WARNING:  Temperature have turned off out of schedule",
-      body: "http://dinkydinky.herokuapp.com/data",
+      body: "https://dinkydinky.herokuapp.com/data",
 
     }, function(err, message) {
       console.log(message.sid);
@@ -262,7 +262,7 @@ if(settings.text_sent < 1){
       from: "+14846265179",
       // body: "This is the ship that made the Kessel Run in fourteen parsecs?",
       // body: "WARNING:  Tempe rature have turned off out of schedule",
-      body: "http://dinkydinky.herokuapp.com/data",
+      body: "https://dinkydinky.herokuapp.com/data",
 
     }, function(err, message) {
       console.log(message.sid);
