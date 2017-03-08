@@ -373,6 +373,7 @@
           tick.plot0 = soil;
           callback(JSON.stringify(tick));
         // tick.plot0 = Math.ceil(350 + (Math.random() * 500));
+          });
         };
 
   var myConfig = {
