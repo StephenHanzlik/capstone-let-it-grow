@@ -235,7 +235,7 @@ console.log("made it to line 162");
 // if(req.body.humidity && req.body.temperature){
 
   // }//end of huimidt & control flow
-});
+// });
 
 
 
