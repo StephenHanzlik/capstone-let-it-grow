@@ -481,7 +481,7 @@
   zingchart.render({
   	id : 'myChart2',
   	data : myConfig,
-  	height: 500,
+  	height: 300,
   	width: '100%'
   });
 
