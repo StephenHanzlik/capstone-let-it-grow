@@ -387,7 +387,7 @@
    	plot:{
    	  size:'100%',
    	  valueBox: {
-   	    placement: 'center',
+   	    placement: 'right',
    	    text:'%v', //default
    	    fontSize:35,
    	    rules:[
