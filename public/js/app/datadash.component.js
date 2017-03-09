@@ -483,7 +483,6 @@
   	data : myConfig,
   	height: 300,
   	width: '100%',
-    marginRight: 200
   });
 
 
