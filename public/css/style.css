@@ -10,6 +10,12 @@
   height:100%;
   width:100%;
 }
+.on-div{
+
+}
+.off-div{
+  color: black;
+}
 
 .sheild-img{
   padding-top: 10px;
