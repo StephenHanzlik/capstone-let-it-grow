@@ -417,7 +417,7 @@
   	  aperture:180,
   	  minValue:0,
   	  maxValue:340,
-  	  step:0,
+  	  step:20,
   	  center:{
   	    visible:false
   	  },
