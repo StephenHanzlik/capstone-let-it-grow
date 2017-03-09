@@ -383,7 +383,8 @@
    	},
    	plotarea:{
    	  marginTop:5,
-      marginBottom:5
+      marginBottom:5,
+      paddingBottom: -20
    	},
    	plot:{
    	  size:'100%',
