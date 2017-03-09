@@ -382,12 +382,10 @@
    	  fontSize: 25
    	},
    	plotarea:{
-   	  marginTop:5,
-      marginBottom:5,
-      paddingBottom: -20
+   	  marginTop:20,
    	},
    	plot:{
-   	  size:'60%',
+   	  size:'100%',
    	  valueBox: {
    	    placement: 'center',
    	    text:'%v', //default
@@ -419,7 +417,7 @@
   	  aperture:180,
   	  minValue:0,
   	  maxValue:340,
-  	  step:20,
+  	  step:0,
   	  center:{
   	    visible:false
   	  },
