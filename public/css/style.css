@@ -36,15 +36,5 @@
     height: 100%;
     background-size: cover;
     overflow: hidden;
-    opacity: 0.5;
     margin-top: -10px;
-}
-#jum-h1{
-  opacity: 0.9;
-}
-#jum-h3{
-  opacity: 0.9;
-}
-#jum-p{
-  opacity: 0.9;
 }
