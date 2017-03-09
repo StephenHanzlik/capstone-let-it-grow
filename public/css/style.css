@@ -44,8 +44,8 @@
   maring-right: 30%
 }*/
 .flex-light-gauge{
-  display: flex,
-  justify-content: center,
+  /*display: flex,
+  justify-content: center,*/
 }
 #light-pic2{
   padding-left: 300px;
