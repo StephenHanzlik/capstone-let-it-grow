@@ -13,7 +13,9 @@
 #myChart ,body , html {
   height:100%;
   width:100%;
-  margin-left: 200px;
+  /*margin-left: 200px;*/
+  padding-right: -80px;
+
 }
 .on-div{
 
