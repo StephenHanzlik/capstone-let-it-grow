@@ -13,7 +13,7 @@
 #myChart ,body , html {
   height:100%;
   width:100%;
-  margin-right: -100px;
+  /*margin-right: -100px;*/
   /*padding-right: -500px;*/
 
 }
@@ -49,12 +49,12 @@
   /*display: flex,
   justify-content: center,*/
 }
-#light-pic2{
+/*#light-pic2{
   padding-left: 300px;
 }
 #light-pic{
   padding-left: 300px;
-}
+}*/
 .chart-center1{
   margin-left: 25%;
 }
