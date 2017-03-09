@@ -37,6 +37,7 @@
     background-size: cover;
     overflow: hidden;
     margin-top: -10px;
+    padding-top: -20px;
 }
 .jumbo-text{
   color: white;
