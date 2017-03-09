@@ -387,7 +387,7 @@
       paddingBottom: -20
    	},
    	plot:{
-   	  size:'100%',
+   	  size:'60%',
    	  valueBox: {
    	    placement: 'center',
    	    text:'%v', //default
