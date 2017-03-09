@@ -383,11 +383,12 @@
    	},
    	plotarea:{
    	  marginTop:20,
+      marginRight:100
    	},
    	plot:{
    	  size:'100%',
    	  valueBox: {
-   	    placement: 'right',
+   	    placement: 'center',
    	    text:'%v', //default
    	    fontSize:35,
    	    rules:[
