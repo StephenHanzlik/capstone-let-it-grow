@@ -383,7 +383,6 @@
    	},
    	plotarea:{
    	  marginTop:20,
-      marginRight:100
    	},
    	plot:{
    	  size:'100%',
@@ -483,7 +482,8 @@
   	id : 'myChart2',
   	data : myConfig,
   	height: 300,
-  	width: '100%'
+  	width: '100%',
+    maring-right: 200
   });
 
 
