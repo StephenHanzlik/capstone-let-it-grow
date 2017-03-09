@@ -46,6 +46,12 @@
   display: flex,
   justify-content: center,
 }
+#light-pic2{
+  padding-left: 300px;
+}
+#light-pic{
+  padding-left: 300px;
+}
 .chart-center1{
   margin-left: 25%;
 }
