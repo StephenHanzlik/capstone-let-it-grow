@@ -392,7 +392,7 @@
    	    fontSize:35,
    	    rules:[
    	      {
-   	        rule: '%v >= 3',
+   	        rule: '%v >= 270',
    	        text: 'Soil Wet'
    	      },
    	     //  {
@@ -400,11 +400,11 @@
    	     //    text: '%v<br>Good'
    	     //  },
    	      {
-   	        rule: '%v < 3 && %v > 1',
+   	        rule: '%v < 200 && %v > 280',
    	        text: 'Soil Ok'
    	      },
    	      {
-   	        rule: '%v <  1',
+   	        rule: '%v <  200',
    	        text: 'Soil Dry!'
    	      }
    	    ]
@@ -416,8 +416,8 @@
    	scaleR:{
   	  aperture:180,
   	  minValue:0,
-  	  maxValue:3,
-  	  step:1,
+  	  maxValue:340,
+  	  step:20,
   	  center:{
   	    visible:false
   	  },
@@ -446,11 +446,11 @@
   	      //   backgroundColor:'#EF5350'
   	      // },
   	      {
-  	        rule:'%v >= 200 && %v < 280',
+  	        rule:'%v >= 200 && %v < 270',
   	        backgroundColor:'#FFA726'
   	      },
   	      {
-  	        rule:'%v >= 280',
+  	        rule:'%v >= 270',
   	        backgroundColor:'#0cb054'
   	      }
   	    ]
