@@ -39,10 +39,10 @@
 .zc-ref {
   display: none;
 }
-.center-light{
+/*.center-light{
   margin-left: 30%,
   maring-right: 30%
-}
+}*/
 .flex-light-gauge{
   display: flex,
   justify-content: center,
