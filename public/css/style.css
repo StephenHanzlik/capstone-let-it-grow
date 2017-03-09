@@ -5,6 +5,10 @@
 .background {
   color: gray;
 }
+.sms-text{
+  display: flex;
+  justify-content: center;
+}
 
 #myChart ,body , html {
   height:100%;
