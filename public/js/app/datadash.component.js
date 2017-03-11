@@ -450,7 +450,7 @@
   	        backgroundColor:'#FFA726'
   	      },
   	      {
-  	        rule:'%v >= 600',
+  	        rule:'%v >= 500',
   	        backgroundColor:'#0cb054'
   	      }
   	    ]
