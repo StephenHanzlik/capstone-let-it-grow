@@ -362,8 +362,6 @@
           }
 
 
-
-
         window.feed = function(callback) {
           $http.get("https://dinkydinky.herokuapp.com/data")
           .then(response => {

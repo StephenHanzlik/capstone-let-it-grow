@@ -15,16 +15,16 @@ router.get('/', function(req, res, next) {
     .limit(9)
     .then((result) => {
 
-      // knex('data')
-      //   .orderBy('id', 'asc')
-      //   .limit(1)
-      //   .del()
-      //   .then(() => {
-      //     return;
-      //   })
-      //   .catch((err) => {
-      //     next(boom.create(500, 'Database Query Failed'));
-      //   });
+      knex('data')
+        .orderBy('id', 'asc')
+        .limit(1)
+        .del()
+        .then(() => {
+          return;
+        })
+        .catch((err) => {
+          next(boom.create(500, 'Database Query Failed'));
+        });
 
 
       res.send(result);
@@ -172,7 +172,7 @@ if(settings.text_sent < 1){
       console.log(err);
     });
 
-  if (insertPost.soil_moisture < 380){
+  if (insertPost.soil_moisture < 220){
 
     //send warning text about temps w/ metric included
     //send text warning about lights
