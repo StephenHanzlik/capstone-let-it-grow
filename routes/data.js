@@ -14,9 +14,8 @@ router.get('/', function(req, res, next) {
     .orderBy('id', 'desc')
     .limit(9)
     .then((result) => {
-      console.log(result);
       knex('data')
-        .where('id', 10)
+        .where('id', '<', 772)
         .del()
         .then((result) => {
           return;
