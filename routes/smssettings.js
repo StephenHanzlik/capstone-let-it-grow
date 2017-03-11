@@ -17,16 +17,16 @@ router.get('/', (req, res, next) => {
       next(boom.create(500, 'Database Query Failed'));
     });
 
-    knex('settings')
-      .orderBy('id', 'asc')
-      .limit(1)
-      .del()
-      .then((result) => {
-      res.send(result);
-      })
-      .catch((err) => {
-        next(boom.create(500, 'Database Query Failed'));
-      });
+    // knex('settings')
+    //   .orderBy('id', 'asc')
+    //   .limit(1)
+    //   .del()
+    //   .then((result) => {
+    //   res.send(result);
+    //   })
+    //   .catch((err) => {
+    //     next(boom.create(500, 'Database Query Failed'));
+    //   });
 
 
 
