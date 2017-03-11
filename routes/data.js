@@ -19,7 +19,7 @@ router.get('/', function(req, res, next) {
         .limit(1)
         .del()
         .then(() => {
-          return result;
+          return;
         })
         .catch((err) => {
           next(boom.create(500, 'Database Query Failed'));
