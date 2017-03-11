@@ -14,6 +14,15 @@ router.get('/', function(req, res, next) {
     .orderBy('id', 'desc')
     .limit(9)
     .then((result) => {
+      knex('data')
+        .where('id', 10)
+        .del()
+        .then((result) => {
+          return;
+        })
+        .catch((err) => {
+          next(boom.create(500, 'Database Query Failed'));
+        });
       res.send(result);
     })
     .catch((err) => {
@@ -196,9 +205,6 @@ if(settings.text_sent < 1){
     });
 
   }
-
-
-
 
 
   if (insertPost.temperature >= settings.max_temp || insertPost.temperature <= settings.min_temp) {

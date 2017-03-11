@@ -21,7 +21,7 @@
             if(!$scope.loading){
                 update();
             }
-        }, 1000);
+        }, 3500);
 
       function update() {
 
