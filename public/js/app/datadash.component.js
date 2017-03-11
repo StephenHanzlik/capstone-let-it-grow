@@ -404,7 +404,7 @@
    	        text: 'Soil Ok'
    	      },
    	      {
-   	        rule: '%v <  200',
+   	        rule: '%v <  200 && %v >= 160',
    	        text: 'Soil Dry!'
    	      }
    	    ]
