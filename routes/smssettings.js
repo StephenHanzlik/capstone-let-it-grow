@@ -15,8 +15,8 @@ router.get('/', (req, res, next) => {
         .orderBy('id', 'asc')
         .limit(1)
         .del()
-        .then((result) => {
-          return;
+        .then(() => {
+          return result;
         })
         .catch((err) => {
           next(boom.create(500, 'Database Query Failed'));
