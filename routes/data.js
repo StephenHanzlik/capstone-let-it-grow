@@ -40,9 +40,10 @@ router.post('/', (req, res, next) => {
   if(insertPost.humidity > 100){
     insertPost.humidity = 100;
   }
-  if(insertPost.soil_moisture > 340){
-    insertPost.soil_moisture = 330;
-  }
+  // if(insertPost.soil_moisture > 340){
+  
+  //   insertPost.soil_moisture = 330;
+  // }
   insertPost.created_at = new Date();
 
   var options = {
