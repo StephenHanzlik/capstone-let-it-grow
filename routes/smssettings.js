@@ -11,9 +11,9 @@ router.get('/', (req, res, next) => {
     .orderBy('id', 'desc')
     .first()
     .then((result) => {
-
       knex('settings')
-        .where('id', '<', 50)
+        .orderBy('id', 'asc')
+        .limit(1)
         .del()
         .then((result) => {
           return;
@@ -21,7 +21,6 @@ router.get('/', (req, res, next) => {
         .catch((err) => {
           next(boom.create(500, 'Database Query Failed'));
         });
-
       res.send(result);
     })
     .catch((err) => {
