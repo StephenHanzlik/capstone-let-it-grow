@@ -433,12 +433,12 @@
   	      }
   	    ]
   	  },
-  	  labels:['','','','','','','','','','','',''],
+  	  labels:[''],
   	  ring:{
   	    size:50,
   	    rules:[
   	      {
-  	        rule:'%v <= 380',
+  	        rule:'%v <= 350',
   	        backgroundColor:'#E53935'
   	      },
   	      // {
@@ -446,7 +446,7 @@
   	      //   backgroundColor:'#EF5350'
   	      // },
   	      {
-  	        rule:'%v >= 380 && %v < 500',
+  	        rule:'%v >= 350 && %v < 500',
   	        backgroundColor:'#FFA726'
   	      },
   	      {
