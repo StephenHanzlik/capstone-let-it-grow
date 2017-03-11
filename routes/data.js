@@ -41,7 +41,7 @@ router.post('/', (req, res, next) => {
     insertPost.humidity = 100;
   }
   // if(insertPost.soil_moisture > 340){
-  
+
   //   insertPost.soil_moisture = 330;
   // }
   insertPost.created_at = new Date();
@@ -172,7 +172,7 @@ if(settings.text_sent < 1){
       console.log(err);
     });
 
-  if (insertPost.soil_moisture < 200){
+  if (insertPost.soil_moisture < 380){
 
     //send warning text about temps w/ metric included
     //send text warning about lights

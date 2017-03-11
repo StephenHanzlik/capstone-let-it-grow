@@ -416,8 +416,8 @@
    	scaleR:{
   	  aperture:180,
   	  minValue:0,
-  	  maxValue:340,
-  	  step:20,
+  	  maxValue:600,
+  	  step:10,
   	  center:{
   	    visible:false
   	  },
@@ -438,7 +438,7 @@
   	    size:50,
   	    rules:[
   	      {
-  	        rule:'%v <= 200',
+  	        rule:'%v <= 380',
   	        backgroundColor:'#E53935'
   	      },
   	      // {
@@ -446,11 +446,11 @@
   	      //   backgroundColor:'#EF5350'
   	      // },
   	      {
-  	        rule:'%v >= 200 && %v < 270',
+  	        rule:'%v >= 380 && %v < 500',
   	        backgroundColor:'#FFA726'
   	      },
   	      {
-  	        rule:'%v >= 270',
+  	        rule:'%v >= 600',
   	        backgroundColor:'#0cb054'
   	      }
   	    ]
