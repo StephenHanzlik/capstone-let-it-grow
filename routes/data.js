@@ -14,16 +14,19 @@ router.get('/', function(req, res, next) {
     .orderBy('id', 'desc')
     .limit(9)
     .then((result) => {
-      knex('data')
-        .orderBy('id', 'asc')
-        .limit(1)
-        .del()
-        .then(() => {
-          return;
-        })
-        .catch((err) => {
-          next(boom.create(500, 'Database Query Failed'));
-        });
+
+      // knex('data')
+      //   .orderBy('id', 'asc')
+      //   .limit(1)
+      //   .del()
+      //   .then(() => {
+      //     return;
+      //   })
+      //   .catch((err) => {
+      //     next(boom.create(500, 'Database Query Failed'));
+      //   });
+
+
       res.send(result);
     })
     .catch((err) => {
