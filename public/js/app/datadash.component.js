@@ -390,7 +390,7 @@
    	    fontSize:35,
    	    rules:[
    	      {
-   	        rule: '%v >= 270',
+   	        rule: '%v >= 450',
    	        text: 'Soil Wet'
    	      },
    	     //  {
@@ -398,11 +398,11 @@
    	     //    text: '%v<br>Good'
    	     //  },
    	      {
-   	        rule: '%v < 200 && %v > 280',
+   	        rule: '%v < 450 && %v > 300',
    	        text: 'Soil Ok'
    	      },
    	      {
-   	        rule: '%v <  200 && %v >= 160',
+   	        rule: '%v <  300',
    	        text: 'Soil Dry!'
    	      }
    	    ]
