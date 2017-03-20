@@ -9,8 +9,8 @@ HTU21D myHumidity; //Create an instance of the humidity sensor
 
 SoftwareSerial mySerial(8, 9); // RX, TX
 
-// We are setting up the pin A0 on the redboard to be our sensor for soil
-int sensorPin = A2; 
+// We are setting up the pin A2 on the redboard to be our sensor for soil
+int sensorPin = A2;
 
 //Hardware pin definitions
 //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
@@ -58,7 +58,7 @@ void setup() {
 
 
   Serial.println("Electric Imp Online!");
-  
+
 
 
 }
@@ -71,7 +71,7 @@ void loop() { // run over and over
     Serial.write("Water Level: ");
     Serial.print(sensorValue);
     digitalWrite(7, LOW);
-    
+
   //Print readings every second
 //  if (millis() - lastSecond >= 1000)
 //  {
@@ -90,7 +90,7 @@ void loop() { // run over and over
       Serial.println("I2C communication to sensors is not working. Check solder connections.");
 
       //Try re-initializing the I2C comm and the sensors
-      myPressure.begin(); 
+      myPressure.begin();
       myPressure.setModeBarometer();
       myPressure.setOversampleRate(7);
       myPressure.enableEventFlags();
@@ -135,10 +135,10 @@ void loop() { // run over and over
       Serial.print("V");
 
       Serial.println();
-    
+
 
     digitalWrite(STAT_BLUE, LOW); //Turn off stat LED
- 
+
           //include A0 for soil moisutre pin
           int soil = sensorValue;
           String stringOne = "S,";
@@ -188,4 +188,3 @@ float get_battery_level()
 
   return (rawVoltage);
 }
-

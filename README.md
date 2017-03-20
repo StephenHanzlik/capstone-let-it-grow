@@ -12,6 +12,26 @@ Let it Grow utilizes many languages to get real time data to the browser, as suc
 Sensor readings are taken with **Arduino** code running on the Arduino Uno:
 
 ```
+HTU21D myHumidity; //Create an instance of the humidity sensor
+
+SoftwareSerial mySerial(8, 9); // RX, TX
+
+void setup() {
+  mySerial.begin(9600);
+
+  //Configure the humidity sensor
+ myHumidity.begin();
+}
+
+void loop() {
+  //Check Humidity Sensor
+  float humidity = myHumidity.readHumidity();
+  int hum = (int) humidity;
+  String stringOne = "S,";
+  String stringTwo = ",X";
+  mySerial.println(stringOne + hum + stringTwo);
+  delay(3500);
+}
 ```
 
 **Squirrel** code running locally on the Electric Imp reads the bytes coming out of the serial bus, converts them to a string, and sends them to the Electric Imp Agent:
