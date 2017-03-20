@@ -7,7 +7,7 @@ It was inspired by the concept of the vertical farm, food production in vertical
 
 ## Multiple Languages and the Journey of Data
 
-Let it Grow utilizes many languages to get real time data to the browser, as such the data takes an interesting journey to get to the point where it is rendered in the DOM.  The examples code shown below demonstrates aspects of this journey.
+Let it Grow utilizes many languages to get real time data to the browser, as such the data takes an interesting journey to get to the point where it is rendered in the DOM.  The example code shown below is simplified to demonstrate aspects of this journey.
 
 Sensor readings are taken with **Arduino** code running on the Arduino Uno:
 
@@ -34,14 +34,64 @@ void loop() {
 }
 ```
 
-**Squirrel** code running locally on the Electric Imp reads the bytes coming out of the serial bus, converts them to a string, and sends them to the Electric Imp Agent:
+**Squirrel** code running locally on the Electric Imp reads the bytes coming out of the serial bus, converts them to a string, then an array, and then, sends them to the Electric Imp Agent as a data type known as a table:
 
 ```
+// string we're collecting
+s <- "";
+
+function process(newline) {
+        local sArr = split(s, ",")
+        local dataTwo = { "humidity": sArr[1] }
+        agent.send("impSerialIn", dataTwo);
+
+}
+
+function newdata() {
+  local b = hardware.uart57.read();
+  while(b!=-1) {
+    if (s == "") {
+      // We look for an S to start the string, otherwise ignore
+      if (b == 'S') s = "S";
+    } else {
+      // Append to string
+      s+=b.tochar();
+
+      // If we saw an X, we got the end of the string
+      if (b == 'X') {
+        // process string
+        process(s);
+        // and blank it
+        s = "";
+      }
+    }
+    b = hardware.uart57.read();
+  }
+}
+
+// Init uart. It will call callback
+hardware.uart57.configure(9600, 8, PARITY_NONE, 1, NO_CTSRTS, newdata);
 ```
 
 The Agent (programable **Squirrel** code hosted externally by Electric Imp) converts that string to JSON format and initiates a post request to the Let It Grow API:
 
 ```
+device.on("impSerialIn", function(data) {
+  // Set URL to your web service
+     local url = "https://dinkydinky.herokuapp.com/data";
+
+  // Set Content-Type header to json
+  local headers = { "Content-Type": "application/json" };
+
+  // encode data and log
+    local body = http.jsonencode(data);
+    server.log(body);   
+
+  // send data to your web service commented out so it doesnt keep posting
+  //comment in to use http.post:
+    http.post(url, headers, body).sendsync();
+
+});
 ```
 
 A **NodeJS** server interperpates the incoming data and determines wether text pre-set parameters require a text notification.
