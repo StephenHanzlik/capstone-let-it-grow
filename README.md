@@ -125,6 +125,42 @@ if (insertPost.temperature >= settings.max_temp || insertPost.temperature <= set
 Finally, client side javascript works with zingcharts to render easily readable and instantly responsive graphs and gauges:
 
 ```
+var timerData = $interval(function () {
+  console.log(greenTempData);
+    if(!$scope.loading){
+        update();
+    }
+}, 3500);
+
+function update() {
+
+$http.get("https://dinkydinky.herokuapp.com/data")
+.then(response => {
+  console.log(response.data);
+  greenTempData = response.data[0].temperature;
+  yellowHumidityData = response.data[0].humidity;
+  let timeString =  response.data[0].created_at;
+  let timeStamp = Date.parse(timeString);
+  vm.lightOn = response.data[0].light;
+  vm.soil = response.data[0].soil_moisture;
+
+    tempLineArray.shift();
+    humidityLineArray.shift();
+    tempLineArray.push(response.data[0].temperature);
+    humidityLineArray.push(response.data[0].humidity);
+
+    //Data is fed into this this JSON object for graphing
+    $scope.myJson = {
+      backgroundColor: "#fff",
+      globals: {
+        color: "#666"
+      },
+      graphset: [{
+        type: "gauge",
+        x: 0,
+        y: 0,
+        ......
+      }]
 ```
 
 
