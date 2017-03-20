@@ -93,7 +93,7 @@ device.on("impSerialIn", function(data) {
 });
 ```
 
-A **NodeJS** server interperpates the incoming data and determines wether text pre-set parameters require a text notification.
+A **NodeJS** server interperpates the incoming data and determines wether  pre-set parameters trigger a text notification.
 
 ```
 if (insertPost.temperature >= settings.max_temp || insertPost.temperature <= settings.min_temp) {
