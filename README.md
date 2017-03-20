@@ -87,8 +87,7 @@ device.on("impSerialIn", function(data) {
     local body = http.jsonencode(data);
     server.log(body);   
 
-  // send data to your web service commented out so it doesnt keep posting
-  //comment in to use http.post:
+  // send data to your web service
     http.post(url, headers, body).sendsync();
 
 });
@@ -97,6 +96,30 @@ device.on("impSerialIn", function(data) {
 A **NodeJS** server interperpates the incoming data and determines wether text pre-set parameters require a text notification.
 
 ```
+if (insertPost.temperature >= settings.max_temp || insertPost.temperature <= settings.min_temp) {
+  //send warning text about temps w/ metric included
+  var accountSid = 'AC674af2aaed607cbb23d6d2e718c30d6f';
+  var authToken = 'cceebb0dbcbfd2f072e45f83eae2b2b5';
+
+  //require the Twilio module and create a REST client
+  var client = require('twilio')(accountSid, authToken);
+
+  client.messages.create({
+    to: "+16109844474",//Me
+    from: "+14846265179",
+    body: `WARNING: Temperature is at ${insertPost.temperature}°F`,
+
+  }, function(err, message) {
+    console.log(message.sid);
+  });
+  client.messages.create({
+    to: "+16109844474",//Me
+    from: "+14846265179",
+    body: "https://dinkydinky.herokuapp.com/data",
+  }, function(err, message) {
+    console.log(message.sid);
+  });
+}
 ```
 
 Finally, client side javascript works with zingcharts to render easily readable and instantly responsive graphs and gauges:

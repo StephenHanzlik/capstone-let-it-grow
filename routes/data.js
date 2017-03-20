@@ -19,7 +19,7 @@ router.get('/', function(req, res, next) {
     .catch((err) => {
       next(boom.create(500, 'Database Query Failed'));
     });
-    // 
+    //
     // knex('data')
     //   .orderBy('id', 'asc')
     //   .limit(1)
@@ -186,7 +186,6 @@ if(settings.text_sent < 1){
 
       from: "+14846265179",
       // body: "This is the ship that made the Kessel Run in fourteen parsecs?",
-      // body: "WARNING:  Temperature have turned off out of schedule",
       body: "WARNING: Soil is dry, prepare nutrients"
 
     }, function(err, message) {
