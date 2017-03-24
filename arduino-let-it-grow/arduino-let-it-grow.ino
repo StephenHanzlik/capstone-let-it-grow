@@ -139,7 +139,7 @@ void loop() { // run over and over
 
     digitalWrite(STAT_BLUE, LOW); //Turn off stat LED
 
-          //include A0 for soil moisutre pin
+          //include A2 for soil moisture pin
           int soil = sensorValue;
           String stringOne = "S,";
           String stringTemp = stringOne + light;
