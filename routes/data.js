@@ -303,6 +303,7 @@ router.post('/', (req, res, next) => {
 router.delete('/', (req, res, next) => {
 
   knex('data')
+    .where('id', '>', 100)
     .del()
     .then((results) => {
       res.send(results);
