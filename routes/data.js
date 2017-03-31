@@ -300,6 +300,22 @@ router.post('/', (req, res, next) => {
 
 });
 
+router.delete('/', (req, res, next) => {
+
+  knex('data')
+    .orderBy('id', 'asc')
+    .limit(1)
+    .del()
+    .then(function() {
+      res.sendStatus(200);
+    })
+    .catch(function(err) {
+      next(boom.create(500, 'Failed to delete entry'));
+    });
+
+});
+
+
 
 
 

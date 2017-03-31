@@ -151,7 +151,7 @@ void loop() { // run over and over
           String stringSoil = stringFour + soil;
           String stringEnd = ",X";
           mySerial.println(stringTemp + stringHum + stringLight + stringSoil + stringEnd);
-          delay(3500);
+          delay(300000));
   }
 }
 
