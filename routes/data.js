@@ -306,8 +306,8 @@ router.delete('/', (req, res, next) => {
     .orderBy('id', 'asc')
     .limit(1)
     .del()
-    .then(() => {
-      return;
+    .then((results) => {
+      res.send(results);
     })
     .catch((err) => {
       next(boom.create(500, 'Database Query Failed'));
