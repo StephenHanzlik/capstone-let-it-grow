@@ -25,12 +25,11 @@ app.get('/', function(req, res, next) {
   // }
 });
 
-var users = require('./routes/users.js');
+
 var data = require('./routes/data.js');
 var token = require('./routes/token.js');
 var smssettings = require('./routes/smssettings.js');
 
-app.use('/users', users);
 app.use('/data', data);
 app.use('/token', token);
 app.use('/smssettings', smssettings);
