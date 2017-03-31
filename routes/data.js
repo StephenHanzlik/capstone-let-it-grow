@@ -303,8 +303,6 @@ router.post('/', (req, res, next) => {
 router.delete('/', (req, res, next) => {
 
   knex('data')
-    .orderBy('id', 'asc')
-    .limit(1)
     .del()
     .then((results) => {
       res.send(results);
