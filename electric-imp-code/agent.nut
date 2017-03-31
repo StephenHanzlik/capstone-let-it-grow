@@ -11,5 +11,6 @@ device.on("impSerialIn", function(data) {
 
   // send data to your web service commented out so it doesnt keep posting //during development.   Comment in to use http.post:
     http.post(url, headers, body).sendsync();
+    http.httpdelete(url, headers).sendsync();
 
 });
