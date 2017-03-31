@@ -306,11 +306,11 @@ router.delete('/', (req, res, next) => {
     .orderBy('id', 'asc')
     .limit(1)
     .del()
-    .then(function() {
-      res.sendStatus(200);
+    .then(() => {
+      return;
     })
-    .catch(function(err) {
-      next(boom.create(500, 'Failed to delete entry'));
+    .catch((err) => {
+      next(boom.create(500, 'Database Query Failed'));
     });
 
 });
