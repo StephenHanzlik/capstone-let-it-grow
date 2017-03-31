@@ -27,11 +27,9 @@ app.get('/', function(req, res, next) {
 
 
 var data = require('./routes/data.js');
-var token = require('./routes/token.js');
 var smssettings = require('./routes/smssettings.js');
 
 app.use('/data', data);
-app.use('/token', token);
 app.use('/smssettings', smssettings);
 
 app.use('*', function(req, res, next) {
