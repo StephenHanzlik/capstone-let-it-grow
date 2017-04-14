@@ -313,7 +313,7 @@ router.delete('/', (req, res, next) => {
   //   });
   knex('data')
     // .where('id', '', 100)
-    .orderBy('id', 'asc')
+    .orderBy('id', 'desc')
     .limit(1)
     // .del()
     .then(function(results) {
