@@ -302,9 +302,9 @@ router.post('/', (req, res, next) => {
 
 router.delete('/', (req, res, next) => {
   knex('data')
+    .del()
     .orderBy('created_at', 'asc')
     .limit(1)
-    .del()
     .then(function() {
       res.sendStatus(200);
     })
