@@ -109,7 +109,6 @@ router.post('/', (req, res, next) => {
 
         client.messages.create({
           to: "+16109844474", //Me
-          // to: "+14848666955",//Keller
 
           from: "+14846265179",
           // body: "This is the ship that made the Kessel Run in fourteen parsecs?",
@@ -121,7 +120,6 @@ router.post('/', (req, res, next) => {
         });
         client.messages.create({
           to: "+16109844474", //Me
-          // to: "+14848666955",//Keller
 
           from: "+14846265179",
           // body: "This is the ship that made the Kessel Run in fourteen parsecs?",
@@ -176,7 +174,6 @@ router.post('/', (req, res, next) => {
 
         client.messages.create({
           to: "+16109844474", //Me
-          // to: "+14848666955",//Keller
 
           from: "+14846265179",
           // body: "This is the ship that made the Kessel Run in fourteen parsecs?",
@@ -188,7 +185,6 @@ router.post('/', (req, res, next) => {
         });
         client.messages.create({
           to: "+16109844474", //Me
-          // to: "+14848666955",//Keller
 
           from: "+14846265179",
           // body: "This is the ship that made the Kessel Run in fourteen parsecs?",
@@ -214,7 +210,6 @@ router.post('/', (req, res, next) => {
 
         client.messages.create({
           to: "+16109844474", //Me
-          // to: "+14848666955",//Keller
 
           from: "+14846265179",
           // body: "This is the ship that made the Kessel Run in fourteen parsecs?",
@@ -227,7 +222,6 @@ router.post('/', (req, res, next) => {
         });
         client.messages.create({
           to: "+16109844474", //Me
-          // to: "+14848666955",//Keller
 
           from: "+14846265179",
           // body: "This is the ship that made the Kessel Run in fourteen parsecs?",
@@ -249,7 +243,6 @@ router.post('/', (req, res, next) => {
 
         client.messages.create({
           to: "+16109844474", //Me
-          // to: "+14848666955",//Keller
 
           from: "+14846265179",
           // body: "This is the ship that made the Kessel Run in fourteen parsecs?",
@@ -262,7 +255,6 @@ router.post('/', (req, res, next) => {
         });
         client.messages.create({
           to: "+16109844474", //Me
-          // to: "+14848666955",//Keller
 
           from: "+14846265179",
           // body: "This is the ship that made the Kessel Run in fourteen parsecs?",
@@ -301,8 +293,14 @@ router.post('/', (req, res, next) => {
 });
 
 router.delete('/', (req, res, next) => {
+
+  var days = 1;
+  var date = new Date();
+  var last = new Date(date.getTime() - (days * 24 * 60 * 60 * 1000));
+  var dateString = last.toString();
+
   knex('data')
-    .where('temperature', '<', '70')
+    .where('created_at', '<', dateString)
     .del()
     .then(function() {
       res.sendStatus(200);
