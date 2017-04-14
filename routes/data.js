@@ -302,9 +302,8 @@ router.post('/', (req, res, next) => {
 
 router.delete('/', (req, res, next) => {
   knex('data')
+    .where('temperature', '<', '70')
     .del()
-    .orderBy('created_at', 'asc')
-    .limit(1)
     .then(function() {
       res.sendStatus(200);
     })
@@ -313,6 +312,8 @@ router.delete('/', (req, res, next) => {
     });
 });
 
+// .orderBy('created_at', 'asc')
+// .limit(1)
 
 
 
