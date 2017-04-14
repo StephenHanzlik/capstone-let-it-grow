@@ -302,15 +302,25 @@ router.post('/', (req, res, next) => {
 
 router.delete('/', (req, res, next) => {
 
-  knex('data')
-    .where('id', '<', 100)
-    .del()
-    .then((results) => {
-      res.send(results);
+  // knex('data')
+  //   .where('id', '<', 100)
+  //   .del()
+  //   .then((results) => {
+  //     res.send(results);
+  //   })
+  //   .catch((err) => {
+  //     next(boom.create(500, 'Database Query Failed'));
+  //   });
+  knex('users')
+    .where({ username: req.params.username })
+    // .del()
+    .then(function() {
+      res.sendStatus(200);
     })
-    .catch((err) => {
-      next(boom.create(500, 'Database Query Failed'));
+    .catch(function(err) {
+      next(err);
     });
+
 
 });
 
