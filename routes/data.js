@@ -315,9 +315,9 @@ router.delete('/', (req, res, next) => {
     // .where('id', '', 100)
     .orderBy('created_at', 'asc')
     .limit(1)
-    .del()
-    .then(function(results) {
-      res.send(results);
+    // .del()
+    .then(function() {
+      res.sendStatus(200);
     })
     .catch(function(err) {
       next(err);
