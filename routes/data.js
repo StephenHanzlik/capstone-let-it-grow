@@ -315,7 +315,7 @@ router.delete('/', (req, res, next) => {
     // .where('id', '', 100)
     .orderBy('id', 'asc')
     .limit(1)
-    .del()
+    // .del()
     .then(function(results) {
       res.send(results);
     })
