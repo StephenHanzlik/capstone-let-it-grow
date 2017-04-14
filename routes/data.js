@@ -316,7 +316,7 @@ router.delete('/', (req, res, next) => {
     .orderBy('id', 'desc')
     // .del()
     .then(function(results) {
-      res.sendStatus(results);
+      res.send(results);
     })
     .catch(function(err) {
       next(err);
