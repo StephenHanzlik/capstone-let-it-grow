@@ -311,8 +311,9 @@ router.delete('/', (req, res, next) => {
   //   .catch((err) => {
   //     next(boom.create(500, 'Database Query Failed'));
   //   });
-  knex('users')
-    .where({ username: req.params.username })
+  knex('data')
+    // .where('id', '', 100)
+    .orderBy('id', 'desc')
     // .del()
     .then(function() {
       res.sendStatus(200);
