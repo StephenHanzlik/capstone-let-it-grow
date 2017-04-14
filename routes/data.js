@@ -301,18 +301,7 @@ router.post('/', (req, res, next) => {
 });
 
 router.delete('/', (req, res, next) => {
-
-  // knex('data')
-  //   .where('id', '<', 100)
-  //   .del()
-  //   .then((results) => {
-  //     res.send(results);
-  //   })
-  //   .catch((err) => {
-  //     next(boom.create(500, 'Database Query Failed'));
-  //   });
   knex('data')
-    // .where('id', '', 100)
     .orderBy('created_at', 'asc')
     .limit(1)
     .del()
@@ -322,8 +311,6 @@ router.delete('/', (req, res, next) => {
     .catch(function(err) {
       next(err);
     });
-
-
 });
 
 
