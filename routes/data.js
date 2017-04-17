@@ -268,6 +268,20 @@ router.post('/', (req, res, next) => {
       }
     }
 
+    var options = {
+      method: 'DELETE',
+      uri: 'https://dinkydinky.herokuapp.com/data',
+      resolveWithFullResponse: true
+    };
+
+    rp(options)
+      .then(function(response) {
+        console.log("DELETE succeeded with status %d", response.statusCode);
+      })
+      .catch(function(err) {
+        // Delete failed...
+      });
+
     knex('data')
       .insert((insertPost), '*')
       .then((results) => {
@@ -292,15 +306,10 @@ router.post('/', (req, res, next) => {
 
 });
 
-router.delete('/', (req, res, next) => {
-
-  var days = 1;
-  var date = new Date();
-  var last = new Date(date.getTime() - (days * 24 * 60 * 60 * 1000));
-  var dateString = last.toString();
+router.delete('/:id', (req, res, next) => {
 
   knex('data')
-    .where('created_at', '<', dateString)
+    .where({ username: req.params.id })
     .del()
     .then(function() {
       res.sendStatus(200);
@@ -310,8 +319,6 @@ router.delete('/', (req, res, next) => {
     });
 });
 
-// .orderBy('created_at', 'asc')
-// .limit(1)
 
 
 
