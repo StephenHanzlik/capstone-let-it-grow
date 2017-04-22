@@ -268,19 +268,7 @@ router.post('/', (req, res, next) => {
       }
     }
 
-    var options = {
-      method: 'DELETE',
-      uri: 'https://dinkydinky.herokuapp.com/data',
-      resolveWithFullResponse: true
-    };
 
-    rp(options)
-      .then(function(response) {
-        console.log("DELETE succeeded with status %d", response.statusCode);
-      })
-      .catch(function(err) {
-        // Delete failed...
-      });
 
     knex('data')
       .insert((insertPost), '*')
@@ -294,7 +282,24 @@ router.post('/', (req, res, next) => {
           soil_moisture: resObj.soil_moisture,
           created_at: resObj.created_at
         }
-        res.send(results[0]);
+        // res.send(results[0]);
+        let idToSub = results[0].id;
+        let idToDel = idToSub - 10;
+
+        var options = {
+          method: 'DELETE',
+          uri: `https://dinkydinky.herokuapp.com/data/${idToDel}`,
+          resolveWithFullResponse: true
+        };
+
+        rp(options)
+          .then(function(response) {
+            console.log("DELETE succeeded with status %d", response.statusCode);
+          })
+          .catch(function(err) {
+            // Delete failed...
+          });
+
       })
       .catch((err) => {
         next(err);
