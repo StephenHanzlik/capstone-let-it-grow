@@ -314,8 +314,7 @@ router.post('/', (req, res, next) => {
 router.delete('/:id', (req, res, next) => {
 
   knex('data')
-    // .where({ username: req.params.id })
-    .where("id", "<", "10")
+    .where({ id: req.params.id })
     .del()
     .then(function() {
       res.sendStatus(200);
