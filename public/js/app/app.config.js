@@ -2,14 +2,18 @@
   'use strict';
 
   angular.module('app').config(config, function($mdThemingProvider) {
-    $mdThemingProvider.theme('default')
+    $mdThemingProvider.theme('defualt')
+      .primaryPalette('teal')
+      .accentPalette('brown');
+
   });
 
 
 
-  config.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];
 
-  function config($stateProvider, $urlRouterProvider, $locationProvider) {
+  config.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider', '$mdThemingProvider'];
+
+  function config($stateProvider, $urlRouterProvider, $locationProvider, $mdThemingProvider) {
 
     $locationProvider.html5Mode(true);
 

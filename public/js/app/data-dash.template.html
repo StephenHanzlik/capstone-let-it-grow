@@ -1,25 +1,48 @@
-<nav class="navbar navbar-inverse">
+<!-- <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand" href="#">
-        <!-- <img alt="Brand" src="..."> -->
         <p>Let It Grow</p>
       </a>
     </div>
-    <!-- <div class="nav navbar-nav navbar-right">
-      <p>About</p>
-      <p>Dashboard</p>
-      <p>SMS Setting</p> -->
-
-
       <ul class="nav navbar-nav navbar-right">
         <li><a href="https://dinkydinky.herokuapp.com/about">About</a></li>
         <li><a href="https://dinkydinky.herokuapp.com/">Dashboard</a></li>
         <li><a href="https://dinkydinky.herokuapp.com/smsconfigure">SMS Settings</a></li>
       </ul>
-    <!-- </div> -->
   </div>
-</nav>
+</nav> -->
+
+<md-content class="md-padding md-primary">
+    <md-nav-bar md-selected-nav-item="currentNavItem" nav-bar-aria-label="navigation links">
+      <md-nav-item  md-nav-href="https://dinkydinky.herokuapp.com/about" name="about">
+        About
+      </md-nav-item>
+      <md-nav-item  md-nav-href="https://dinkydinky.herokuapp.com/smsconfigure" name="smsconfigure">
+        SMS Settings
+      </md-nav-item>
+      <md-nav-item md-nav-href="https://dinkydinky.herokuapp.com/dashboard" name="dashboard">
+        Dashboard
+      </md-nav-item>
+      <md-nav-item md-nav-href="https://dinkydinky.herokuapp.com/predict" name="predict">
+        Predict the Future
+      </md-nav-item>
+      <!-- these require actual routing with ui-router or ng-route, so they
+      won't work in the demo
+      md-nav-click="goto('page2')"
+      <md-nav-item md-nav-href="#page4" name="page5">Page Four</md-nav-item>
+      <md-nav-item md-nav-sref="app.page5" name="page4">Page Five</md-nav-item>
+      You can also add options for the <code>ui-sref-opts</code> attribute.
+      <md-nav-item md-nav-sref="page6" sref-opts="{reload:true, notify:true}">
+        Page Six
+      </md-nav-item>
+      -->
+    </md-nav-bar>
+  </md-content>
+
+<md-button class="md-primary">Click me</md-button>
+<md-button class="md-accent">or maybe me</md-button>
+<md-button class="md-warn">Careful</md-button>
 
     <!-- <div >
         <fusioncharts
