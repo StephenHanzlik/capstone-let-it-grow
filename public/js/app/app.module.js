@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  angular.module('app', ['ui.router', 'zingchart-angularjs'])
+  angular.module('app', ['ui.router', 'ngMaterial', 'zingchart-angularjs'])
   // 'angularMoment', 'ui.router'
 
 }());
