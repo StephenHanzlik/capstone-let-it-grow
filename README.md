@@ -1,3 +1,5 @@
+ <a href="https://dinkydinky.herokuapp.com/about">Deployed Site</a>
+
 ## About
 
 Let It Grow is an open sourced browser based project that allows users to pull data from indoor and outdoor food production facilities.  An Arduino Uno, combined with a powerful weather shield from Spark Fun and WIFI capabilities by Electric Imp, sends HTTP post requests to the server every 3 seconds.  Live graphs and gauges give users insight into current grow conditions and foster decisive, informed decisions. Let It Grow also includes a browser based form to set up the parameters under which text notifications are sent.  This project exemplifies the power of the modern browser and it's ability to render a single page app powered by JSON data.   Let it grow, let it grow, greatly yield!
