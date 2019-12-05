@@ -151,7 +151,7 @@ $http.get("https://dinkydinky.herokuapp.com/data")
     tempLineArray.push(response.data[0].temperature);
     humidityLineArray.push(response.data[0].humidity);
 
-    //Data is fed into this this JSON object for graphing
+    //Data is fed into this JSON object for graphing
     $scope.myJson = {
       backgroundColor: "#fff",
       globals: {
