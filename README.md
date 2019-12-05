@@ -2,7 +2,7 @@
 
 ## About
 
-Let It Grow is an open sourced browser based project that allows users to pull data from indoor and outdoor food production facilities.  An Arduino Uno, combined with a powerful weather shield from Spark Fun and WIFI capabilities by Electric Imp, sends HTTP post requests to the server every 3 seconds.  Live graphs and gauges give users insight into current grow conditions and foster decisive, informed decisions. Let It Grow also includes a browser based form to set up the parameters under which text notifications are sent.  This project exemplifies the power of the modern browser and it's ability to render a single page app powered by JSON data.   Let it grow, let it grow, greatly yield!
+Let It Grow is an open sourced browser based project that allows users to pull data from indoor and outdoor food production facilities.  An Arduino Uno, combined with a powerful weather shield from Spark Fun and WIFI capabilities by Electric Imp, sends HTTP post requests to the server every 3 seconds.  Live graphs and gauges give users insight into current grow conditions and foster decisive, informed decisions. Let It Grow also includes a browser based form to set up the parameters under which text notifications are sent.  Let it grow, let it grow, greatly yield!
 
 <!--
 It was inspired by the concept of the vertical farm, food production in vertically aligned rows, such as a sky scraper, and is intended to make accessing facility data easier. An Arduino Uno, combined with a powerful weather shield from Spark Fun and WIFI capabilities by Electric Imp, sends HTTP post requests to the server every 3 seconds.  Live graphs and gauges give users insight into current grow conditions and foster decisive, informed decisions.  This project exemplifies the power of the modern browser and it's ability to render a single page app powered by JSON data. Let it grow, let it grow, greatly yield! -->
@@ -165,9 +165,3 @@ $http.get("https://dinkydinky.herokuapp.com/data")
         ......
       }]
 ```
-
-
-
-## Open Source Mission
-
-This project was inspired by the concept of the vertical farm, food production in vertically aligned rows, such as a sky scraper, and is intended to make accessing facility data easier.   This code can be used and modified by anyone.   I hope it help bring us closer to the full scale adoption of the vertical farm.  
